@@ -1,12 +1,37 @@
 <nav x-data="{ open: false, dropdownOpen: false }" class="bg-[#AF1740] border-b border-[#CC2B52]">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<<<<<<< HEAD
         <div class="flex justify-between h-16 items-center">
             <!-- Logo -->
             <div class="flex items-center">
                 <a href="{{ route('dashboard') }}">
                     <img src="{{ asset('images/tm-logo.png') }}" alt="Tunas Mahardika Logo" class="h-10">
                 </a>
+=======
+        <div class="flex justify-between h-16">
+            <div class="flex">
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="{{ route('dashboard') }}">
+                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('newsletter')" :active="request()->routeIs('newsletter')">
+                        {{ __('Newsletter') }}
+                    </x-nav-link>
+                </div>
+
+>>>>>>> ec66ec3b670f8642ea4fb103215a26aa2068f485
             </div>
 
             <!-- Settings Dropdown -->
@@ -56,7 +81,24 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+<<<<<<< HEAD
         <div class="pt-4 pb-1 border-t border-[#CC2B52]">
+=======
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+        </div>
+        
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('newsletter')" :active="request()->routeIs('newsletter')">
+                {{ __('Newsletter') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <!-- Responsive Settings Options -->
+        <div class="pt-4 pb-1 border-t border-gray-200">
+>>>>>>> ec66ec3b670f8642ea4fb103215a26aa2068f485
             <div class="px-4">
                 <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-white">{{ Auth::user()->email }}</div>
