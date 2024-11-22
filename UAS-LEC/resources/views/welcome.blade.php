@@ -20,111 +20,139 @@
         @endif
     </head>
 
-    <body class="font-sans antialiased light:bg-light dark:text-white" style="background-color: #AF1740;">
-            <nav class="flex items-center gap-5 py-5 mx-36">
-        
-                <a href= "" class="flex items-center space-x-3 px-auto rtl:space-x-reverse">
-                <img src="{{ asset('images/tm-logo.png') }}" alt="Tunas Mahardika Logo" class="h-10">
-                <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-dark">Tunas Mahardika</span>
-                </a>
+    <body class="font-sans antialiased light:bg-light dark:text-white" style="background-color: #FFFF;">
 
-                <div class ="ml-auto">
+    <!-- Navbar -->
+        <div class= "font-sans antialiased" style="background-color: #AF1740;">
+        <nav class="flex items-center gap-5 py-5 mx-36">
+    <a href="" class="flex items-center space-x-3 px-auto rtl:space-x-reverse">
+        <img src="{{ asset('images/tm-logo.png') }}" alt="Tunas Mahardika Logo" class="h-10">
+        <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-dark">Tunas Mahardika</span>
+    </a>
 
-                    @if (Route::has('login'))        
-                            @auth
-                                <a
-                                    href="{{ url('/dashboard') }}"
-                                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+    <div class="ml-auto relative">
+        @if (Route::has('login'))        
+            @auth
+                <!-- Menampilkan nama pengguna yang sedang login dengan dropdown -->
+                <div class="relative">
+                    <button 
+                        class="flex items-center space-x-2 text-black dark:text-white focus:outline-none"
+                        id="dropdownUserButton" 
+                        data-dropdown-toggle="dropdownUserMenu"
+                    >
+                        <span class="text-black dark:text-white mr-4">Hello, {{ Auth::user()->name }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-4 h-4">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div id="dropdownUserMenu" class="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-md ring-1 ring-black ring-opacity-5 dark:bg-gray-800 dark:ring-white dark:ring-opacity-50 hidden z-50">
+                        <div class="py-1">
+                            <!-- Tombol Logout -->
+                            <form action="{{ route('logout') }}" method="POST" class="inline">
+                                @csrf
+                                <button
+                                    type="submit"
+                                    class="block w-full px-4 py-2 text-black hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                                 >
-                                    Dashboard
-                                </a>
-                            @else
-                                <a
-                                    href="{{ route('login') }}"
-                                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-white/70 
-                                    focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 
-                                    dark:focus-visible:ring-white"
-                                >
-                                    Log in
-                                </a>
-        
-                                @if (Route::has('register'))
-                                    <a
-                                        href="{{ route('register') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-white/70 
-                                        focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 
-                                        dark:focus-visible:ring-white"
-                                    >
-                                        Register
-                                    </a>
-                                @endif
-                            @endauth
-                    @endif
-                
-                </div>
-            </nav>
-
-            <div class="bg-gray-50 text-black/50 light:bg-light dark:text-white/50"> 
-                <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-                    <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-
-                    
-
-                        <div id="default-carousel" class="relative w-full" data-carousel="slide">
-                            <!-- Carousel wrapper -->
-                            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                                <!-- Item 1 -->
-                                <div class="duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/newsletter2.png') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" style="width = auto;" alt="...">
-                                </div>
-                                <!-- Item 2 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="/docs/images/carousel/carousel-2.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                                </div>
-                                <!-- Item 3 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="/docs/images/carousel/carousel-3.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                                </div>
-                                <!-- Item 4 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="/docs/images/carousel/carousel-4.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                                </div>
-                                <!-- Item 5 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="/docs/images/carousel/carousel-5.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                                </div>
-                            </div>
-                            <!-- Slider indicators -->
-                            <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-                            </div>
-                            <!-- Slider controls -->
-                            <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                                    </svg>
-                                    <span class="sr-only">Previous</span>
-                                </span>
-                            </button>
-                            <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                                    </svg>
-                                    <span class="sr-only">Next</span>
-                                </span>
-                            </button>
+                                    Logout
+                                </button>
+                            </form>
                         </div>
-
-
                     </div>
                 </div>
+            @else
+                <a
+                    href="{{ route('login') }}"
+                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-white/70 
+                    focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 
+                    dark:focus-visible:ring-white"
+                >
+                    Log in
+                </a>
+
+                @if (Route::has('register'))
+                    <a
+                        href="{{ route('register') }}"
+                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-white/70 
+                        focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 
+                        dark:focus-visible:ring-white"
+                    >
+                        Register
+                    </a>
+                @endif
+            @endauth
+        @endif
+    </div>
+</nav>
+
+<!-- Skrip untuk Toggle Dropdown -->
+<script>
+    document.getElementById('dropdownUserButton').addEventListener('click', function() {
+        const dropdown = document.getElementById('dropdownUserMenu');
+        dropdown.classList.toggle('hidden');
+    });
+
+    // Menutup dropdown ketika mengklik di luar
+    window.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('dropdownUserMenu');
+        const button = document.getElementById('dropdownUserButton');
+        if (!button.contains(event.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
+</script>
+
+
+        </div>
+
+        <div class="bg-gray-50 text-black/50 light:bg-light dark:text-white/50">
+            <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative h-[600px] overflow-hidden md:h-[900px]">
+                    <!-- Item 1 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="{{ asset('images/carousel1.jpg') }}" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="{{ asset('images/carousel2.jpg') }}" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                </div>
+
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                    <!-- Additional indicators if needed -->
+                </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-[#740938]/30 group-hover:bg-[#740938]/50 dark:group-hover:bg-[#740938]/60 group-focus:ring-4 group-focus:ring-[#740938] dark:group-focus:ring-[#740938]/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-[#FF2D20] rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-[#740938]/30 group-hover:bg-[#740938]/50 dark:group-hover:bg-[#740938]/60 group-focus:ring-4 group-focus:ring-[#740938] dark:group-focus:ring-[#740938]/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-[#FF2D20] rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
             </div>
+        </div>
+
+
+             
+                <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
+                    <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
+                    </div>
+                </div>
 
             <footer class="bg-white dark:bg-gray-900" style="background-color: #AF1740;">
                 <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
@@ -210,5 +238,62 @@
                 </div>
                 </div>
             </footer>
+
+                <!-- Carousel JS -->
+        <script>
+            const carousel = document.getElementById('default-carousel');
+            const items = carousel.querySelectorAll('[data-carousel-item]');
+            const prevButton = carousel.querySelector('[data-carousel-prev]');
+            const nextButton = carousel.querySelector('[data-carousel-next]');
+
+            let currentIndex = 0;
+
+            // Function to update the visible slide with animation
+            function updateCarousel(direction = 'next') {
+                items.forEach((item, index) => {
+                    item.classList.add('hidden', 'opacity-0', 'transition-opacity', 'duration-700');
+                    if (index === currentIndex) {
+                        item.classList.remove('hidden', 'opacity-0');
+                        item.classList.add('opacity-100', direction === 'next' ? 'slide-in-right' : 'slide-in-left');
+                        setTimeout(() => {
+                            item.classList.remove('slide-in-right', 'slide-in-left'); // Cleanup classes after animation
+                        }, 700); // Match duration of animation
+                    }
+                });
+            }
+
+            // Function to go to the next slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel('next');
+            }
+
+            // Add event listeners for manual controls
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                updateCarousel('prev');
+            });
+
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+            });
+
+            // Auto-slide functionality
+            const autoSlideInterval = 3000; // Time in milliseconds (3 seconds)
+            let autoSlide = setInterval(nextSlide, autoSlideInterval);
+
+            // Pause auto-slide on mouse enter and resume on mouse leave
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(autoSlide);
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(nextSlide, autoSlideInterval);
+            });
+
+            // Initialize the carousel
+            updateCarousel();
+
+        </script>
     </body>
 </html>
