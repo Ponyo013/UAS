@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg md:max-w-lg lg:max-w-xl">
+    <div class="max-w-md mx-auto p-6 rounded-lg md:max-w-lg lg:max-w-xl">
         <h2 class="text-2xl font-semibold text-center text-gray-800 mb-4">{{ __('Email Verification') }}</h2>
         <p class="mb-4 text-sm text-gray-600 text-center">
             {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
