@@ -3,7 +3,7 @@
   --base-clr: #AF1740;
   --line-clr: #42434a;
   --hover-clr: rgba(223, 223, 223, 0.246);
-  --text-clr: #e6e6ef;
+  --text-clr: white;
   --accent-clr: #5e63ff;
   --secondary-text-clr: #b0b3c1;
 }

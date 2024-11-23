@@ -23,5 +23,14 @@ class VerifyEmailController extends Controller
         }
 
         return redirect()->intended(route('dashboard', absolute: false).'?verified=1');
+
+        
     }
+
+    protected function redirectBasedOnRole($user, string $query = ''): RedirectResponse
+    {
+        $route = ($user->role === 0) ? 'welcome' : 'dashboard';
+        return redirect()->route($route, ['verified' => 1]);
+    }
+
 }
