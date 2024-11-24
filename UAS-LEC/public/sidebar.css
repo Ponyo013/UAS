@@ -18,6 +18,8 @@ html{
 body{
   min-height: 100vh;
   min-height: 100dvh;
+  display: grid;
+  grid-template-columns: auto 1fr;
 }
 #sidebar{
   box-sizing: border-box;
@@ -138,17 +140,8 @@ main{
   padding: min(30px, 7%);
 }
 main p{
-  color: var(--secondary-text-clr);
   margin-top: 5px;
   margin-bottom: 15px;
-}
-.container{
-  border: 1px solid var(--line-clr);
-  border-radius: 1em;
-  margin-bottom: 20px;
-  padding: min(3em, 15%);
-
-  h2, p { margin-top: 1em }
 }
 
 @media(max-width: 800px){

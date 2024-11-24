@@ -35,11 +35,11 @@
 
         <!-- Dots Navigation -->
         <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">
-            <button class="dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="0" aria-label="Slide 1"></button>
-            <button class="dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="1" aria-label="Slide 2"></button>
-            <button class="dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="2" aria-label="Slide 3"></button>
-            <button class="dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="3" aria-label="Slide 4"></button>
-            <button class="dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="4" aria-label="Slide 5"></button>
+            <button class="dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="0" aria-label="Slide 1"></button>
+            <button class="dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="1" aria-label="Slide 2"></button>
+            <button class="dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="2" aria-label="Slide 3"></button>
+            <button class="dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="3" aria-label="Slide 4"></button>
+            <button class="dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="4" aria-label="Slide 5"></button>
         </div>
     </div>
 </div>
