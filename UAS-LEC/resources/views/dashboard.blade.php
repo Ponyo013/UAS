@@ -5,7 +5,11 @@
 @section('content')
   <main>
     <div class="container">
-        <p>test</p>
+          @if($users->isEmpty())
+              
+          @else
+             
+          @endif
     </div>
   </main>
 @endsection
