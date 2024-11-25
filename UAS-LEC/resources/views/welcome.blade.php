@@ -74,7 +74,11 @@
             <!-- Text Content -->
             <div class="w-full md:w-1/2">
                 <h2 class="text-2xl font-semibold text-black mb-4">Visi</h2>
-                <p class="text-black text-justify mb-2 pl-5">Memandang setiap anak berharga mulia dimata Tuhan, dan Tuhan mengasihi mereka. Mempersiapkan anak-anak Tuhan hidup dalam tujuan-tujuan Tuhan dan sesuai dengan rencana Tuhan sehingga mereka dapat menjadi duta-duta Kristus yang baik dan setia.</p>
+                <ul class="list-disc pl-5">
+                    <li class="text-black text-justify mb-2">Memandang setiap anak berharga mulia dimata Tuhan, dan Tuhan mengasihi mereka.</li>
+                    <li class="text-black text-justify mb-2">Mempersiapkan anak-anak Tuhan hidup dalam tujuan-tujuan Tuhan dan sesuai dengan rencana Tuhan sehingga mereka dapat menjadi duta-duta Kristus yang baik dan setia.</li>
+                </ul>
+
             </div>
             <!-- Text Content -->
             <div class="w-full md:w-2/5">

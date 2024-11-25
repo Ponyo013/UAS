@@ -1,41 +1,64 @@
 <footer class="bg-white dark:bg-gray-900" style="background-color: #AF1740;">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+
+        <!-- top Footer-->
         <div class="md:flex md:justify-between">
+
+            <!-- Left Footer, logo and loct-->
             <div class="mb-6 md:mb-0">
-                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse mb-2">
                     <img src="{{ asset('images/tm-logo.png') }}" alt="Tunas Mahardika Logo" class="h-10">
                     <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-dark">Tunas Mahardika</span>
                 </a>
-                <p>Hubungi kami :</p>
-                <ul>
-                    <li> +62 851 0271 7177</li>
-                    <li>+62 817 0137 658</li>
-                    <li>+62 813 1560 0836</li>
-                </ul>
+                <p class="mb-2">Lokasi Kami:</p>
+                <p>Bumi Serpong Damai Sektor 1.1 <br>Jl. Rawa Buntu Selatan Blok G1 No. 17<br>Serpong - Tangerang 15318</p>
             </div>
+
+            <!-- Right Footer, details-->
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                <!--operational hours-->
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold uppercase dark:text-white">Resources</h2>
+                    <h2 class="mb-6 text-sm font-semibold uppercase dark:text-white">Jam Operasional :</h2>
                     <ul class="font-medium">
-                        <li class="mb-4">
-                            <a href="https://laravel.com/" class="hover:underline">Laravel</a>
+                        <li class="mb-2">
+                            <p>Senin - Jumat</p>
+                        </li>
+                        <ul>
+                            <li class="pl-3 mb-2">15.00 - 16.00</li>
+                        </ul>
+                        <li class="mb-2">
+                            <p>Sabtu</p>
+                        </li>
+                        <ul>
+                            <!--gantisay-->
+                            <li class="pl-3 mb-2">09.00 - 16.00</li>
+                        </ul>
+                        <li class="mb-2">
+                            <p>Minggu</p>
+                        </li>
+                        <ul>
+                            <li class="pl-3 mb-2">Libur</li>
+                        </ul>
+                    </ul>
+                </div>
+
+                <!--no telp-->
+                <div>
+                    <h2 class="mb-6 text-sm font-semibold uppercase dark:text-white">Hubungi kami:</h2>
+                    <ul class="font-medium">
+                        <li class="mb-2">
+                            <a href="https://wa.link/kxr4yj" class="hover:underline">+62 851 0271 7177</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="https://wa.link/jdhmr7" class="hover:underline">+62 817 0137 658</a>
                         </li>
                         <li>
-                            <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
+                            <a href="https://wa.link/8p6yya" class="hover:underline">+62 813 1560 0836</a>
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h2 class="mb-6 text-sm font-semibold uppercase dark:text-white">Follow us</h2>
-                    <ul class="font-medium">
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">GitHub</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline">Discord</a>
-                        </li>
-                    </ul>
-                </div>
+
+                <!--3-->
                 <div>
                     <h2 class="mb-6 text-sm font-semibold uppercase dark:text-white">Legal</h2>
                     <ul class="font-medium">
@@ -50,6 +73,8 @@
             </div>
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+
+        <!-- bottom Footer, copy right and logoes-->
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm sm:text-center dark:text-white">© 2023 <span>Tunas Mahardika™</span>. All Rights Reserved.</span>
             <div class="flex mt-4 sm:justify-center sm:mt-0">
