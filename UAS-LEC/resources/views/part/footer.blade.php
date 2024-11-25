@@ -6,6 +6,12 @@
                     <img src="{{ asset('images/tm-logo.png') }}" alt="Tunas Mahardika Logo" class="h-10">
                     <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-dark">Tunas Mahardika</span>
                 </a>
+                <p>Hubungi kami :</p>
+                <ul>
+                    <li> +62 851 0271 7177</li>
+                    <li>+62 817 0137 658</li>
+                    <li>+62 813 1560 0836</li>
+                </ul>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                 <div>
