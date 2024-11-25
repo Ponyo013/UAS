@@ -223,7 +223,7 @@
 <!-- Page Break -->
 <section class="py-32 bg-gray-100">
     <div class="container mx-auto px-6 md:px-24">
-        
+        <!-- mau buat page break isinya logo yayasan dengan logo umn lagi ngescroll" -->
     </div>
 </section>
 
@@ -232,39 +232,10 @@
     <div class="container mx-auto px-6 md:px-24">
         <!-- Section Title -->
         <div class="flex justify-between items-center mb-12">
-            <h2 class="text-4xl font-semibold text-[#CC2B52]">Aktivitas Terakhir</h2>
+            <h2 class="text-4xl font-semibold text-[#CC2B52]">Galeri Foto</h2>
             <a href="#" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
         </div>
-        <!-- Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <a href="/detail-page1" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
-                <img src="link-to-your-image1.jpg" alt="Al Muzakki Fun Day Agustusan" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <p class="font-semibold text-sm text-gray-600 mb-2">Info & Berita</p>
-                    <h3 class="text-lg font-bold text-black mb-2">Al Muzakki Fun Day Agustusan</h3>
-                    <p class="text-gray-500 text-sm">Agustus 21, 2024</p>
-                </div>
-            </a>
-            <!-- Card 2 -->
-            <a href="/detail-page2" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
-                <img src="link-to-your-image2.jpg" alt="Kunjungan dan Santunan Rutin dari Ayam Geprek Sai Kelet" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <p class="font-semibold text-sm text-gray-600 mb-2">Info & Berita</p>
-                    <h3 class="text-lg font-bold text-black mb-2">Kunjungan dan Santunan Rutin dari Ayam Geprek Sai Kelet</h3>
-                    <p class="text-gray-500 text-sm">Agustus 03, 2024</p>
-                </div>
-            </a>
-            <!-- Card 3 -->
-            <a href="/detail-page3" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
-                <img src="link-to-your-image3.jpg" alt="Kunjungan dan Santunan dari Rama Group" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <p class="font-semibold text-sm text-gray-600 mb-2">Info & Berita</p>
-                    <h3 class="text-lg font-bold text-black mb-2">Kunjungan dan Santunan dari Rama Group</h3>
-                    <p class="text-gray-500 text-sm">Agustus 02, 2024</p>
-                </div>
-            </a>
-        </div>
+        <!-- isinya carousel foto yabg ada dalam galerinya -->
     </div>
 </section>
 
