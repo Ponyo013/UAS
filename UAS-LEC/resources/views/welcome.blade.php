@@ -4,8 +4,8 @@
 
 @section('content')
 <!-- Enhanced Carousel Section -->
-<div class="relative selection:bg-[#FF2D20] selection:text-white">
-    <div class="w-full h-[80vh] overflow-hidden relative">
+<div id="home" class="relative selection:bg-[#FF2D20] selection:text-white">
+    <div class="w-full h-[90vh] overflow-hidden relative">
         <!-- Carousel Wrapper -->
         <div id="carousel" class="flex transition-transform duration-700 ease-in-out h-full">
             <!-- Slide 1 -->
@@ -43,7 +43,7 @@
 
 
 <!-- About Us Section -->
-<section class="py-20 bg-white">
+<section id="aboutus" class="py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
         <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0">
             <!-- Text Content -->
@@ -67,14 +67,14 @@
 </section>
 
 <!-- Visi dan Misi -->
-<section class="py-20 bg-gray-100">
+<section id="visimisi"class="py-20 bg-gray-100">
     <div class="container mx-auto px-6 md:px-24">
-        <h2 class="text-4xl font-semibold text-[#CC2B52] mb-12">Visi dan Misi</h2>
+        <h2 class="text-4xl font-semibold text-[#CC2B52] mb-14">Visi dan Misi</h2>
         <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0">
             <!-- Text Content -->
             <div class="w-full md:w-1/2">
                 <h2 class="text-2xl font-semibold text-black mb-4">Visi</h2>
-                <p class="text-black text-justify mb-2 pl-5">Memandang setiap anak berharga mulia dimata Tuhan, dan Tuhan mengasihi mereka. Mempersiapkan anak-anak Tuhan hidup dalam tujuan-tujuan Tuhan dan sesuai dengan rencana Tuhan sehingga mereka dapat menjadi duta-duta Kristus yang baik dan setia.</p>
+                <p class="text-black text-justify mb-2">Memandang setiap anak berharga mulia dimata Tuhan, dan Tuhan mengasihi mereka. Mempersiapkan anak-anak Tuhan hidup dalam tujuan-tujuan Tuhan dan sesuai dengan rencana Tuhan sehingga mereka dapat menjadi duta-duta Kristus yang baik dan setia.</p>
             </div>
             <!-- Text Content -->
             <div class="w-full md:w-2/5">
@@ -91,7 +91,7 @@
 
 
 <!-- Program -->
-<section class=" py-20 bg-white">
+<section id="program" class=" py-20 bg-white">
     <div class="container mx-auto px-12 md:px-24">
         <div class="mb-8 text-left">
             <h2 class="text-4xl font-semibold text-[#CC2B52]">Program Jangka Panjang</h2>
@@ -132,7 +132,7 @@
 </section>
 
 <!-- Newsletter Section -->
-<section class="py-20 bg-gray-100">
+<section id="newsletter" class="py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-semibold text-center text-[#CC2B52] mb-12">Newsletter</h2>
 
@@ -179,10 +179,56 @@
 </section>
 
 
-
-
 <!-- Aktivitas Terakhir Section -->
-<section class="py-20 bg-white">
+<section id="aktivitas" class="py-20 bg-white">
+    <div class="container mx-auto px-6 md:px-24">
+        <!-- Section Title -->
+        <div class="flex justify-between items-center mb-12">
+            <h2 class="text-4xl font-semibold text-[#CC2B52]">Aktivitas Terakhir</h2>
+            <a href="#" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
+        </div>
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <a href="/detail-page1" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
+                <img src="link-to-your-image1.jpg" alt="Al Muzakki Fun Day Agustusan" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <p class="font-semibold text-sm text-gray-600 mb-2">Info & Berita</p>
+                    <h3 class="text-lg font-bold text-black mb-2">Al Muzakki Fun Day Agustusan</h3>
+                    <p class="text-gray-500 text-sm">Agustus 21, 2024</p>
+                </div>
+            </a>
+            <!-- Card 2 -->
+            <a href="/detail-page2" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
+                <img src="link-to-your-image2.jpg" alt="Kunjungan dan Santunan Rutin dari Ayam Geprek Sai Kelet" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <p class="font-semibold text-sm text-gray-600 mb-2">Info & Berita</p>
+                    <h3 class="text-lg font-bold text-black mb-2">Kunjungan dan Santunan Rutin dari Ayam Geprek Sai Kelet</h3>
+                    <p class="text-gray-500 text-sm">Agustus 03, 2024</p>
+                </div>
+            </a>
+            <!-- Card 3 -->
+            <a href="/detail-page3" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
+                <img src="link-to-your-image3.jpg" alt="Kunjungan dan Santunan dari Rama Group" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <p class="font-semibold text-sm text-gray-600 mb-2">Info & Berita</p>
+                    <h3 class="text-lg font-bold text-black mb-2">Kunjungan dan Santunan dari Rama Group</h3>
+                    <p class="text-gray-500 text-sm">Agustus 02, 2024</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Page Break -->
+<section class="py-32 bg-gray-100">
+    <div class="container mx-auto px-6 md:px-24">
+        
+    </div>
+</section>
+
+<!-- Galeri -->
+<section id="Galeri" class="py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
         <!-- Section Title -->
         <div class="flex justify-between items-center mb-12">
