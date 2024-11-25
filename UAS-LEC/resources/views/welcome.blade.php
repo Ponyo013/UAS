@@ -12,8 +12,8 @@
             <div class="min-w-full flex flex-col items-center justify-center bg-red-500 text-white h-full p-6 text-center">
                 <h2 class="text-5xl font-bold mb-4">Berbagi dalam Kehidupan</h2>
                 <p class="mt-2 text-lg leading-relaxed max-w-3xl">
-                    "Sesungguhnya segala sesuatu yang kamu lakukan untuk salah seorang dari saudara-Ku yang paling hina ini, 
-                    kamu telah melakukannya untuk Aku." 
+                    "Sesungguhnya segala sesuatu yang kamu lakukan untuk salah seorang dari saudara-Ku yang paling hina ini,
+                    kamu telah melakukannya untuk Aku."
                     <br><em>(Matius 25:40)</em>
                 </p>
                 <button class="mt-6 px-6 py-3 bg-[#AF1740] text-white font-semibold text-lg rounded-lg hover:bg-opacity-90 shadow-md transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#AF1740]/50">
@@ -21,10 +21,10 @@
                 </button>
             </div>
             <div class="min-w-full flex flex-col items-center justify-center bg-red-500 text-white h-full p-6 text-center">
-                <h2 class="text-5xl font-bold mb-4">Berbagi dalam Kehidupan</h2>
+                <h2 class="text-5xl font-bold mb-4">Berbagi alam Kehidupan</h2>
                 <p class="mt-2 text-lg leading-relaxed max-w-3xl">
-                    "Sesungguhnya segala sesuatu yang kamu lakukan untuk salah seorang dari saudara-Ku yang paling hina ini, 
-                    kamu telah melakukannya untuk Aku." 
+                    "Sesungguhnya segala sesuatu yang kamu lakukan untuk salah seorang dari saudara-Ku yang paling hina ini,
+                    kamu telah melakukannya untuk Aku."
                     <br><em>(Matius 25:40)</em>
                 </p>
                 <button class="mt-6 px-6 py-3 bg-[#AF1740] text-white font-semibold text-lg rounded-lg hover:bg-opacity-90 shadow-md transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#AF1740]/50">
@@ -37,6 +37,7 @@
         <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">
             <button class="dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="0" aria-label="Slide 1"></button>
             <button class="dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="1" aria-label="Slide 2"></button>
+            <!-- sekarang baru ada 2 -->
             <button class="dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="2" aria-label="Slide 3"></button>
             <button class="dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="3" aria-label="Slide 4"></button>
             <button class="dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity duration-300" data-index="4" aria-label="Slide 5"></button>
@@ -219,7 +220,7 @@
             const nextIndex = (index + 1) % slides.length;
             moveToSlide(nextIndex);
         }, 6000);
-        
+
         dots.forEach(dot => {
             dot.addEventListener('click', () => {
                 const dotIndex = parseInt(dot.getAttribute('data-index'));
@@ -249,4 +250,3 @@
         });
     });
 </script>
-

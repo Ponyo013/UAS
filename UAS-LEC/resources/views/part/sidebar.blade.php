@@ -1,3 +1,4 @@
+<!-- contoh buat login nanti burger menu -->
 <nav id="sidebar">
     <ul>
       <li>
