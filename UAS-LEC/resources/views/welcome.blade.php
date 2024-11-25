@@ -4,8 +4,8 @@
 
 @section('content')
 <!-- Enhanced Carousel Section -->
-<div class="relative selection:bg-[#FF2D20] selection:text-white">
-    <div class="w-full h-[80vh] overflow-hidden relative">
+<div id="home" class="relative selection:bg-[#FF2D20] selection:text-white">
+    <div class="w-full h-[90vh] overflow-hidden relative">
         <!-- Carousel Wrapper -->
         <div id="carousel" class="flex transition-transform duration-700 ease-in-out h-full">
             <!-- Slide 1 -->
@@ -43,7 +43,7 @@
 
 
 <!-- About Us Section -->
-<section class="py-20 bg-white">
+<section id="aboutus" class="py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
         <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0">
             <!-- Text Content -->
@@ -67,9 +67,9 @@
 </section>
 
 <!-- Visi dan Misi -->
-<section class="py-20 bg-gray-100">
+<section id="visimisi" class="py-20 bg-gray-100">
     <div class="container mx-auto px-6 md:px-24">
-        <h2 class="text-4xl font-semibold text-[#CC2B52] mb-12">Visi dan Misi</h2>
+        <h2 class="text-4xl font-semibold text-[#CC2B52] mb-14">Visi dan Misi</h2>
         <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0">
             <!-- Text Content -->
             <div class="w-full md:w-1/2">
@@ -95,7 +95,7 @@
 
 
 <!-- Program -->
-<section class=" py-20 bg-white">
+<section id="program" class=" py-20 bg-white">
     <div class="container mx-auto px-12 md:px-24">
         <div class="mb-8 text-left">
             <h2 class="text-4xl font-semibold text-[#CC2B52]">Program Jangka Panjang</h2>
@@ -136,7 +136,7 @@
 </section>
 
 <!-- Newsletter Section -->
-<section class="py-20 bg-gray-100">
+<section id="newsletter" class="py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-semibold text-center text-[#CC2B52] mb-12">Newsletter</h2>
 
@@ -183,10 +183,8 @@
 </section>
 
 
-
-
 <!-- Aktivitas Terakhir Section -->
-<section class="py-20 bg-white">
+<section id="aktivitas" class="py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
         <!-- Section Title -->
         <div class="flex justify-between items-center mb-12">
@@ -223,6 +221,25 @@
                 </div>
             </a>
         </div>
+    </div>
+</section>
+
+<!-- Page Break -->
+<section class="py-32 bg-gray-100">
+    <div class="container mx-auto px-6 md:px-24">
+        <!-- mau buat page break isinya logo yayasan dengan logo umn lagi ngescroll" -->
+    </div>
+</section>
+
+<!-- Galeri -->
+<section id="Galeri" class="py-20 bg-white">
+    <div class="container mx-auto px-6 md:px-24">
+        <!-- Section Title -->
+        <div class="flex justify-between items-center mb-12">
+            <h2 class="text-4xl font-semibold text-[#CC2B52]">Galeri Foto</h2>
+            <a href="#" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
+        </div>
+        <!-- isinya carousel foto yabg ada dalam galerinya -->
     </div>
 </section>
 
