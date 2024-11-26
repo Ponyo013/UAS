@@ -34,26 +34,34 @@
                 <button
                     class="flex items-center space-x-2 text-white dark:text-white focus:outline-none"
                     id="dropdownUserButton"
-                    data-dropdown-toggle="dropdownUserMenu">
+                    aria-expanded="false" data-dropdown-toggle="dropdownUserMenu">
                     <span class="text-white dark:text-white mr-4 text-base sm:text-sm md:text-base">Hello, {{ Auth::user()->name }}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-4 h-4">
                         <path fill="none" stroke="currentColor" stroke-width="2" d="M6 9l6 6 6-6"></path>
                     </svg>
                 </button>
-                <div id="dropdownUserMenu" class="absolute right-0 mt-2 w-52 bg-white shadow-md ring-1 ring-[#AF1740] ring-opacity-5 dark:bg-[#AF1740] dark:ring-[#AF1740] dark:ring-opacity-50 hidden z-50">
+                <div id="dropdownUserMenu" class="absolute right-0 mt-2 w-52 bg-white shadow-md rounded-b-lg ring-1 ring-[#AF1740] ring-opacity-5 dark:bg-[#AF1740] dark:ring-[#AF1740] dark:ring-opacity-50 hidden z-50">
                     <hr>
                     <div class="py-1">
+                        @if(Auth::user()->role == 1)
+                            <!-- Admin Link -->
+                            <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">
+                                Admin Dashboard
+                            </a>
+                        @endif
+                        <!-- Logout Button -->
                         <form action="{{ route('logout') }}" method="POST" class="inline">
                             @csrf
                             <button
                                 type="submit"
-                                class="block w-full px-4 py-2 text-white hover:text-white/70 dark:text-white dark:hover:text-white/80">
+                                class="block w-full px-4 py-2 text-black text-left dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-[#AF1740]">
                                 Logout
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
+
             @else
             <!-- Login Section -->
             <a

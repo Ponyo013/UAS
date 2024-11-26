@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Dashboard')</title>
     <link rel="stylesheet" href="{{ asset('sidebar.css') }}">
-    <script type="text/javascript" src="{{ asset('app.js') }}" defer></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
     @include('part.sidebar')
