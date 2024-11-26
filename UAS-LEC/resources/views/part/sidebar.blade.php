@@ -32,7 +32,7 @@
         <ul class="sub-menu">
           <div>
             <li><a href="#">About Us</a></li>
-            <li><a href="#">Newsletter</a></li>
+            <li><a href="{{ Route('show.newsletter') }}">Newsletter</a></li>
             <li><a href="#">Galeri Foto</a></li>
             <li><a href="#">Kalender</a></li>
           </div>

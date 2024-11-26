@@ -9,8 +9,8 @@
         @if($users->isEmpty())
             <p class="text-gray-600">No users have registered yet.</p>
         @else
-            <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200 bg-white shadow-md rounded-lg overflow-hidden">
+            <div id="UserTable" class="overflow-x-visible">
+                <table class="min-w-full divide-y divide-gray-200 bg-white shadow rounded-lg overflow-hidden">
                     <thead class="bg-gray-50">
                         <tr>
                             <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
@@ -56,5 +56,11 @@
         @endif
     </div>
 </main>
+<script>
+$(document).ready(function() {
+    $('#UserTable table').DataTable(); 
+});
+
+</script>
 @endsection
 

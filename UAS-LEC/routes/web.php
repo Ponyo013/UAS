@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -43,4 +44,8 @@ Route::post('/email/verification-notification', function (Request $request) {
 require __DIR__.'/auth.php';
 
 // Admin Side
-Route::get('/dashboard', [UserController::class, 'show'])->name('dashboard');
+Route::middleware('auth', 'CheckUserRole')->group(function () {
+    Route::get('/dashboard', [UserController::class, 'show'])->name('dashboard');
+    Route::get('/dashboard/newsletter', [NewsletterController::class, 'index'])->name('show.newsletter');
+});
+
