@@ -15,9 +15,6 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified', 'CheckUserRole'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -44,8 +41,15 @@ Route::post('/email/verification-notification', function (Request $request) {
 require __DIR__.'/auth.php';
 
 // Admin Side
-Route::middleware('auth', 'CheckUserRole')->group(function () {
-    Route::get('/dashboard', [UserController::class, 'show'])->name('dashboard');
+Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
+    Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+
+    // Manage user
+    Route::get('/dashboard/ManageUSer', [UserController::class, 'show'])->name('ManageUser');
+    Route::put('/dashboard/ManageUser/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/dashboard/ManageUser/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    // Newsletter
     Route::get('/dashboard/newsletter', [NewsletterController::class, 'index'])->name('show.newsletter');
 });
 
