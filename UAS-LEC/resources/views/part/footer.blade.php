@@ -10,7 +10,7 @@
                     <img src="{{ asset('images/tm-logo.png') }}" alt="Tunas Mahardika Logo" class="h-10">
                     <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-dark">Tunas Mahardika</span>
                 </a>
-                <p class="mb-2">Lokasi Kami:</p>
+                <p class="mb-2 mt-8">Lokasi Kami:</p>
                 <p>Bumi Serpong Damai Sektor 1.1 <br>Jl. Rawa Buntu Selatan Blok G1 No. 17<br>Serpong - Tangerang 15318</p>
             </div>
 

@@ -2,9 +2,12 @@
 
 @section('title', 'Welcome')
 
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 @section('content')
 <!-- Enhanced Carousel Section -->
-<div id="home" class="relative selection:bg-[#FF2D20] selection:text-white">
+<div id="home" class="section relative selection:bg-[#FF2D20] selection:text-white">
     <div class="w-full h-[90vh] overflow-hidden relative">
         <!-- Carousel Wrapper -->
         <div id="carousel" class="flex transition-transform duration-700 ease-in-out h-full">
@@ -43,7 +46,7 @@
 
 
 <!-- About Us Section -->
-<section id="aboutus" class="py-20 bg-white">
+<section id="aboutus" class="section py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
         <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0">
             <!-- Text Content -->
@@ -67,7 +70,7 @@
 </section>
 
 <!-- Visi dan Misi -->
-<section id="visimisi" class="py-20 bg-gray-100">
+<section id="visimisi" class="section py-20 bg-gray-100">
     <div class="container mx-auto px-6 md:px-24">
         <h2 class="text-4xl font-semibold text-[#CC2B52] mb-14">Visi dan Misi</h2>
         <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0">
@@ -95,7 +98,7 @@
 
 
 <!-- Program -->
-<section id="program" class=" py-20 bg-white">
+<section id="program" class="section py-20 bg-white">
     <div class="container mx-auto px-12 md:px-24">
         <div class="mb-8 text-left">
             <h2 class="text-4xl font-semibold text-[#CC2B52]">Program Jangka Panjang</h2>
@@ -136,7 +139,7 @@
 </section>
 
 <!-- Newsletter Section -->
-<section id="newsletter" class="py-20 bg-gray-100">
+<section id="newsletter" class="section py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-semibold text-center text-[#CC2B52] mb-12">Newsletter</h2>
 
@@ -184,7 +187,7 @@
 
 
 <!-- Aktivitas Terakhir Section -->
-<section id="aktivitas" class="py-20 bg-white">
+<section id="aktivitas" class="section py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
         <!-- Section Title -->
         <div class="flex justify-between items-center mb-12">
@@ -224,24 +227,100 @@
     </div>
 </section>
 
-<!-- Page Break -->
-<section class="py-32 bg-gray-100">
-    <div class="container mx-auto px-6 md:px-24">
-        <!-- mau buat page break isinya logo yayasan dengan logo umn lagi ngescroll" -->
+<!-- Galeri -->
+<section id="Galeri" class="section py-20 bg-gray-100">
+    <div class="container mx-auto px-6 ">
+        <!-- Section Title -->
+        <div class="flex justify-between items-center mb-16 md:px-24">
+            <h2 class="text-4xl font-semibold text-[#CC2B52]">Galeri Foto</h2>
+        </div>
+        <!-- Swiper Carousel -->
+        <div class="swiper-container mb-12 h-64">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide ">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{{ asset('images/carousel1.jpg') }}" alt="" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+                
+                <div class="swiper-slide ">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{{ asset('images/carousel2.jpg') }}" alt="" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+
+                <div class="swiper-slide ">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{{ asset('images/carousel1.jpg') }}" alt="" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+
+                <div class="swiper-slide ">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{{ asset('images/carousel2.jpg') }}" alt="" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+
+                <div class="swiper-slide ">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{{ asset('images/carousel1.jpg') }}" alt="" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+
+                <div class="swiper-slide ">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{{ asset('images/carousel2.jpg') }}" alt="" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+
+                <div class="swiper-slide ">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{{ asset('images/carousel1.jpg') }}" alt="" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
     </div>
 </section>
 
-<!-- Galeri -->
-<section id="Galeri" class="py-20 bg-white">
-    <div class="container mx-auto px-6 md:px-24">
-        <!-- Section Title -->
-        <div class="flex justify-between items-center mb-12">
-            <h2 class="text-4xl font-semibold text-[#CC2B52]">Galeri Foto</h2>
-            <a href="#" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
-        </div>
-        <!-- isinya carousel foto yabg ada dalam galerinya -->
-    </div>
-</section>
+<!-- swiper script -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 5,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        autoplay: {
+            delay: 1700, // 3 seconds for each slide
+            disableOnInteraction: false, 
+        },
+        loop: true, // Enable infinite loop
+        speed: 1000, // Set the transition speed to 800ms (can be adjusted)
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 15,
+            },
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+            },
+        },
+    });
+</script>
 
 @endsection
 <script>
@@ -292,3 +371,52 @@
         });
     });
 </script>
+
+
+<!-- transisi tiap section -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Tambahkan kelas 'show' jika elemen terlihat
+                    entry.target.classList.add('show');
+                } else {
+                    // Hapus kelas 'show' jika elemen tidak terlihat
+                    entry.target.classList.remove('show');
+                }
+            });
+        }, {
+            threshold: 0.1,
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>
+
+
+<style>
+    /* Transisi awal (sebelum terlihat) */
+    .section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease-in-out;
+    }
+
+    /* Transisi saat terlihat */
+    .section.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+</style>
+
+
+
+
+
+

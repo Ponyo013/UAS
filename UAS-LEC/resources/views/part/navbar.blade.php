@@ -1,5 +1,5 @@
 <div class="font-sans antialiased min-w-screen " style="background-color: #AF1740;">
-    <nav class="flex items-center justify-between py-5 px-4 relative bg-[#AF1740]">
+    <nav class="flex items-center justify-between py-5 px-4 relative bg-[#AF1740] sticky top-0 z-50">
         <!-- Hamburger Button -->
         <div class="flex xl:hidden pr-6">
             <button id="hamburgerButton" class="text-white focus:outline-none">
@@ -16,11 +16,10 @@
         </a>
 
         <!-- Navbar Links -->
-        <div class="hidden xl:flex space-x-8 mx-auto pl-8">
+        <div class="hidden xl:flex space-x-8 mx-auto pl-24">
             <a href="{{ url('#home') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Beranda</a>
             <a href="{{ url('#aboutus') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Tentang Kami</a>
-            <a href="{{ url('#visimisi') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Visi dan Misi</a>
-            <a href="{{ url('#program') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Program Jangka Panjang</a>
+            <a href="{{ url('#kalendar') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Kalendar</a>
             <a href="{{ url('#newsletter') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Newsletter</a>
             <a href="{{ url('#aktivitas') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Aktivitas Terakhir</a>
         </div>
@@ -49,12 +48,17 @@
                                 Admin Dashboard
                             </a>
                         @endif
+                        <button
+                            type="submit"
+                            class="block w-full text-sm px-4 py-2 text-black text-left dark:text-white hover:bg-[#740938] dark:hover:bg-[#740938] focus:outline-none focus:ring-2 focus:ring-[#AF1740]">
+                            My Account
+                        </button>
                         <!-- Logout Button -->
                         <form action="{{ route('logout') }}" method="POST" class="inline">
                             @csrf
                             <button
                                 type="submit"
-                                class="block w-full px-4 py-2 text-black text-left dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-[#AF1740]">
+                                class="block w-full text-sm px-4 py-2 text-black text-left dark:text-white hover:bg-[#740938] dark:hover:bg-[#740938] focus:outline-none focus:ring-2 focus:ring-[#AF1740]">
                                 Logout
                             </button>
                         </form>
@@ -88,12 +92,11 @@
 
 <!-- Mobile Navbar Links (Initially Hidden) -->
 <div id="mobileMenu" class="xl:hidden bg-[#AF1740] text-white flex flex-col space-y-4 py-3 px-6 min-w-screen ">
-    <a href="{{ url('#home') }}" class="hover:text-white/70">Home</a>
-    <a href="{{ url('#aboutus') }}" class="hover:text-white/70">Tentang Kami</a>
-    <a href="{{ url('#visimisi') }}" class="hover:text-white/70">Visi dan Misi</a>
-    <a href="{{ url('#program') }}" class="hover:text-white/70">Program Jangka Panjang</a>
-    <a href="{{ url('#newsletter') }}" class="hover:text-white/70">Newsletter</a>
-    <a href="{{ url('#aktivitas') }}" class="hover:text-white/70">Aktivitas Terakhir</a>
+    <a href="{{ url('#home') }}" class="py-1 hover:text-white/70">Beranda</a>
+    <a href="{{ url('#aboutus') }}" class="py-1 hover:text-white/70">Tentang Kami</a>
+    <a href="{{ url('#kalender') }}" class="py-1 hover:text-white/70">Kalender</a>
+    <a href="{{ url('#newsletter') }}" class="py-1 hover:text-white/70">Newsletter</a>
+    <a href="{{ url('#aktivitas') }}" class="py-1 hover:text-white/70">Aktivitas Terakhir</a>
 </div>
 
 <!-- Styling for Dropdown -->
@@ -102,45 +105,12 @@
         border: 0;
         height: 2px;
         background-color: #ffff;
-    }
-
-    nav {
-        transition: top 0.9s ease;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        background-color: #AF1740;
-    }
-
-    nav.hidden {
-        top: -100px;
-    }
-
-    #dropdownUserMenu hr {
-    border: 0;
-    height: 2px;
-    background-color: #fff;
-}
-
-nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: #AF1740;
-}
-
-nav.hidden {
-    top: -100px;
-}
+    }   
 </style>
 
 <script>
-    // Script for Dropdown Menu (Logout)
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
+        // Script untuk Dropdown Menu (Logout)
         const dropdownButton = document.getElementById("dropdownUserButton");
         const dropdownMenu = document.getElementById("dropdownUserMenu");
 
@@ -150,44 +120,21 @@ nav.hidden {
 
         dropdownButton.addEventListener("click", toggleDropdown);
 
-        document.addEventListener("click", function(event) {
+        document.addEventListener("click", function (event) {
             if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
                 dropdownMenu.classList.add("hidden");
             }
         });
-    });
 
-    // Script for Hamburger Menu
-    document.addEventListener("DOMContentLoaded", function() {
+        // Script untuk Hamburger Menu
         const hamburgerButton = document.getElementById("hamburgerButton");
         const mobileMenu = document.getElementById("mobileMenu");
 
         if (hamburgerButton && mobileMenu) {
-            hamburgerButton.addEventListener("click", function() {
+            hamburgerButton.addEventListener("click", function () {
                 mobileMenu.classList.toggle("hidden");
             });
         }
     });
-    // slide script
-    document.addEventListener("DOMContentLoaded", function() {
-        let lastScrollTop = 0; // Initial scroll position
-        const navbar = document.querySelector('nav'); // Select the navbar
-
-        // Listen for scroll event
-        window.addEventListener('scroll', function() {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop; // Get current scroll position
-
-            // Check if scrolling down
-            if (currentScroll > lastScrollTop) {
-                // Scrolling Down: Hide the navbar
-                navbar.classList.add('hidden');
-            } else {
-                // Scrolling Up: Show the navbar
-                navbar.classList.remove('hidden');
-            }
-
-            // Update the last scroll position
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        });
-    });
 </script>
+
