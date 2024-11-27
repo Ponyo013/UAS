@@ -89,20 +89,27 @@
     #dropdownUserMenu hr {
         border: 0;
         height: 2px;
-        background-color: #ffff; 
+        background-color: #fff;
     }
-    nav {
-        transition: top 0.9s ease; 
-        position: fixed;
-        width: 100%; 
-        top: 0; 
-        left: 0; 
-        z-index: 1000; 
-        background-color: #AF1740;
-    }
-    nav.hidden {
-        top: -100px; 
-    }
+
+    #dropdownUserMenu hr {
+    border: 0;
+    height: 2px;
+    background-color: #fff;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #AF1740;
+}
+
+nav.hidden {
+    top: -100px;
+}
 </style>
 
 <script>
