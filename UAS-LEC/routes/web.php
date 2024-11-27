@@ -51,5 +51,6 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
 
     // Newsletter
     Route::get('/dashboard/newsletter', [NewsletterController::class, 'index'])->name('show.newsletter');
+    Route::post('/dashboard/newsletters/store', [NewsletterController::class, 'store'])->name('newsletters.store');
 });
 

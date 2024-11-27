@@ -32,3 +32,42 @@ document.querySelectorAll('.openEditModalBtn').forEach(button => {
 document.getElementById('closeModalBtn').addEventListener('click', function () {
     document.getElementById('editModal').classList.add('hidden');
 });
+
+// Newsletter
+$(document).ready(function() {
+    $('#NewsletterTable table').DataTable(); 
+});
+
+document.getElementById('createNewsletterBtn').addEventListener('click', function() {
+    document.getElementById('createNewsletterModal').classList.remove('hidden');
+});
+
+document.getElementById('closeModalBtn').addEventListener('click', function () {
+    document.getElementById('createNewsletterModal').classList.add('hidden');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const quill = new Quill('#quill-editor', {
+        theme: 'snow',
+        placeholder: 'Tulis Deskripsi di sini...',
+        modules: {
+            toolbar: [
+                [{ header: [1, 2, 3, false] }],
+                ['bold', 'italic', 'underline', 'strike'],       
+                ['blockquote', 'code-block'],
+                [{ list: 'ordered' }, { list: 'bullet' }],
+                [{ align: [] }],
+                ['link', 'image', 'video'],
+                ['clean']                                        
+            ]
+        }
+    });
+
+    quill.on('text-change', function() {
+        const descriptionInput = document.querySelector('#description');
+        descriptionInput.value = quill.root.innerHTML;
+    });
+
+    const descriptionInput = document.querySelector('#description');
+    descriptionInput.value = quill.root.innerHTML;
+});

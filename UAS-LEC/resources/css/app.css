@@ -17,3 +17,14 @@ td.dt-empty {
       font-size: 14px;  
   }
 }
+
+.ql-align-justify{
+  text-align: justify !important; 
+}
+
+.ql-align-left{
+  text-align: left !important;
+}
+.ql-align-center{
+  text-align: center !important;
+}

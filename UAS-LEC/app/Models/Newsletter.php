@@ -2,9 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Newsletter extends Model
 {
-    protected $fillable = ['title', 'description', 'image', 'publish_date'];
+    use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'description',
+        'image',
+        'publish_date',
+    ];
+
+    public $timestamps = true;
 }

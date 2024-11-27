@@ -21,9 +21,9 @@
             </div>
         @endif
 
-        <h1 class="text-2xl font-bold mb-6">Registered Account</h1>
+        <h1 class="text-2xl font-bold mb-6">Akun yang terdaftar</h1>
         @if($users->isEmpty())
-            <p class="text-gray-600">No users have registered yet.</p>
+            <p class="text-gray-600">Belum ada pengguna yang terdaftar.</p>
         @else
             <div id="UserTable" class="overflow-x-visible">
                 <table class="min-w-full divide-y divide-gray-200 bg-white shadow rounded-lg overflow-hidden">
@@ -97,7 +97,7 @@
                 <label for="editEmail" class="block text-sm font-medium text-gray-700">Email</label>
                 <input type="email" id="editEmail" name="email" class="mt-1 p-2 w-full border border-gray-300 rounded-lg" required>
             </div>
-            <div class="flex justify-end space-x-4  font-semibold">
+            <div class="flex justify-end space-x-4 font-semibold">
                 <button 
                     type="button" 
                     class="bg-gray-300 hover:bg-gray-400 text-gray-800 p-2 rounded-lg shadow transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
