@@ -54,3 +54,7 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::post('/dashboard/newsletters/store', [NewsletterController::class, 'store'])->name('newsletters.store');
 });
 
+Route::get('/galeri', function () {
+    return view('galeri');
+})->name('show.galeri');
+

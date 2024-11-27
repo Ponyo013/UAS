@@ -17,6 +17,7 @@
             <a href="{{ url('#kalender') }}" class="py-1 hover:text-white/70">Kalender</a>
             <a href="{{ url('#newsletter') }}" class="py-1 hover:text-white/70">Newsletter</a>
             <a href="{{ url('#aktivitas') }}" class="py-1 hover:text-white/70">Aktivitas Terakhir</a>
+            <a href="{{ url('#home') }}" class="py-1 hover:text-white/70">Donasi</a>
         </div>
 
         <!-- Logo Section -->
@@ -32,6 +33,7 @@
             <a href="{{ url('#kalendar') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Kalendar</a>
             <a href="{{ url('#newsletter') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Newsletter</a>
             <a href="{{ url('#aktivitas') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Aktivitas Terakhir</a>
+            <a href="{{ url('#home') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Donasi</a>
         </div>
 
         <!-- Authentication Section -->
@@ -52,17 +54,17 @@
             <div id="dropdownUserMenu" class="absolute right-0 mt-2 w-52 bg-white shadow-md rounded-b-lg ring-1 ring-[#AF1740] ring-opacity-5 dark:bg-[#AF1740] dark:ring-[#AF1740] dark:ring-opacity-50 hidden z-50">
                 <hr>
                 <div class="py-1">
-                    @if(Auth::user()->role == 1)
-                        <!-- Admin Link -->
-                        <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">
-                            Admin Dashboard
-                        </a>
-                    @endif
                     <button
                         type="submit"
                         class="block w-full text-sm px-4 py-2 text-black text-left dark:text-white hover:bg-[#740938] dark:hover:bg-[#740938] focus:outline-none focus:ring-2 focus:ring-[#AF1740]">
                         My Account
                     </button>
+                    @if(Auth::user()->role == 1)
+                        <!-- Admin Link -->
+                        <a href="{{ route('dashboard') }}" class="block text-sm px-4 py-2 text-black dark:text-white hover:bg-[#740938] dark:hover:bg-[#740938]">
+                            Admin Dashboard
+                        </a>
+                    @endif
                     <!-- Logout Button -->
                     <form action="{{ route('logout') }}" method="POST" class="inline">
                         @csrf
@@ -102,7 +104,7 @@
 <style>
     #dropdownUserMenu hr {
         border: 0;
-        height: 2px;
+        height: 1px;
         background-color: #ffff;
     }
     

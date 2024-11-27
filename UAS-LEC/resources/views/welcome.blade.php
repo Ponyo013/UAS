@@ -8,7 +8,7 @@
 @section('content')
 <!-- Enhanced Carousel Section -->
 <div id="home" class="section relative selection:bg-[#FF2D20] selection:text-white">
-    <div class="w-full h-[90vh] overflow-hidden relative">
+    <div class="w-full h-[95vh] overflow-hidden relative">
         <!-- Carousel Wrapper -->
         <div id="carousel" class="flex transition-transform duration-700 ease-in-out h-full">
             <!-- Slide 1 -->
@@ -233,7 +233,7 @@
         <!-- Section Title -->
         <div class="flex justify-between items-center mb-16 md:px-24">
             <h2 class="text-4xl font-semibold text-[#CC2B52]">Galeri Foto</h2>
-            <a href="#" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
+            <a href="{{ Route('show.galeri') }}" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
         </div>
         <!-- Swiper Carousel -->
         <div class="swiper-container mb-12 h-64">
