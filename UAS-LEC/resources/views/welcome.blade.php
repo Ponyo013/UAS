@@ -67,14 +67,18 @@
 </section>
 
 <!-- Visi dan Misi -->
-<section id="visimisi"class="py-20 bg-gray-100">
+<section id="visimisi" class="py-20 bg-gray-100">
     <div class="container mx-auto px-6 md:px-24">
         <h2 class="text-4xl font-semibold text-[#CC2B52] mb-14">Visi dan Misi</h2>
         <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0">
             <!-- Text Content -->
             <div class="w-full md:w-1/2">
                 <h2 class="text-2xl font-semibold text-black mb-4">Visi</h2>
-                <p class="text-black text-justify mb-2">Memandang setiap anak berharga mulia dimata Tuhan, dan Tuhan mengasihi mereka. Mempersiapkan anak-anak Tuhan hidup dalam tujuan-tujuan Tuhan dan sesuai dengan rencana Tuhan sehingga mereka dapat menjadi duta-duta Kristus yang baik dan setia.</p>
+                <ul class="list-disc pl-5">
+                    <li class="text-black text-justify mb-2">Memandang setiap anak berharga mulia dimata Tuhan, dan Tuhan mengasihi mereka.</li>
+                    <li class="text-black text-justify mb-2">Mempersiapkan anak-anak Tuhan hidup dalam tujuan-tujuan Tuhan dan sesuai dengan rencana Tuhan sehingga mereka dapat menjadi duta-duta Kristus yang baik dan setia.</li>
+                </ul>
+
             </div>
             <!-- Text Content -->
             <div class="w-full md:w-2/5">
@@ -99,7 +103,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col items-center text-center">
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="mb-4" width="50" height="50" viewBox="0 0 24 24">
                     <path fill="black" d="M10 10a1 1 0 1 0-1 1a1 1 0 0 0 1-1m4.5 4.06a1 1 0 0 0-1.37.36a1.3 1.3 0 0 1-2.26 0a1 1 0 0 0-1.37-.36a1 1 0 0 0-.37 1.36a3.31 3.31 0 0 0 5.74 0a1 1 0 0 0-.37-1.36M15 9a1 1 0 1 0 1 1a1 1 0 0 0-1-1m-3-7a10 10 0 1 0 10 10A10 10 0 0 0 12 2m0 18A8 8 0 0 1 9 4.57A3 3 0 0 0 9 5a3 3 0 0 0 3 3a1 1 0 0 0 0-2a1 1 0 0 1 0-2a8 8 0 0 1 0 16" />
                 </svg>
@@ -108,7 +112,7 @@
                     Membina anak-anak usia balita untuk mulai mengenal nilai-nilai keagamaan dan moral sebagai pondasi hidup yang kuat sejak dini.
                 </p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col items-center text-center">
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="mb-4" width="50" height="50" viewBox="0 0 640 512">
                     <path fill="black" d="M160 0a64 64 0 1 1 0 128a64 64 0 1 1 0-128M88 480v-80H70.2c-10.9 0-18.6-10.7-15.2-21.1l31.1-93.4l-28.6 37.8c-10.7 14.1-30.8 16.8-44.8 6.2s-16.8-30.7-6.2-44.8L65.4 207c22.4-29.6 57.5-47 94.6-47s72.2 17.4 94.6 47l58.9 77.7c10.7 14.1 7.9 34.2-6.2 44.8s-34.2 7.9-44.8-6.2l-28.6-37.8l31.1 93.4c3.5 10.4-4.3 21.1-15.2 21.1H232v80c0 17.7-14.3 32-32 32s-32-14.3-32-32v-80h-16v80c0 17.7-14.3 32-32 32s-32-14.3-32-32M480 0a64 64 0 1 1 0 128a64 64 0 1 1 0-128m-8 384v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V300.5L395.1 321c-9.4 15-29.2 19.4-44.1 10s-19.4-29.2-10-44.1l51.7-82.1c17.6-27.9 48.3-44.9 81.2-44.9h12.3c33 0 63.7 16.9 81.2 44.9l51.7 82.2c9.4 15 4.9 34.7-10 44.1s-34.7 4.9-44.1-10l-13-20.6V480c0 17.7-14.3 32-32 32s-32-14.3-32-32v-96z" />
                 </svg>
@@ -117,7 +121,7 @@
                     Memberikan pendidikan dasar yang berfokus pada pembentukan karakter, pemahaman agama, dan pengembangan bakat anak-anak.
                 </p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col items-center text-center">
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="mb-4" width="50" height="50" viewBox="0 0 1200 1200">
                     <path fill="black" d="M605.096 480c-135.542-2.098-239.082-111.058-239.999-240C367.336 105.667 477.133.942 605.096 0c135.662 5.13 239.036 108.97 240.001 240c-2.668 134.439-111.907 239.09-240.001 240m194.043 49.788c170.592 1.991 257.094 151.63 257.881 301.269V1200H889.784l.001-324.254c-4.072-22.416-19.255-30.018-33.164-27.82c-13.022 2.059-24.929 12.701-25.56 27.82V1200h-464.67V875.746c-3.557-21.334-17.128-29.537-30.331-28.709c-14.138.889-27.853 12.135-28.393 28.709V1200h-164.68V831.057c-.98-159.475 99.901-300.087 259.137-301.269z" />
                 </svg>
