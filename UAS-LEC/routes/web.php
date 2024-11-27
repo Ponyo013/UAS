@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/email/verify', function(){
     return view('auth.verify-email');
-})->middleware('auth')->name('verfification.notice');
+})->middleware('auth')->name('verification.notice');
  
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
@@ -52,6 +52,8 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     // Newsletter
     Route::get('/dashboard/newsletter', [NewsletterController::class, 'index'])->name('show.newsletter');
     Route::post('/dashboard/newsletters/store', [NewsletterController::class, 'store'])->name('newsletters.store');
+    Route::put('/dashboard/newsletters/update/{id}', [NewsletterController::class, 'update'])->name('newsletters.update');
+    Route::delete('/dashboard/newsletters/delete/{id}', [NewsletterController::class, 'destroy'])->name('newsletters.destroy');
 });
 
 Route::get('/galeri', function () {

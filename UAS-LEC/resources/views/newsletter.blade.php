@@ -113,5 +113,59 @@
             </form>
         </div>
     </div>
+
+    <!-- Modal Edit Newsletter -->
+    <div id="editNewsletterModal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 overflow-auto">
+        <div class="bg-white rounded-lg p-6 w-full sm:w-[480px] md:w-[600px] lg:w-[800px]">
+            <h2 class="text-xl font-semibold mb-4">Edit Newsletter</h2>
+            <form id="editNewsletterForm" action="{{ route('newsletters.update', ':id') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="mb-4">
+                    <label for="editTitle" class="block text-sm font-medium text-gray-700">Judul</label>
+                    <input type="text" id="editTitle" name="title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="editDescription" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                    <div id="quillEditorEdit" name="description" class="block w-full border border-gray-300 h-[200px]"></div>
+                    <input type="hidden" id="editDescription" name="description">
+                </div>
+                <div class="mb-4">
+                    <label for="editImage" class="block text-sm font-medium text-gray-700">Foto</label>
+                    <input type="file" id="editImage" name="image" class="mt-1 block w-full" accept="image/*">
+                </div>
+                <div class="mb-4">
+                    <label for="editPublishDate" class="block text-sm font-medium text-gray-700">Publish Date</label>
+                    <input type="date" id="editPublishDate" name="publish_date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                </div>
+                <div class="flex justify-between items-center">
+                    <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded-lg" id="closeEditModalBtn">Tutup</button>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="deleteConfirmationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg shadow-lg p-5 w-96">
+            <h2 class="text-lg font-semibold text-gray-800">Konfirmasi Penghapusan</h2>
+            <p class="text-gray-600 mt-2">Apakah Anda yakin ingin menghapus newsletter ini? Tindakan ini tidak dapat dibatalkan.</p>
+            
+            <div class="mt-6 flex justify-end space-x-3">
+                <button id="cancelDeleteBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-lg">
+                    Batal
+                </button>
+                <form id="deleteNewsletterForm" method="POST" action="{{ route('newsletters.destroy', ':id') }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg">
+                        Hapus
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </main>
 @endsection

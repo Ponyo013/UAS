@@ -46,6 +46,7 @@ document.getElementById('closeModalBtn').addEventListener('click', function () {
     document.getElementById('createNewsletterModal').classList.add('hidden');
 });
 
+// Add Newsletter
 document.addEventListener('DOMContentLoaded', () => {
     const quill = new Quill('#quill-editor', {
         theme: 'snow',
@@ -70,4 +71,85 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const descriptionInput = document.querySelector('#description');
     descriptionInput.value = quill.root.innerHTML;
+});
+
+// Edit Newsletter
+document.addEventListener("DOMContentLoaded", function () {
+    const editModal = document.getElementById('editNewsletterModal');
+    const closeEditModalBtn = document.getElementById('closeEditModalBtn');
+    const editNewsletterForm = document.getElementById('editNewsletterForm');
+    
+    let quill;
+    const openEditModalBtns = document.querySelectorAll('.openEditModalBtn');
+    openEditModalBtns.forEach(button => {
+        button.addEventListener('click', function () {
+            const newsletterId = this.getAttribute('data-id');
+            const title = this.getAttribute('data-title');
+            const description = this.getAttribute('data-description');
+            const publishDate = this.getAttribute('data-publish_date');
+            const image = this.getAttribute('data-image');
+
+            editNewsletterForm.action = editNewsletterForm.action.replace(':id', newsletterId);
+            document.getElementById('editTitle').value = title;
+            document.getElementById('editPublishDate').value = publishDate;
+            document.getElementById('editImage').src = image;
+
+            if (!quill) {
+                quill = new Quill('#quillEditorEdit', {
+                    placeholder: 'Edit Deskripsi di sini...',
+                    modules: {
+                        toolbar: [
+                            [{ header: [1, 2, 3, false] }],
+                            ['bold', 'italic', 'underline', 'strike'],
+                            ['blockquote', 'code-block'],
+                            [{ list: 'ordered' }, { list: 'bullet' }],
+                            [{ align: [] }],
+                            ['link', 'image', 'video'],
+                            ['clean']
+                        ]
+                    },
+                    theme: 'snow'
+                });
+            }
+
+            quill.root.innerHTML = description;
+            quill.on('text-change', function () {
+                const descriptionInput = document.querySelector('#editDescription');
+                descriptionInput.value = quill.root.innerHTML;
+            });
+
+            editModal.classList.remove('hidden');
+        });
+    });
+
+    closeEditModalBtn.addEventListener('click', function () {
+        editModal.classList.add('hidden');
+    });
+
+    window.addEventListener('click', function (e) {
+        if (e.target === editModal) {
+            editModal.classList.add('hidden');
+        }
+    });
+});
+
+// Delete Newsletter
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('deleteConfirmationModal');
+    const cancelBtn = document.getElementById('cancelDeleteBtn');
+    const deleteForm = document.getElementById('deleteNewsletterForm');
+    
+    // Open modal
+    document.querySelectorAll('.openDeleteModalBtn').forEach(button => {
+        button.addEventListener('click', function () {
+            const newsletterId = this.dataset.id;
+            deleteForm.action = `/dashboard/newsletters/delete/${newsletterId}`;
+            modal.style.display = 'flex';
+        });
+    });
+
+    // Close modal
+    cancelBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
 });

@@ -70,7 +70,7 @@
                         @csrf
                         <button
                             type="submit"
-                            class="block w-full text-sm px-4 py-2 text-black text-left dark:text-white hover:bg-[#740938] dark:hover:bg-[#740938] focus:outline-none focus:ring-2 focus:ring-[#AF1740]">
+                            class="block w-full text-sm px-4 py-2 text-white text-left dark:text-white hover:bg-[#740938] dark:hover:bg-[#740938] focus:outline-none focus:ring-2 focus:ring-[#AF1740]">
                             Logout
                         </button>
                     </form>

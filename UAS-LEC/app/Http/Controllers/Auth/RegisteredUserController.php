@@ -45,10 +45,14 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        if ($user->role === 0) {
-            return redirect(route('welcome')); 
+        if (!$user->hasVerifiedEmail()) {
+            return redirect()->route('verification.notice');
         }
-
-        return redirect(route('dashboard'));
+    
+        if ($user->role === 0) {
+            return redirect()->route('welcome');
+        }
+    
+        return redirect()->route('dashboard');
     }
 }

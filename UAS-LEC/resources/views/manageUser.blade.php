@@ -102,12 +102,12 @@
                     type="button" 
                     class="bg-gray-300 hover:bg-gray-400 text-gray-800 p-2 rounded-lg shadow transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
                     id="closeModalBtn">
-                    Cancel
+                    Tutup
                 </button>
                 <button 
                     type="submit" 
                     class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg shadow transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                    Save Changes
+                    Simpan
                 </button>
             </div>
         </form>
