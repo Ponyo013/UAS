@@ -323,6 +323,7 @@
 </script>
 
 @endsection
+<!-- carousel script -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const carousel = document.getElementById('carousel');
@@ -372,7 +373,6 @@
     });
 </script>
 
-
 <!-- transisi tiap section -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -398,7 +398,6 @@
     });
 </script>
 
-
 <style>
     /* Transisi awal (sebelum terlihat) */
     .section {
@@ -412,7 +411,6 @@
         opacity: 1;
         transform: translateY(0);
     }
-
 </style>
 
 
