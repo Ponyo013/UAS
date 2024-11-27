@@ -1,5 +1,5 @@
 <div class="font-sans antialiased min-w-screen" style="background-color: #AF1740;">
-    <nav class="flex items-center justify-between py-5 px-4 bg-[#AF1740] fixed top-0 z-10 w-full">
+    <nav class="flex items-center justify-between py-5 px-8 bg-[#AF1740] fixed top-0 z-10 w-screen">
         <!-- Hamburger Button -->
         <div class="flex xl:hidden pr-6">
             <button id="hamburgerButton" class="text-white focus:outline-none">
@@ -8,6 +8,7 @@
                 </svg>
             </button>
         </div>
+
         <!-- Mobile Navbar Links (Initially Hidden) -->
         <div id="mobileMenu" class="xl:hidden bg-[#AF1740] text-white flex flex-col space-y-4 py-3 px-6 min-w-screen">
             <hr>
@@ -17,6 +18,7 @@
             <a href="{{ url('#newsletter') }}" class="py-1 hover:text-white/70">Newsletter</a>
             <a href="{{ url('#aktivitas') }}" class="py-1 hover:text-white/70">Aktivitas Terakhir</a>
         </div>
+
         <!-- Logo Section -->
         <a href="/" class="flex md:items-center space-y-2 flex-col space-x-0 md:flex-row md:space-x-3 md:space-y-0 md:rtl:space-x-reverse">
             <img src="{{ asset('images/tm-logo.png') }}" alt="Tunas Mahardika Logo" class="h-10 w-10">
@@ -121,64 +123,88 @@
     }
 </style>
 
-<!-- dropdown -->
+<!-- dropdown logout-->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Script for Dropdown Menu (Logout)
-        const dropdownButton = document.getElementById("dropdownUserButton");
-        const dropdownMenu = document.getElementById("dropdownUserMenu");
+    const dropdownButton = document.getElementById("dropdownUserButton");
+    const dropdownMenu = document.getElementById("dropdownUserMenu");
 
-        function toggleDropdown() {
-            dropdownMenu.classList.toggle("hidden");
+    function toggleDropdown() {
+        dropdownMenu.classList.toggle("hidden");
+    }
+
+    dropdownButton.addEventListener("click", toggleDropdown);
+
+    document.addEventListener("click", function (event) {
+        if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.add("hidden");
+        }
+    });
+
+    // Navbar scroll behavior to hide dropdown when scrolling up
+    const navbar = document.querySelector("nav");
+    let lastScrollTop = 0;
+
+    window.addEventListener("scroll", function () {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Check if user is scrolling down or up
+        if (currentScroll > lastScrollTop) {
+            // Scrolling down
+            navbar.classList.add("hidden");
+
+            // Hide dropdown if open when scrolling down
+            dropdownMenu.classList.add("hidden");
+        } else {
+            // Scrolling up
+            navbar.classList.remove("hidden");
+
+            // If the dropdown is open, hide it when scrolling up
+            dropdownMenu.classList.add("hidden");
         }
 
-        dropdownButton.addEventListener("click", toggleDropdown);
-
-        document.addEventListener("click", function (event) {
-            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.add("hidden");
-            }
-        });
-
-        // Script for Hamburger Menu
-        const hamburgerButton = document.getElementById("hamburgerButton");
-        const mobileMenu = document.getElementById("mobileMenu");
-
-        if (hamburgerButton && mobileMenu) {
-            hamburgerButton.addEventListener("click", function () {
-                mobileMenu.classList.toggle("hidden");
-            });
-        }
-
-        // Navbar scroll behavior to hide dropdown when scrolling up
-        const navbar = document.querySelector("nav");
-        let lastScrollTop = 0;
-
-        window.addEventListener("scroll", function () {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-            // Check if user is scrolling down or up
-            if (currentScroll > lastScrollTop) {
-                // Scrolling down
-                navbar.classList.add("hidden");
-
-                // Hide dropdown if open when scrolling down
-                dropdownMenu.classList.add("hidden");
-                mobileMenu.classList.add("hidden");
-            } else {
-                // Scrolling up
-                navbar.classList.remove("hidden");
-
-                // If the dropdown is open, hide it when scrolling up
-                dropdownMenu.classList.add("hidden");
-                mobileMenu.classList.add("hidden");
-            }
-
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative values
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative values
         });
     });
 </script>
+<!-- dropdown navbar items-->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerButton = document.getElementById("hamburgerButton");
+    const mobileMenu = document.getElementById("mobileMenu");
 
+    if (hamburgerButton && mobileMenu) {
+        hamburgerButton.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+        });
+    }
+
+    // Navbar scroll behavior to hide hamburger menu when scrolling up
+    const navbar = document.querySelector("nav");
+    let lastScrollTop = 0;
+
+    window.addEventListener("scroll", function () {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Check if user is scrolling down or up
+        if (currentScroll > lastScrollTop) {
+            // Scrolling down
+            navbar.classList.add("hidden");
+
+            // Hide mobile menu if open when scrolling down
+            mobileMenu.classList.add("hidden");
+        } else {
+            // Scrolling up
+            navbar.classList.remove("hidden");
+
+            // If the mobile menu is open, hide it when scrolling up
+            mobileMenu.classList.add("hidden");
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative values
+        });
+    });
+</script>
 
 <!-- navbar scroll hidden -->
 <script>

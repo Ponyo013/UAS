@@ -233,6 +233,7 @@
         <!-- Section Title -->
         <div class="flex justify-between items-center mb-16 md:px-24">
             <h2 class="text-4xl font-semibold text-[#CC2B52]">Galeri Foto</h2>
+            <a href="#" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
         </div>
         <!-- Swiper Carousel -->
         <div class="swiper-container mb-12 h-64">
@@ -323,6 +324,8 @@
 </script>
 
 @endsection
+
+
 <!-- carousel script -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
