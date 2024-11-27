@@ -144,31 +144,24 @@
         <h2 class="text-4xl font-semibold text-center text-[#CC2B52] mb-12">Newsletter</h2>
 
         <div class="relative overflow-hidden">
-            <div id="newsletter-carousel" class="flex transition-transform duration-700 ease-in-out">
-                <div class="min-w-full flex bg-[#F7F7F7] shadow-lg rounded-md hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-1/3">
-                        <img src="link-to-your-image.jpg" alt="Newsletter Image" class="w-full h-full object-cover rounded-l-md">
+            <div id="newsletter-carousel" class="flex transition-transform duration-700 ease-in-out space-x-6">
+
+                @foreach($newsletters as $newsletter)
+                    <div class="min-w-full sm:w-1/2 lg:w-1/3 flex bg-white shadow-lg rounded-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-full sm:w-1/3">
+                            <img src="{{ asset('storage/' . $newsletter->image) }}" alt="Newsletter Image" class="w-full h-full object-cover rounded-l-md">
+                        </div>
+                        <div class="w-full sm:w-2/3 p-4 sm:p-8 flex flex-col justify-center">
+                            <a href="" class="p-4">
+                                <h3 class="text-xl font-bold text-black mb-2">{{ $newsletter->title }}</h3>
+                                <p class="text-sm text-gray-500 mb-4">{{ $newsletter->publish_date }}</p>
+                                <p class="text-gray-600 mb-6">{{ \Str::words(strip_tags($newsletter->description), 60 , '...') }}
+                                    <strong>tekan untuk baca selengkapnya</strong>
+                                </p>
+                            </a>
+                        </div>
                     </div>
-                    <div class="w-1/2 p-20 flex flex-col justify-center">
-                        <a href="link-to-news-1">
-                            <h3 class="text-xl font-bold text-black mb-2">Judul Newsletter 1</h3>
-                            <p class="text-sm text-gray-500 mb-4">22 November 2024</p>
-                            <p class="text-gray-600 mb-6">Deskripsi singkat tentang berita 1. Konten ini akan menarik perhatian pembaca.</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="min-w-full flex bg-[#F7F7F7] shadow-lg rounded-md hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-1/3">
-                        <img src="link-to-your-image.jpg" alt="Newsletter Image" class="w-full h-full object-cover rounded-l-md">
-                    </div>
-                    <div class="w-1/2 p-20 flex flex-col justify-center">
-                        <a href="link-to-news-2">
-                            <h3 class="text-xl font-bold text-black mb-2">Judul Newsletter 2</h3>
-                            <p class="text-sm text-gray-500 mb-4">23 November 2024</p>
-                            <p class="text-gray-600 mb-6">Deskripsi singkat tentang berita 2. Konten ini akan menarik perhatian pembaca.</p>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="absolute top-1/2 left-0 transform -translate-y-1/2">
@@ -184,6 +177,7 @@
         </div>
     </div>
 </section>
+
 
 
 <!-- Aktivitas Terakhir Section -->

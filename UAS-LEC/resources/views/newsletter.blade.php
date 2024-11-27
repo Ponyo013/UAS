@@ -37,10 +37,10 @@
         @else
             <div id="newsletterList">
             @foreach($newsletters as $newsletter)
-                <div class="mb-6 p-6 bg-gray-100 shadow-xl rounded-lg">
+                <div class="mb-6 p-6 bg-gray-200  shadow-lg rounded-lg">
                     <div class="flex flex-col items-center space-y-4">
                         <div class="flex-shrink-0">
-                            <img src="{{ asset('storage/' . $newsletter->image) }}" alt="Image" class="w-50 h-50 object-cover rounded-lg">                     
+                            <img src="{{ asset('storage/' . $newsletter->image) }}" alt="Image" class="w-full h-auto max-w-xs max-h-48 object-cover rounded-lg">                     
                         </div>
                        
                         <div class="flex-1">
@@ -166,6 +166,5 @@
             </div>
         </div>
     </div>
-
 </main>
 @endsection

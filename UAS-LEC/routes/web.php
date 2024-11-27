@@ -7,14 +7,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
-
+Route::get('/', [NewsletterController::class, 'showWelcomePage'])->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
