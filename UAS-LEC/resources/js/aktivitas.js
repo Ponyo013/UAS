@@ -38,7 +38,78 @@ document.addEventListener('DOMContentLoaded', function() {
     deskripsiInput.value = quillEditor.root.innerHTML;
 });
 
+// Edit Aktivitas
+const editQuillEditor = new Quill('#edit-quill-editor-aktivitas', {
+    theme: 'snow',
+    placeholder: 'Tulis Deskripsi di sini...',
+    modules: {
+        toolbar: [
+            [{ header: [1, 2, 3, false] }],
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'code-block'],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            [{ align: [] }],
+            ['link', 'image', 'video'],
+            ['clean']  
+        ]
+    }
+});
+
+editQuillEditor.on('text-change', function() {
+    const deskripsiInput = document.querySelector('#edit_deskripsi');
+    deskripsiInput.value = editQuillEditor.root.innerHTML; 
+});
+
+    document.getElementById('openModalBtn').addEventListener('click', function() {
+        document.getElementById('postAktivitasModal').classList.remove('hidden');
+    });
+    document.getElementById('closeModalBtn').addEventListener('click', function() {
+        document.getElementById('postAktivitasModal').classList.add('hidden');
+    });
+
+    document.getElementById('closeEditModalBtn').addEventListener('click', function() {
+        document.getElementById('editAktivitasModal').classList.add('hidden');
+    });
+
+    document.querySelectorAll('.editAktivitasBtn').forEach(button => {
+    button.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');  
+        const judul = this.getAttribute('data-judul');
+        const kategori = this.getAttribute('data-kategori');
+        const tanggal = this.getAttribute('data-tanggal');
+        const deskripsi = this.getAttribute('data-deskripsi');
+
+        document.getElementById('edit_judul').value = judul;
+        document.getElementById('edit_kategori').value = kategori;
+        document.getElementById('edit_tanggal').value = tanggal;
+
+        editQuillEditor.root.innerHTML = deskripsi; 
+        const deskripsiInput = document.querySelector('#edit_deskripsi');
+        deskripsiInput.value = deskripsi;
+
+        const form = document.getElementById('editAktivitasForm');
+        form.action = form.action.replace(':id', id);
+        document.getElementById('editAktivitasModal').classList.remove('hidden');
+    });
+});
+
+
 // Delete Aktivitas
+    document.querySelectorAll('#deleteBtn').forEach(button => {
+        button.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            const actionUrl = document.getElementById('deleteAktivitasForm').action.replace(':id', id);
+            document.getElementById('deleteAktivitasForm').action = actionUrl;
+
+            document.getElementById('deleteConfirmationModal').classList.remove('hidden');
+        });
+    });
+
+    document.getElementById('cancelDeleteBtn').addEventListener('click', function() {
+        document.getElementById('deleteConfirmationModal').classList.add('hidden');
+    });
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const deleteBtns = document.querySelectorAll('[id^="deleteBtn"]'); 
     const deleteModal = document.getElementById('deleteConfirmationModal');

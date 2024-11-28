@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Aktivitas; 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ActivityController extends Controller
 {
@@ -75,9 +76,33 @@ class ActivityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+
+    public function update(Request $request, $id)
     {
-        //
+        $aktivitas = Aktivitas::findOrFail($id);
+
+        
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'kategori' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'gambar' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'tanggal' => 'required|date',
+        ]);
+        
+        $aktivitas->judul = $request->input('judul');
+        $aktivitas->kategori = $request->input('kategori');
+        $aktivitas->deskripsi = $request->input('deskripsi');
+        $aktivitas->tanggal = $request->input('tanggal');
+
+        if ($request->hasFile('gambar')) {
+            $originalFileName = $request->file('gambar')->getClientOriginalName();
+            $gambar = $request->file('gambar')->storeAs('images', $originalFileName, 'public');
+            $aktivitas->gambar = $gambar;
+        }
+        
+        $aktivitas->save();
+        return redirect()->route('show.aktivitas')->with('success', 'Aktivitas berhasil diperbarui!');
     }
 
     /**

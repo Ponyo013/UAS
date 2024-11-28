@@ -134,7 +134,8 @@
                 </div>
                 <div class="mb-4">
                     <label for="editImage" class="block text-sm font-medium text-gray-700">Foto</label>
-                    <input type="file" id="editImage" name="image" class="mt-1 block w-full" accept="image/*">
+                    <input type="file" id="editImage" name="image" class="block w-full text-sm text-gray-900 file:py-2 file:px-4 file:rounded-md file:border-none file:bg-gray-200 hover:file:bg-gray-300 focus:outline-none" accept="image/*">
+                    <p class="mt-1 text-xs text-gray-500">Pilih gambar dengan format JPG, PNG, atau GIF.</p>
                 </div>
                 <div class="mb-4">
                     <label for="editPublishDate" class="block text-sm font-medium text-gray-700">Publish Date</label>
@@ -171,24 +172,6 @@
 </main>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const modal = document.getElementById('deleteConfirmationModal');
-    const cancelBtn = document.getElementById('cancelDeleteBtn');
-    const deleteForm = document.getElementById('deleteNewsletterForm');
-    
-    // Open modal
-    document.querySelectorAll('.openDeleteModalBtn').forEach(button => {
-        button.addEventListener('click', function () {
-            const newsletterId = this.dataset.id;
-            deleteForm.action = `/dashboard/newsletters/delete/${newsletterId}`;
-            modal.style.display = 'flex';
-        });
-    });
 
-    // Close modal
-    cancelBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
-    });
-});
 </script>
 @endsection

@@ -54,7 +54,7 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::get('/dashboard/aktivitas', [ActivityController::class, 'index'])->name('show.aktivitas');
     Route::post('/dashboard/aktivitas/store', [ActivityController::class, 'store'])->name('aktivitas.store');
     Route::delete('/dashboard/aktivitas/delete/{id}', [ActivityController::class, 'destroy'])->name('aktivitas.destroy');
-
+    Route::put('/dashboard/aktivitas/update/{id}', [ActivityController::class, 'update'])->name('aktivitas.update');
 });
 
 Route::get('/galeri', function () {
