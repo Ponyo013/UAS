@@ -25,6 +25,11 @@ td.dt-empty {
 .ql-align-left{
   text-align: left !important;
 }
+
 .ql-align-center{
   text-align: center !important;
+}
+
+.hidden {
+  display: none !important;
 }

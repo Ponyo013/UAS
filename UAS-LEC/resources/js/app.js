@@ -34,10 +34,6 @@ document.getElementById('closeModalBtn').addEventListener('click', function () {
 });
 
 // Newsletter
-$(document).ready(function() {
-    $('#NewsletterTable table').DataTable(); 
-});
-
 document.getElementById('createNewsletterBtn').addEventListener('click', function() {
     document.getElementById('createNewsletterModal').classList.remove('hidden');
 });
@@ -152,4 +148,13 @@ document.addEventListener('DOMContentLoaded', function () {
     cancelBtn.addEventListener('click', function () {
         modal.style.display = 'none';
     });
+});
+
+// Aktivitas Terakhir
+document.getElementById('createAktivitasBtn').addEventListener('click', function() {
+    document.getElementById('createAktivitasModal').classList.remove('hidden');
+});
+
+document.getElementById('closeAktivitasBtn').addEventListener('click', function () {
+    document.getElementById('createAktivitasModal').classList.add('hidden');
 });

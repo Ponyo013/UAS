@@ -37,7 +37,7 @@
         @else
             <div id="newsletterList">
             @foreach($newsletters as $newsletter)
-                <div class="mb-6 p-6 bg-gray-200  shadow-lg rounded-lg">
+                <div class="mb-6 p-6 bg-gray-50 border border-gray-300 rounded-lg shadow-md">
                     <div class="flex flex-col items-center space-y-4">
                         <div class="flex-shrink-0">
                             <img src="{{ asset('storage/' . $newsletter->image) }}" alt="Image" class="w-full h-auto max-w-xs max-h-48 object-cover rounded-lg">                     
@@ -89,26 +89,28 @@
             <h2 class="text-xl font-semibold mb-4">Buat Newsletter Baru</h2>
             <form action="{{ route('newsletters.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+            
                 <div class="mb-4">
                     <label for="title" class="block text-sm font-medium text-gray-700">Judul</label>
                     <input type="text" id="title" name="title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md" required>
                 </div>
                 <div class="mb-4">
                     <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
-                    <div id="quill-editor" name="description" class="block w-full border border-gray-300 h-[200px]"></div>
+                    <div id="quill-editor" name="description" class="block w-full border border-gray-300 h-[150px]"></div>
                     <input type="hidden" id="description" name="description">
                 </div>
                 <div class="mb-4">
                     <label for="image" class="block text-sm font-medium text-gray-700">Foto</label>
-                    <input type="file" id="image" name="image" class="mt-1 block w-full" accept="image/*">
+                    <input type="file" id="image" name="image" class="block w-full text-sm text-gray-900 file:py-2 file:px-4 file:rounded-md file:border-none file:bg-gray-200 hover:file:bg-gray-300 focus:outline-none" accept="image/*" required>
+                    <p class="mt-1 text-xs text-gray-500">Pilih gambar dengan format JPG, PNG, atau GIF.</p>
                 </div>
                 <div class="mb-4">
-                    <label for="publish_date" class="block text-sm font-medium text-gray-700">Publish Date</label>
+                    <label for="publish_date" class="block text-sm font-medium text-gray-700">Tanggal Terbit</label>
                     <input type="date" id="publish_date" name="publish_date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md" required>
                 </div>
                 <div class="flex justify-between items-center">
-                    <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded-lg" id="closeModalBtn">Tutup</button>
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">Simpan</button>
+                    <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded-lg" id="closeModalBtn">Batal</button>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">Terbitkan</button>
                 </div>
             </form>
         </div>

@@ -44,7 +44,6 @@
     </div>
 </div>
 
-
 <!-- About Us Section -->
 <section id="aboutus" class="section py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
@@ -95,7 +94,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- Program -->
 <section id="program" class="section py-20 bg-white">
@@ -177,8 +175,6 @@
         </div>
     </div>
 </section>
-
-
 
 <!-- Aktivitas Terakhir Section -->
 <section id="aktivitas" class="section py-20 bg-white">

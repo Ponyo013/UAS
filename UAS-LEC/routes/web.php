@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProfileController;
+
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +49,10 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::post('/dashboard/newsletters/store', [NewsletterController::class, 'store'])->name('newsletters.store');
     Route::put('/dashboard/newsletters/update/{id}', [NewsletterController::class, 'update'])->name('newsletters.update');
     Route::delete('/dashboard/newsletters/delete/{id}', [NewsletterController::class, 'destroy'])->name('newsletters.destroy');
+
+    // Aktivitas Terakhir
+    Route::get('/dashboard/aktivitas', [ActivityController::class, 'index'])->name('show.aktivitas');
+    Route::post('/dashboard/aktivitas/store', [ActivityController::class, 'store'])->name('aktivitas.store');
 });
 
 Route::get('/galeri', function () {
