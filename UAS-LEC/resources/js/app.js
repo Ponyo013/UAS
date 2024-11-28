@@ -135,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const cancelBtn = document.getElementById('cancelDeleteBtn');
     const deleteForm = document.getElementById('deleteNewsletterForm');
     
-    // Open modal
     document.querySelectorAll('.openDeleteModalBtn').forEach(button => {
         button.addEventListener('click', function () {
             const newsletterId = this.dataset.id;
@@ -145,10 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Close modal
     cancelBtn.addEventListener('click', function () {
         modal.classList.add('hidden');
     });
 });
-
-// Aktivitas Terakhir

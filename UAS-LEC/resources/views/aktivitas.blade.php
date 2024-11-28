@@ -1,3 +1,5 @@
+@vite(['resources/js/aktivitas.js'])
+
 @extends('layouts.admin')
 
 @section('title', 'Dashboard')
@@ -145,80 +147,7 @@
             </div>
         </div>
     </div>
-
-
 </main>
-<script>
-    const modal = document.getElementById('postAktivitasModal');
-    const openModalBtn = document.getElementById('openModalBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-
-    openModalBtn.addEventListener('click', function() {
-        modal.classList.remove('hidden');
-    });
-
-    closeModalBtn.addEventListener('click', function() {
-        modal.classList.add('hidden');
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        var quill = new Quill('#quill-editor-aktivitas', {
-            theme: 'snow',
-            placeholder: 'Tulis Deskripsi di sini...',
-            modules: {
-                toolbar: [
-                    [{ header: [1, 2, 3, false] }],
-                    ['bold', 'italic', 'underline', 'strike'],
-                    ['blockquote', 'code-block'],
-                    [{ list: 'ordered' }, { list: 'bullet' }],
-                    [{ align: [] }],
-                    ['link', 'image', 'video'],
-                    ['clean']  
-                ]
-            }
-        });
-
-        quill.on('text-change', function() {
-        const descriptionInput = document.querySelector('#deskripsi');
-        descriptionInput.value = quill.root.innerHTML;
-    });
-
-    const descriptionInput = document.querySelector('#deskripsi');
-    descriptionInput.value = quill.root.innerHTML;
-    });
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all the delete buttons
-    const deleteBtns = document.querySelectorAll('[id^="deleteBtn"]'); // Select all buttons with ids starting with 'deleteBtn'
-    const deleteModal = document.getElementById('deleteConfirmationModal');
-    const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
-    const deleteForm = document.getElementById('deleteAktivitasForm');
-
-    // Loop through each delete button and add an event listener
-    deleteBtns.forEach(function(deleteBtn) {
-        deleteBtn.addEventListener('click', function () {
-            const itemId = this.getAttribute('data-id'); // Get the ID of the item to delete
-            const actionUrl = deleteForm.action.replace(':id', itemId); // Replace ':id' with the actual item ID
-
-            // Update the form action URL dynamically
-            deleteForm.action = actionUrl;
-
-            // Show the delete modal
-            deleteModal.classList.remove('hidden');
-        });
-    });
-
-    // Hide modal when cancel button is clicked
-    cancelDeleteBtn.addEventListener('click', function () {
-        deleteModal.classList.add('hidden');
-    });
-});
-
-</script>
-
-
 @endsection
 
 
