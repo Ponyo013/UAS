@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'CheckUserRole' => CheckUserRole::class
+            'CheckUserRole' => CheckUserRole::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
