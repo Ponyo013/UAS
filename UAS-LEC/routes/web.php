@@ -53,6 +53,8 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     // Aktivitas Terakhir
     Route::get('/dashboard/aktivitas', [ActivityController::class, 'index'])->name('show.aktivitas');
     Route::post('/dashboard/aktivitas/store', [ActivityController::class, 'store'])->name('aktivitas.store');
+    Route::delete('/dashboard/aktivitas/delete/{id}', [ActivityController::class, 'destroy'])->name('aktivitas.destroy');
+
 });
 
 Route::get('/galeri', function () {

@@ -278,9 +278,8 @@
 </section>
 
 <!-- Kunjungi kami -->
-<section id="kunjungi" class="section py-20 bg-white">
+<!-- <section id="kunjungi" class="section py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
-        <!-- Section Title -->
         <div class="flex justify-between items-center mb-12">
             <h2 class="text-4xl font-semibold text-[#CC2B52]">Kunjungi Kami</h2>
         </div>
@@ -290,7 +289,7 @@
             </a>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- swiper script -->
 <script>

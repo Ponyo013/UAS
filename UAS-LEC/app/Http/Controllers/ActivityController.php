@@ -83,8 +83,11 @@ class ActivityController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $aktivitas = Aktivitas::findOrFail($id);
+        $aktivitas->delete();
+    
+        return redirect()->route('show.aktivitas')->with('success', 'Aktivitas terakhir telah dihapus!');
     }
 }

@@ -169,4 +169,26 @@
         </div>
     </div>
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('deleteConfirmationModal');
+    const cancelBtn = document.getElementById('cancelDeleteBtn');
+    const deleteForm = document.getElementById('deleteNewsletterForm');
+    
+    // Open modal
+    document.querySelectorAll('.openDeleteModalBtn').forEach(button => {
+        button.addEventListener('click', function () {
+            const newsletterId = this.dataset.id;
+            deleteForm.action = `/dashboard/newsletters/delete/${newsletterId}`;
+            modal.style.display = 'flex';
+        });
+    });
+
+    // Close modal
+    cancelBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+});
+</script>
 @endsection

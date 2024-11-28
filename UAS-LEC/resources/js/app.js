@@ -141,20 +141,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const newsletterId = this.dataset.id;
             deleteForm.action = `/dashboard/newsletters/delete/${newsletterId}`;
             modal.style.display = 'flex';
+            modal.classList.remove('hidden'); 
         });
     });
 
     // Close modal
     cancelBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
+        modal.classList.add('hidden');
     });
 });
 
 // Aktivitas Terakhir
-document.getElementById('createAktivitasBtn').addEventListener('click', function() {
-    document.getElementById('createAktivitasModal').classList.remove('hidden');
-});
-
-document.getElementById('closeAktivitasBtn').addEventListener('click', function () {
-    document.getElementById('createAktivitasModal').classList.add('hidden');
-});

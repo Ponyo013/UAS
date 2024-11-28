@@ -34,30 +34,51 @@
         @if($aktivitas->isEmpty())
             <p class="text-gray-600">Belum ada Aktivitas yang dipost.</p>
         @else
-            <div class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 @foreach($aktivitas as $item)
-                    <div class="p-5 bg-gray-50 border border-gray-300 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold">{{ $item->judul }}</h3>
-                        <div class="flex justify-between text-sm text-gray-600">
-                            <p>Kategori: {{ $item->kategori }}</p>
-                            <p>Di Post pada: {{ $item->tanggal }}</p>
-                        </div>
-                        
+                    <div class="bg-white border border-gray-300 rounded-lg shadow-md">
+                        <!-- Image at the top -->
                         @if($item->gambar)
-                            <img src="{{ asset('storage/' . $item->gambar) }}" alt="Aktivitas Image" class="mt-4 max-w-full h-auto rounded-lg">
+                            <img src="{{ asset('storage/' . $item->gambar) }}" alt="Aktivitas Image" class="w-full h-48 object-cover rounded-t-lg">
                         @endif
-                        
-                        <!-- Truncated Description
-                        <p class="text-gray-700 mt-2 truncated-description" id="desc-{{ $item->id }}">
-                            {!! \Str::limit($item->deskripsi, 150) !!}
-                            <a href="javascript:void(0);" class="text-blue-500 read-more" data-id="{{ $item->id }}">Baca Selengkapnya</a>
-                        </p>
 
-                        Full Description (Initially hidden) -->
-                        <!-- <p class="text-gray-700 mt-2 full-description hidden" id="full-desc-{{ $item->id }}">
-                            {{ $item->deskripsi }}
-                        </p> -->
+                        <div class="p-5">
+                            <!-- Title and Meta Info (kategori, tanggal) -->
+                            <h3 class="text-xl font-bold">{{ $item->judul }}</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mt-2">
+                                <p class="font-semibold text-sm text-gray-600 ">{{ $item->kategori }}</p>
+                                <p class="text-gray-500 text-sm">{{ $item->tanggal }}</p>
+                            </div>
 
+                            <!-- Action Buttons at the bottom -->
+                            <div class="mt-4 flex justify-center items-center gap-3">
+                                <!-- Info Button -->
+                                <button class="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 15 15">
+                                        <path fill="white" d="M8 10.5V10H7v.5zm-1 .01v.5h1v-.5zM7 4v4h1V4zm0 6.5v.01h1v-.01zm.5 3.5A6.5 6.5 0 0 1 1 7.5H0A7.5 7.5 0 0 0 7.5 15zM14 7.5A6.5 6.5 0 0 1 7.5 14v1A7.5 7.5 0 0 0 15 7.5zM7.5 1A6.5 6.5 0 0 1 14 7.5h1A7.5 7.5 0 0 0 7.5 0zm0-1A7.5 7.5 0 0 0 0 7.5h1A6.5 6.5 0 0 1 7.5 1z" />
+                                    </svg>
+                                </button>
+
+                                <!-- Edit Button -->
+                                <button class="bg-orange-500 text-white p-2 rounded-full hover:bg-orange-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <g class="edit-outline">
+                                            <g fill="currentColor" fill-rule="evenodd" class="Vector" clip-rule="evenodd">
+                                                <path d="M2 6.857A4.857 4.857 0 0 1 6.857 2H12a1 1 0 1 1 0 2H6.857A2.857 2.857 0 0 0 4 6.857v10.286A2.857 2.857 0 0 0 6.857 20h10.286A2.857 2.857 0 0 0 20 17.143V12a1 1 0 1 1 2 0v5.143A4.857 4.857 0 0 1 17.143 22H6.857A4.857 4.857 0 0 1 2 17.143z" />
+                                                <path d="m15.137 13.219l-2.205 1.33l-1.033-1.713l2.205-1.33l.003-.002a1.2 1.2 0 0 0 .232-.182l5.01-5.036a3 3 0 0 0 .145-.157c.331-.386.821-1.15.228-1.746c-.501-.504-1.219-.028-1.684.381a6 6 0 0 0-.36.345l-.034.034l-4.94 4.965a1.2 1.2 0 0 0-.27.41l-.824 2.073a.2.2 0 0 0 .29.245l1.032 1.713c-1.805 1.088-3.96-.74-3.18-2.698l.825-2.072a3.2 3.2 0 0 1 .71-1.081l4.939-4.966l.029-.029c.147-.15.641-.656 1.24-1.02c.327-.197.849-.458 1.494-.508c.74-.059 1.53.174 2.15.797a2.9 2.9 0 0 1 .845 1.75a3.15 3.15 0 0 1-.23 1.517c-.29.717-.774 1.244-.987 1.457l-5.01 5.036q-.28.281-.62.487m4.453-7.126s-.004.003-.013.006z" />
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </button>
+
+                                <!-- Delete Button -->
+                                <button id="deleteBtn" data-id="{{ $item->id }}" class="bg-red-500 text-white p-2 rounded-full hover:bg-red-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 @endforeach
             </div>
@@ -104,6 +125,28 @@
         </div>
     </div>
 
+    <!-- Delete Confirmation Modal for Aktivitas -->
+    <div id="deleteConfirmationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg shadow-lg p-4 w-96">
+            <h2 class="text-lg font-semibold text-gray-800">Konfirmasi Penghapusan</h2>
+            <p class="text-gray-600 mt-2">Apakah Anda yakin ingin menghapus aktivitas ini? Tindakan ini tidak dapat dibatalkan.</p>
+            
+            <div class="mt-6 flex justify-end space-x-3">
+                <button id="cancelDeleteBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-lg">
+                    Batal
+                </button>
+                <form id="deleteAktivitasForm" method="POST" action="{{ route('aktivitas.destroy', ':id') }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg">
+                        Hapus
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 </main>
 <script>
     const modal = document.getElementById('postAktivitasModal');
@@ -144,6 +187,37 @@
     descriptionInput.value = quill.root.innerHTML;
     });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all the delete buttons
+    const deleteBtns = document.querySelectorAll('[id^="deleteBtn"]'); // Select all buttons with ids starting with 'deleteBtn'
+    const deleteModal = document.getElementById('deleteConfirmationModal');
+    const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+    const deleteForm = document.getElementById('deleteAktivitasForm');
+
+    // Loop through each delete button and add an event listener
+    deleteBtns.forEach(function(deleteBtn) {
+        deleteBtn.addEventListener('click', function () {
+            const itemId = this.getAttribute('data-id'); // Get the ID of the item to delete
+            const actionUrl = deleteForm.action.replace(':id', itemId); // Replace ':id' with the actual item ID
+
+            // Update the form action URL dynamically
+            deleteForm.action = actionUrl;
+
+            // Show the delete modal
+            deleteModal.classList.remove('hidden');
+        });
+    });
+
+    // Hide modal when cancel button is clicked
+    cancelDeleteBtn.addEventListener('click', function () {
+        deleteModal.classList.add('hidden');
+    });
+});
+
+</script>
+
 
 @endsection
 
