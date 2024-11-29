@@ -27,7 +27,7 @@
         </a>
 
         <!-- Navbar Links -->
-        <div class="xl:flex space-x-8 mx-auto pl-24">
+        <div class="space-x-8 mx-auto pl-24 invisible xl:visible xl:flex">
             <a href="{{ url('#home') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Beranda</a>
             <a href="{{ url('#aboutus') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Tentang Kami</a>
             <a href="{{ url('#kalendar') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Kalendar</a>
@@ -169,6 +169,7 @@
         });
     });
 </script>
+
 <!-- dropdown navbar items-->
 <script>
     document.addEventListener("DOMContentLoaded", function () {

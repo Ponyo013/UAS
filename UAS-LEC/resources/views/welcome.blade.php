@@ -226,7 +226,7 @@
             <a href="{{ Route('show.galeri') }}" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
         </div>
         <!-- Swiper Carousel -->
-        <div class="swiper-container mb-12 h-64">
+        <div class="swiper-container overflow-hidden mb-12 h-64">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
                 <div class="swiper-slide ">
