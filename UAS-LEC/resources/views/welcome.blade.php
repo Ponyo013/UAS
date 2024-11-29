@@ -152,8 +152,8 @@
                     <div class="w-full sm:w-2/3 p-4 sm:p-8 flex flex-col justify-center">
                         <a href="" class="p-4">
                             <h3 class="text-xl font-bold text-black mb-2">{{ $newsletter->title }}</h3>
-                            <p class="text-sm text-gray-500 mb-4">{{ $newsletter->publish_date }}</p>
-                            <p class="text-gray-600 mb-6">{{ \Str::words(strip_tags($newsletter->description), 60 , '...') }}
+                            <p class="text-sm text-gray-500 mb-4">{{ \Carbon\Carbon::parse($newsletter->tanggal)->format('F d, Y') }}</p>
+                            <p class="text-gray-600 mb-6">{!! \Illuminate\Support\Str::words(strip_tags($newsletter->description, '<strong><em><u><b><i>'), 60, '...') !!}
                                 <strong>tekan untuk baca selengkapnya</strong>
                             </p>
                         </a>
@@ -179,40 +179,21 @@
 <!-- Aktivitas Terakhir Section -->
 <section id="aktivitas" class="section py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
-        <!-- Section Title -->
         <div class="flex justify-between items-center mb-12">
             <h2 class="text-4xl font-semibold text-[#CC2B52]">Aktivitas Terakhir</h2>
-            <a href="#" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
+            <a href="" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
         </div>
-        <!-- Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <a href="/detail-page1" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
-                <img src="link-to-your-image1.jpg" alt="Al Muzakki Fun Day Agustusan" class="w-full h-48 object-cover">
+            @foreach($aktivitas as $activity)
+            <a href="" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
+                    <img src="{{ asset('storage/' . $activity->gambar) }}" alt="{{ $activity->judul }}" class="w-full h-48 object-cover">
                 <div class="p-6">
-                    <p class="font-semibold text-sm text-gray-600 mb-2">Info & Berita</p>
-                    <h3 class="text-lg font-bold text-black mb-2">Al Muzakki Fun Day Agustusan</h3>
-                    <p class="text-gray-500 text-sm">Agustus 21, 2024</p>
+                     <p class="font-semibold text-sm text-gray-600 mb-2">{{ $activity->kategori }}</p> 
+                    <h3 class="text-lg font-bold text-black mb-2">{{ $activity->judul }}</h3> 
+                    <p class="text-gray-500 text-sm">{{ \Carbon\Carbon::parse($activity->tanggal)->format('F d, Y') }}</p>
                 </div>
             </a>
-            <!-- Card 2 -->
-            <a href="/detail-page2" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
-                <img src="link-to-your-image2.jpg" alt="Kunjungan dan Santunan Rutin dari Ayam Geprek Sai Kelet" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <p class="font-semibold text-sm text-gray-600 mb-2">Info & Berita</p>
-                    <h3 class="text-lg font-bold text-black mb-2">Kunjungan dan Santunan Rutin dari Ayam Geprek Sai Kelet</h3>
-                    <p class="text-gray-500 text-sm">Agustus 03, 2024</p>
-                </div>
-            </a>
-            <!-- Card 3 -->
-            <a href="/detail-page3" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
-                <img src="link-to-your-image3.jpg" alt="Kunjungan dan Santunan dari Rama Group" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <p class="font-semibold text-sm text-gray-600 mb-2">Info & Berita</p>
-                    <h3 class="text-lg font-bold text-black mb-2">Kunjungan dan Santunan dari Rama Group</h3>
-                    <p class="text-gray-500 text-sm">Agustus 02, 2024</p>
-                </div>
-            </a>
+            @endforeach
         </div>
     </div>
 </section>
