@@ -218,7 +218,7 @@
 </section>
 
 <!-- Galeri -->
-<section id="Galeri" class="section py-20 bg-gray-100">
+<section id="galeri" class="section py-20 bg-gray-100">
     <div class="container mx-auto px-6 ">
         <!-- Section Title -->
         <div class="flex justify-between items-center mb-16 md:px-24">

@@ -12,11 +12,11 @@
         <!-- Mobile Navbar Links (Initially Hidden) -->
         <div id="mobileMenu" class="xl:hidden bg-[#AF1740] text-white flex flex-col space-y-4 py-3 px-6 min-w-screen">
             <hr>
-            <a href="{{ url('#home') }}" class="py-1 hover:text-white/70">Beranda</a>
             <a href="{{ url('#aboutus') }}" class="py-1 hover:text-white/70">Tentang Kami</a>
             <a href="{{ url('#kalender') }}" class="py-1 hover:text-white/70">Kalender</a>
             <a href="{{ url('#newsletter') }}" class="py-1 hover:text-white/70">Newsletter</a>
             <a href="{{ url('#aktivitas') }}" class="py-1 hover:text-white/70">Aktivitas Terakhir</a>
+            <a href="{{ url('#galeri') }}" class="py-1 hover:text-white/70">Galeri</a>
             <a href="{{ url('#home') }}" class="py-1 hover:text-white/70">Donasi</a>
         </div>
 
@@ -28,11 +28,11 @@
 
         <!-- Navbar Links -->
         <div class="space-x-8 mx-auto pl-24 invisible xl:visible xl:flex">
-            <a href="{{ url('#home') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Beranda</a>
             <a href="{{ url('#aboutus') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Tentang Kami</a>
             <a href="{{ url('#kalendar') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Kalendar</a>
             <a href="{{ url('#newsletter') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Newsletter</a>
             <a href="{{ url('#aktivitas') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Aktivitas Terakhir</a>
+            <a href="{{ url('#galeri') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Galeri</a>
             <a href="{{ url('#home') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Donasi</a>
         </div>
 
@@ -79,18 +79,22 @@
 
             @else
             <!-- Login Section -->
-            <a
-                href="{{ route('login') }}"
-                class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] text-base sm:text-sm md:text-base">
-                Log in
-            </a>
-            @if (Route::has('register'))
-            <a
-                href="{{ route('register') }} "
-                class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] text-base sm:text-sm md:text-base">
-                Register
-            </a>
-            @endif
+            <div class="flex flex-col sm:flex-row sm:space-x-4">
+                <a
+                    href="{{ route('login') }}"
+                    class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] text-base sm:text-sm md:text-base">
+                    Login
+                </a>
+
+                @if (Route::has('register'))
+                <a
+                    href="{{ route('register') }}"
+                    class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] text-base sm:text-sm md:text-base">
+                    Register
+                </a>
+                @endif
+            </div>
+
             @endauth
             @endif
         </div>

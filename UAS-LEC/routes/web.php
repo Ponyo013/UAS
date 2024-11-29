@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GaleriController;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -55,9 +56,11 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::post('/dashboard/aktivitas/store', [ActivityController::class, 'store'])->name('aktivitas.store');
     Route::delete('/dashboard/aktivitas/delete/{id}', [ActivityController::class, 'destroy'])->name('aktivitas.destroy');
     Route::put('/dashboard/aktivitas/update/{id}', [ActivityController::class, 'update'])->name('aktivitas.update');
-});
 
-Route::get('/galeri', function () {
-    return view('galeri');
-})->name('show.galeri');
+    // Galeri
+    Route::get('/dashboard/galeri', [GaleriController::class, 'index'])->name('show.galeri');
+    Route::post('/dashboard/galeri/store', [GaleriController::class, 'store'])->name('galeri.store');
+    Route::delete('/dashboard/galeri/delete/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
+    Route::put('/dashboard/galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
+});
 

@@ -34,7 +34,7 @@
         </div>
 
         @if($aktivitas->isEmpty())
-            <p class="text-gray-600">Belum ada Aktivitas yang dipost.</p>
+            <p class="text-gray-600 mt-64 text-center opacity-50">Belum ada Aktivitas yang dipost.</p>
         @else
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 @foreach($aktivitas as $item)

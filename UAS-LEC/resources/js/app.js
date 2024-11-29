@@ -50,7 +50,7 @@ document.getElementById('closeModalBtn').addEventListener('click', function () {
     document.getElementById('createNewsletterModal').classList.add('hidden');
 });
 
-// Add Newsletter
+// Add Newsletterx
 document.addEventListener('DOMContentLoaded', () => {
     const quill = new Quill('#quill-editor', {
         theme: 'snow',

@@ -33,7 +33,7 @@
         </div>
 
         @if($newsletters->isEmpty())
-            <p class="text-gray-600">Belum ada newsletter yang diterbitkan.</p>
+            <p class="text-gray-600 mt-64 text-center opacity-50">Belum ada newsletter yang diterbitkan.</p>
         @else
             <div id="newsletterList">
             @foreach($newsletters as $newsletter)
