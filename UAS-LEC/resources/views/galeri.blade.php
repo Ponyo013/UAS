@@ -22,24 +22,24 @@
         </div>
 
         @if($galeriItems->isEmpty())
-            <p class="text-gray-600 mt-64 text-center opacity-50">Belum ada Foto yang dimasukkan.</p>
+        <p class="text-gray-600 mt-64 text-center opacity-50">Belum ada Foto yang dimasukkan.</p>
         @else
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6" id="galeriList">
-                @foreach($galeriItems as $galeri)
-                    <div class="card bg-white shadow-lg rounded-lg overflow-hidden w-full group relative">
-                        <div class="relative">
-                            <img src="{{ asset('storage/' . $galeri->gambar) }}" alt="gambar" class="w-full h-96 object-cover">
-                            <!-- Delete button (only visible when hovered) -->
-                            <button class="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 openDeleteModalBtn"
-                                data-id="{{ $galeri->id }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                @endforeach
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6" id="galeriList">
+            @foreach($galeriItems as $galeri)
+            <div class="card bg-white shadow-lg rounded-lg overflow-hidden w-full group relative">
+                <div class="relative">
+                    <img src="{{ asset('storage/' . $galeri->gambar) }}" alt="gambar" class="w-full h-96 object-cover">
+                    <!-- Delete button (only visible when hovered) -->
+                    <button class="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 openDeleteModalBtn"
+                        data-id="{{ $galeri->id }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
             </div>
+            @endforeach
+        </div>
         @endif
     </div>
 </main>
@@ -54,6 +54,7 @@
                 <label for="gambar" class="block text-sm font-medium text-gray-700">Foto</label>
                 <input type="file" id="gambar" name="gambar" class="block w-full text-sm text-gray-900 file:py-2 file:px-4 file:rounded-md file:border-none file:bg-gray-200 hover:file:bg-gray-300 focus:outline-none" accept="gambar/*" required>
                 <p class="mt-1 text-xs text-gray-500">Pilih gambar dengan format JPG, PNG, atau GIF.</p>
+                <p class="mt-1 text-xs text-red-600">Max 2MB</p>
             </div>
             <div class="flex justify-between items-center">
                 <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded-lg" id="closeModalBtn">Batal</button>

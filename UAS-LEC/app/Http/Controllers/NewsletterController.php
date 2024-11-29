@@ -13,10 +13,8 @@ class NewsletterController extends Controller
         return view('newsletter', compact('newsletters'));
     }
 
-    public function create()
-    {
-    }    
-    
+    public function create() {}
+
     public function store(Request $request)
     {
         $request->validate([
@@ -32,20 +30,17 @@ class NewsletterController extends Controller
             $imagePath = $request->file('image')->storeAs('images', $originalName, 'public');
         }
 
-       Newsletter::create([
+        Newsletter::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'image' => $imagePath,  
+            'image' => $imagePath,
             'publish_date' => $request->input('publish_date'),
         ]);
 
         return redirect()->route('show.newsletter')->with('success', 'Newsletter telah diterbitkan!');
     }
 
-    public function edit($id)
-    {
-       
-    }
+    public function edit($id) {}
 
     public function update(Request $request, $id)
     {
@@ -70,7 +65,7 @@ class NewsletterController extends Controller
     {
         $newsletter = Newsletter::findOrFail($id);
         $newsletter->delete();
-    
+
         return redirect()->route('show.newsletter')->with('success', 'Newsletter telah dihapus!');
     }
 }
