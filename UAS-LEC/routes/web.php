@@ -6,14 +6,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\DonasiController;
 
 use App\Http\Controllers\kalenderController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
+Route::get('/donasi', [DonasiController::class, 'donasiGUest'])->name('donasi');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -66,6 +67,9 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::delete('/dashboard/galeri/delete/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
     // Kalender
     Route::get('/dashboard/kalender', [kalenderController::class, 'index'])->name('show.kalender');
+
+    // List Donasi
+    Route::get('/dashboard/donasi', [DonasiController::class, 'index'])->name('show.donasi');
 });
 
 Route::get('/galeriGuess', [GaleriController::class, 'indexGuess'])->name('show.galeriGuess');

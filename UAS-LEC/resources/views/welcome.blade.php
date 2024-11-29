@@ -19,9 +19,9 @@
                     kamu telah melakukannya untuk Aku."
                     <br><em>-Matius 25:40-</em>
                 </p>
-                <button class="mt-6 px-6 py-3 bg-[#AF1740] text-white font-semibold text-lg rounded-lg hover:bg-opacity-90 shadow-md transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#AF1740]/50">
+                <a href="{{ route('donasi') }}" class="mt-6 px-6 py-3 bg-[#AF1740] text-white font-semibold text-lg rounded-lg hover:bg-opacity-90 shadow-md transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#AF1740]/50">
                     Donasi
-                </button>
+                </a>
             </div>
             <div class="min-w-full flex flex-col items-center justify-center bg-red-500 text-white h-full p-6 text-center">
                 <h2 class="text-5xl font-bold mb-4">Berbagi alam Kehidupan</h2>
