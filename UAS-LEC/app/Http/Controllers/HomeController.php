@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         $newsletters = Newsletter::all(); 
-        $aktivitas = Aktivitas::latest()->limit(5)->get(); 
+        $aktivitas = Aktivitas::latest()->limit(3)->get(); 
 
         // Pass the data to the view
         return view('welcome', compact('newsletters', 'aktivitas'));
