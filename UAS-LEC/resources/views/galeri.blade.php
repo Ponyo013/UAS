@@ -12,7 +12,6 @@
     <div>
         <h1 class="text-2xl font-bold mb-6">Galeri Foto</h1>
 
-        <!-- Tombol Buat Newsletter -->
         <div class="mb-4">
             <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2" id="createGaleriBtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="inline-block">

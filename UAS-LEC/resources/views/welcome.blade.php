@@ -204,59 +204,26 @@
         <!-- Section Title -->
         <div class="flex justify-between items-center mb-16 md:px-24">
             <h2 class="text-4xl font-semibold text-[#CC2B52]">Galeri Foto</h2>
-            <a href="{{ Route('show.galeri') }}" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
+            <a href="{{ Route('show.galeriGuess') }}" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
         </div>
+        
         <!-- Swiper Carousel -->
         <div class="swiper-container overflow-hidden mb-12 h-64">
             <div class="swiper-wrapper">
-                <!-- Slide 1 -->
-                <div class="swiper-slide ">
+                <!-- Loop through the gallery images -->
+                @foreach ($galeri as $image)
+                <div class="swiper-slide">
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="{{ asset('images/carousel1.jpg') }}" alt="" class="w-full h-64 object-cover">
+                        <img src="{{ asset('storage/' . $image->gambar) }}" alt="gambar" class="w-full h-64 object-cover">
                     </div>
                 </div>
-
-                <div class="swiper-slide ">
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="{{ asset('images/carousel2.jpg') }}" alt="" class="w-full h-64 object-cover">
-                    </div>
-                </div>
-
-                <div class="swiper-slide ">
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="{{ asset('images/carousel1.jpg') }}" alt="" class="w-full h-64 object-cover">
-                    </div>
-                </div>
-
-                <div class="swiper-slide ">
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="{{ asset('images/carousel2.jpg') }}" alt="" class="w-full h-64 object-cover">
-                    </div>
-                </div>
-
-                <div class="swiper-slide ">
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="{{ asset('images/carousel1.jpg') }}" alt="" class="w-full h-64 object-cover">
-                    </div>
-                </div>
-
-                <div class="swiper-slide ">
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="{{ asset('images/carousel2.jpg') }}" alt="" class="w-full h-64 object-cover">
-                    </div>
-                </div>
-
-                <div class="swiper-slide ">
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="{{ asset('images/carousel1.jpg') }}" alt="" class="w-full h-64 object-cover">
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
 
     </div>
 </section>
+
 
 <!-- Kunjungi kami -->
 <!-- <section id="kunjungi" class="section py-20 bg-white">

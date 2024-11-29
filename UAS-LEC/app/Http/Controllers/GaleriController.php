@@ -16,6 +16,15 @@ class GaleriController extends Controller
         // Return view with gallery data (you can modify the view name as needed)
         return view('galeri', compact('galeriItems'));
     }
+    
+    public function indexGuess()
+    {
+        // Get all the gallery items
+        $galeriItems = Galeri::all();
+        
+        // Return view with gallery data (you can modify the view name as needed)
+        return view('galeriGuess', compact('galeriItems'));
+    }
 
     // Store a new gallery item
     public function store(Request $request)

@@ -63,5 +63,5 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::get('/dashboard/galeri', [GaleriController::class, 'index'])->name('show.galeri');
     Route::post('/dashboard/galeri/store', [GaleriController::class, 'store'])->name('galeri.store');
     Route::delete('/dashboard/galeri/delete/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
-});
-
+});  
+Route::get('/galeriGuess', [GaleriController::class, 'indexGuess'])->name('show.galeriGuess');
