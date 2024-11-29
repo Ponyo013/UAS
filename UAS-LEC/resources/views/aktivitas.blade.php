@@ -49,7 +49,7 @@
                             <h3 class="text-xl font-bold">{{ $item->judul }}</h3>
                             <div class="flex justify-between text-sm text-gray-600 mt-2">
                                 <p class="font-semibold text-sm text-gray-600 ">{{ $item->kategori }}</p>
-                                <p class="text-gray-500 text-sm">{{ $item->tanggal }}</p>
+                                <p class="text-gray-500 text-sm">{{ \Carbon\Carbon::parse($item->tanggal)->format('F d, Y') }}</p>
                             </div>
 
                             <!-- Action Buttons at the bottom -->

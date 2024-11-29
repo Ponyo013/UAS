@@ -7,14 +7,6 @@ use Illuminate\Http\Request;
 
 class NewsletterController extends Controller
 {
-
-    public function showWelcomePage()
-    {
-        $newsletters = Newsletter::all(); 
-        return view('welcome', compact('newsletters'));
-    }
-
-
     public function index()
     {
         $newsletters = Newsletter::all();

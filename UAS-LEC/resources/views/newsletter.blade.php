@@ -45,7 +45,7 @@
                        
                         <div class="flex-1">
                             <h2 class="text-4xl font-semibold text-center text-gray-800">{{ $newsletter->title }}</h2>
-                            <p class="text-sm text-center text-gray-500">{{ $newsletter->publish_date }}</p>
+                            <p class="text-sm text-center text-gray-500">{{ \Carbon\Carbon::parse($newsletter->publish_date)->format('F d, Y') }}</p>
                             <div class="text-gray-700">
                                 {!! $newsletter->description !!}
                             </div>
