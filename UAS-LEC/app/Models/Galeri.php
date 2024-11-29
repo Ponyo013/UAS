@@ -12,7 +12,7 @@ class galeri extends Model
     protected $table = 'galeri';
 
     protected $fillable = [
-        'images',
+        'gambar',
 
     ];
 

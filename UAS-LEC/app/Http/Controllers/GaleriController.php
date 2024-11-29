@@ -46,7 +46,6 @@ class GaleriController extends Controller
 
         // Validate incoming request data
         $request->validate([
-            'title' => 'required|string|max:255',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 

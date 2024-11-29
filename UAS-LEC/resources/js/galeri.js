@@ -12,12 +12,12 @@ document.getElementById('closeModalBtn').addEventListener('click', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('deleteConfirmationModal');
     const cancelBtn = document.getElementById('cancelDeleteBtn');
-    const deleteForm = document.getElementById('deleteNewsletterForm');
+    const deleteForm = document.getElementById('deleteGaleriForm');
     
     document.querySelectorAll('.openDeleteModalBtn').forEach(button => {
         button.addEventListener('click', function () {
-            const newsletterId = this.dataset.id;
-            deleteForm.action = `/dashboard/newsletters/delete/${newsletterId}`;
+            const galeriId = this.dataset.id;
+            deleteForm.action = `/dashboard/galeri/delete/${galeriId}`;
             modal.style.display = 'flex';
             modal.classList.remove('hidden'); 
         });
