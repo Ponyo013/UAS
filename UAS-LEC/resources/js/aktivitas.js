@@ -130,3 +130,35 @@ document.addEventListener('DOMContentLoaded', function() {
         deleteModal.classList.add('hidden');
     });
 });
+
+// Show Aktivitas
+document.addEventListener("DOMContentLoaded", function() {
+    const viewAktivitasBtns = document.querySelectorAll('.viewAktivitasBtn');
+
+    viewAktivitasBtns.forEach(button => {
+        button.addEventListener('click', function() {
+            const id = button.getAttribute('data-id');
+            const judul = button.getAttribute('data-judul');
+            const kategori = button.getAttribute('data-kategori');
+            const tanggal = button.getAttribute('data-tanggal');
+            const deskripsi = button.getAttribute('data-deskripsi');
+            const gambar = button.getAttribute('data-gambar');
+            
+            document.getElementById('view_judul').textContent = judul;
+            document.getElementById('view_kategori').textContent = kategori;
+            document.getElementById('view_tanggal').textContent = tanggal;
+            const sanitizedDeskripsi = DOMPurify.sanitize(deskripsi);
+            document.getElementById('view_deskripsi').innerHTML = sanitizedDeskripsi;
+            document.getElementById('view_gambar').src = gambar ;
+            
+            const modal = document.getElementById('viewAktivitasModal');
+            modal.classList.remove('hidden');
+        });
+    });
+
+    document.getElementById('closeViewModalBtn').addEventListener('click', function() {
+        const modal = document.getElementById('viewAktivitasModal');
+        modal.classList.add('hidden');
+    });
+});
+

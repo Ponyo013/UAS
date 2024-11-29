@@ -17,6 +17,7 @@ document.querySelectorAll('.openEditModalBtn').forEach(button => {
         const userId = this.getAttribute('data-id');
         const userName = this.getAttribute('data-name');
         const userEmail = this.getAttribute('data-email');
+        const userVerifiedAt = this.getAttribute('data-verified-at');
 
         const form = document.getElementById('editUserForm');
         form.action = form.action.replace(':id', userId);
@@ -24,6 +25,13 @@ document.querySelectorAll('.openEditModalBtn').forEach(button => {
         document.getElementById('userId').value = userId;
         document.getElementById('editName').value = userName;
         document.getElementById('editEmail').value = userEmail;
+
+        
+        if (userVerifiedAt) {
+            document.getElementById('editVerifiedAt').value = userVerifiedAt;
+        } else {
+            document.getElementById('editVerifiedAt').value = ''; 
+        }
 
         document.getElementById('editModal').classList.remove('hidden');
     });

@@ -53,19 +53,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        // Validate the incoming data
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+            'email_verified_at' => 'nullable|date',  
         ]);
-
-        // Update the user's information
+    
         $user->update($validated);
-
-        // Redirect or return a response
-        return redirect()->route('ManageUser')->with('success','User Telah diperbarui!');
+        return redirect()->route('ManageUser')->with('success', 'User Telah diperbarui!');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */

@@ -16,6 +16,8 @@
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.tailwindcss.js" ></script>
     <script src="https://cdn.tailwindcss.com" ></script>
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
+
 </head>
 <body>
     @include('part.sidebar')

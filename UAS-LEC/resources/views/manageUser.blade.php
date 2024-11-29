@@ -32,7 +32,7 @@
                             <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
                             <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NAMA</th>
                             <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                            <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">DIBUAT PADA</th>
+                            <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Verifikasi pada </th>
                             <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                         </tr>
                     </thead>
@@ -42,14 +42,21 @@
                                 <td class="py-4 px-6 text-sm font-medium text-gray-900">{{ $user->id }}</td>
                                 <td class="py-4 px-6 text-sm text-gray-700">{{ $user->name }}</td>
                                 <td class="py-4 px-6 text-sm text-gray-700">{{ $user->email }}</td>
-                                <td class="py-4 px-6 text-sm text-gray-700">{{ $user->created_at }}</td>
+                                <td>
+                                    @if ($user->email_verified_at)
+                                        {{ $user->email_verified_at->format('Y-m-d H:i:s') }}
+                                    @else
+                                        Belum Diverifikasi
+                                    @endif
+                                </td>
                                 <td class="py-4 px-6 text-sm text-gray-700">
                                 <div class="flex space-x-2">
                                     <!-- Edit button with orange background -->
                                     <button class="bg-orange-500 hover:bg-orange-600 text-white p-2 rounded-lg openEditModalBtn"
                                         data-id="{{ $user->id }}" 
                                         data-name="{{ $user->name }}" 
-                                        data-email="{{ $user->email }}">
+                                        data-email="{{ $user->email }}"
+                                        data-verified-at="{{ $user->email_verified_at ? $user->email_verified_at->format('Y-m-d\TH:i') : 'Belum Diverifikasi' }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                                             <g class="edit-outline">
                                                 <g fill="currentColor" fill-rule="evenodd" class="Vector" clip-rule="evenodd">
@@ -97,6 +104,10 @@
                 <label for="editEmail" class="block text-sm font-medium text-gray-700">Email</label>
                 <input type="email" id="editEmail" name="email" class="mt-1 p-2 w-full border border-gray-300 rounded-lg" required>
             </div>
+            <div class="mb-4">
+                <label for="editVerifiedAt" class="block text-sm font-medium text-gray-700">Verifikasi pada</label>
+                <input type="datetime-local" id="editVerifiedAt" name="email_verified_at" class="mt-1 p-2 w-full border border-gray-300 rounded-lg">
+            </div>
             <div class="flex justify-end space-x-4 font-semibold">
                 <button 
                     type="button" 
@@ -139,6 +150,7 @@
         </form>
     </div>
 </div>
+
 <script>
     // Mengambil elemen modal dan tombol
     const deleteModal = document.getElementById('deleteModal');

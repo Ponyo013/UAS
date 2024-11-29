@@ -41,7 +41,7 @@
                     <div class="bg-white border border-gray-300 rounded-lg shadow-lg">
                         <!-- Image at the top -->
                         @if($item->gambar)
-                            <img src="{{ asset('storage/' . $item->gambar) }}" alt="Aktivitas Image" class="w-full h-48 border-b-2 object-cover rounded-t-lg">
+                            <img src="{{ asset('storage/' . $item->gambar) }}" alt="Aktivitas Image" class="w-full h-48 object-cover rounded-t-lg">
                         @endif
 
                         <div class="p-5">
@@ -55,7 +55,13 @@
                             <!-- Action Buttons at the bottom -->
                             <div class="mt-4 flex justify-between items-center gap-4">
                                 <!-- Info Button -->
-                                <button class="bg-grey-500 text-white p-2 rounded-full hover:bg-grey-600">
+                                <button class="text-white p-2 rounded-full viewAktivitasBtn" 
+                                    data-id="{{ $item->id }}" 
+                                    data-judul="{{ $item->judul }}" 
+                                    data-kategori="{{ $item->kategori }}" 
+                                    data-tanggal="{{ $item->tanggal }}" 
+                                    data-deskripsi="{{ $item->deskripsi }}" 
+                                    data-gambar="{{ Storage::url($item->gambar) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 15 15">
                                         <path fill="blue" d="M8 10.5V10H7v.5zm-1 .01v.5h1v-.5zM7 4v4h1V4zm0 6.5v.01h1v-.01zm.5 3.5A6.5 6.5 0 0 1 1 7.5H0A7.5 7.5 0 0 0 7.5 15zM14 7.5A6.5 6.5 0 0 1 7.5 14v1A7.5 7.5 0 0 0 15 7.5zM7.5 1A6.5 6.5 0 0 1 14 7.5h1A7.5 7.5 0 0 0 7.5 0zm0-1A7.5 7.5 0 0 0 0 7.5h1A6.5 6.5 0 0 1 7.5 1z" />
                                     </svg>
@@ -200,12 +206,34 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal View Aktivitas -->
+    <div id="viewAktivitasModal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 overflow-auto z-50">
+        <div class="bg-white rounded-lg shadow-lg p-8 w-full sm:w-[480px] md:w-[600px] lg:w-[800px] max-w-3xl">
+            <div class="mb-6">
+                <h2 class="text-3xl font-extrabold text-gray-800 leading-tight mb-4" id="view_judul">Judul Aktivitas</h2>
+                <div class="flex justify-between mb-6">
+                    <p class="text-sm text-gray-500" id="view_kategori">Kategori Aktivitas</p>
+                    <p class="text-sm text-gray-600" id="view_tanggal">Tanggal Aktivitas</p>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <img src="" alt="Aktivitas Image" class="w-full h-60 object-cover rounded-lg shadow-md" id="view_gambar">
+            </div>
+
+            <div class="mb-6">
+                <p class="text-md text-gray-700 leading-relaxed" id="view_deskripsi">
+                    Deskripsi aktivitas yang lebih panjang dan naratif. Ini adalah tempat untuk menyampaikan cerita atau informasi dengan gaya blog yang lebih bebas dan terstruktur dengan baik.
+                </p>
+            </div>
+
+            <div class="flex justify-end">
+                <button type="button" class="bg-gray-500 text-white px-6 py-2 rounded-lg text-sm font-semibold" id="closeViewModalBtn">Tutup</button>
+            </div>
+        </div>
+    </div>
 </main>
-
-<script>
-
-
-</script>
 
 
 @endsection
