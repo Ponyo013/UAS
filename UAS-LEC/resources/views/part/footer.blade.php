@@ -6,12 +6,17 @@
 
             <!-- Left Footer, logo and loct-->
             <div class="mb-6 md:mb-0">
-                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse mb-2">
+                <div class="flex items-center space-x-3 rtl:space-x-reverse mb-5">
                     <img src="{{ asset('images/tm-logo.png') }}" alt="Tunas Mahardika Logo" class="h-10">
                     <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-dark">Tunas Mahardika</span>
+                </div>
+                <p class="mb-3">Bumi Serpong Damai Sektor 1.1 <br>Jl. Rawa Buntu Selatan Blok G1 No. 17<br>Serpong - Tangerang 15318</p>
+                <a href="https://www.google.com/maps/place/Panti+Asuhan+Tunas+Mahardika/@-6.2819666,106.6280052,14z/data=!4m6!3m5!1s0x2e69e52bf63789e5:0xb9c593811dbbca67!8m2!3d-6.307807!4d106.681431!16s%2Fg%2F11bc7stxc6?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" class="flex items-center hover:translate-x-3 duration-300">
+                    <p class="font-bold">Lihat Peta</p>
+                    <svg fill="#ffffff" height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" class="mx-2">
+                        <path id="XMLID_222_" d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606C255,161.018,253.42,157.202,250.606,154.389z" />
+                    </svg>
                 </a>
-                <p class="mb-2 mt-8">Lokasi Kami:</p>
-                <p>Bumi Serpong Damai Sektor 1.1 <br>Jl. Rawa Buntu Selatan Blok G1 No. 17<br>Serpong - Tangerang 15318</p>
             </div>
 
             <!-- Right Footer, details-->
