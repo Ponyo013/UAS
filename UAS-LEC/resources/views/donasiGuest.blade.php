@@ -1,3 +1,5 @@
+@vite(['resources/js/donasi.js'])
+
 @extends('layouts.app')
 
 @section('title', 'Donasi')
@@ -20,9 +22,9 @@
                         </div>
                     @endif
                     <p class="text-lg text-gray-600">
-                        Isi formulir di bawah ini untuk melakukan donasi dan nama Anda akan ditampilkan di dalam daftar donasi.
+                        Isi formulir di bawah ini untuk melakukan donasi dan nama anda akan ditampilkan di dalam daftar donasi (setelah proses validasi).
                     </p>
-                    <p class="text-xs text-gray-500">*Donasi dapat dilakukan tanpa mengisi formulir di bawah, namun nama Anda tidak akan ditampilkan dalam daftar donasi.</p>
+                    <p class="text-xs text-gray-500">*Donasi dapat dilakukan tanpa mengisi formulir di bawah, namun nama anda tidak akan ditampilkan dalam daftar donasi.</p>
                 </div>
 
                 <form action="{{ route('donasi.store') }}" method="POST" class="space-y-6" enctype="multipart/form-data">
@@ -81,20 +83,19 @@
     </div>
 </section>
 
-<script type="text/javascript">
+<script>
     function formatRupiah(input){
-        let value = input.value.replace(/[^0-9]/g, '').toString();
-        let formattedValue = '';
-        while (value.length > 3) {
-            formattedValue = '.' + value.slice(-3) + formattedValue;
-            value = value.slice(0, value.length - 3);
-        }
-        input.value = 'Rp ' + value + formattedValue;
+    let value = input.value.replace(/[^0-9]/g, '').toString();
+    let formattedValue = '';
+    while (value.length > 3) {
+        formattedValue = '.' + value.slice(-3) + formattedValue;
+        value = value.slice(0, value.length - 3);
+    }
+    input.value = 'Rp ' + value + formattedValue;
     }
 
     document.querySelector('form').addEventListener('submit', function(event) {
         let jumlahDonasiInput = document.getElementById('jumlah_donasi');
-        // Remove "Rp" and dots before submitting
         jumlahDonasiInput.value = jumlahDonasiInput.value.replace(/[^\d]/g, '');
     });
 </script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Donasi;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -46,5 +47,16 @@ class DonasiController extends Controller
         ]);
 
         return redirect()->route('donasi')->with('success', 'Terima kasih atas donasi Anda akan! Donasi akan diproses');
+    }
+
+    public function destroy($id)
+    {
+
+        $donasi = Donasi::findOrFail($id);
+        if ($donasi->image) {
+            Storage::disk('public')->delete($donasi->image);
+        }
+        $donasi->delete();
+        return redirect()->route('show.donasi')->with('success', 'Donatur berhasil dihapus');
     }
 }
