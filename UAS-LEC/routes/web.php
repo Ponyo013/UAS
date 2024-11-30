@@ -69,7 +69,8 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::get('/dashboard/kalender', [kalenderController::class, 'index'])->name('show.kalender');
 
     // List Donasi
+    Route::get('/dashboard/donasi', [DonasiController::class, 'index'])->name('show.donasi');
+    Route::post('/dashboard/donasi/store', [DonasiController::class, 'store'])->name('donasi.store');
 });
 
-Route::get('/dashboard/donasi', [DonasiController::class, 'donasiGuest'])->name('show.donasi');
 Route::get('/galeriGuess', [GaleriController::class, 'indexGuess'])->name('show.galeriGuess');

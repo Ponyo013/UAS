@@ -20,6 +20,8 @@ return new class extends Migration
                   ->onDelete('cascade'); 
             $table->integer('jumlah_donasi'); 
             $table->string('nama_donatur');
+            $table->string('image')->nullable();
+            $table->enum('status', ['valid', 'belum_valid', 'tidak_valid'])->default('belum_valid');
             $table->text('deskripsi')->nullable(); 
             $table->timestamps(); 
         });
