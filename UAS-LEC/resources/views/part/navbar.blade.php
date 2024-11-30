@@ -17,7 +17,7 @@
             <a href="{{ url('#newsletter') }}" class="py-1 hover:text-white/70">Newsletter</a>
             <a href="{{ url('#aktivitas') }}" class="py-1 hover:text-white/70">Aktivitas Terakhir</a>
             <a href="{{ url('#galeri') }}" class="py-1 hover:text-white/70">Galeri</a>
-            <a href="{{ url('#home') }}" class="py-1 hover:text-white/70">Donasi</a>
+            <a href="{{ route('donasi') }}" class="py-1 hover:text-white/70">Donasi</a>
         </div>
 
         <!-- Logo Section -->
@@ -33,7 +33,7 @@
             <a href="{{ url('#newsletter') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Newsletter</a>
             <a href="{{ url('#aktivitas') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Aktivitas Terakhir</a>
             <a href="{{ url('#galeri') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Galeri</a>
-            <a href="{{ url('#home') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Donasi</a>
+            <a href="{{ route('donasi') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Donasi</a>
         </div>
 
         <!-- Authentication Section -->
