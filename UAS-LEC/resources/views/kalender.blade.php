@@ -74,7 +74,7 @@
 
                 // Update form inputs with selected dates
                 document.getElementById('start_date').value = moment(start).format('YYYY-MM-DD');
-
+                document.getElementById('end_date').value = moment(end).format('YYYY-MM-DD');
                 // Save button click event
                 $('#saveBtn').click(function() {
                     var title = $('#title').val();
@@ -178,9 +178,15 @@
                         }
                     })
                 }
-            }
-        });
+            },
+            selectAllow: function(event) {
+                return moment(event.start).utcOffset(false).isSame(moment(event.end).subtract(1, 'seconds').utcOffset(false), 'day');
+            },
 
+        });
+        $("#createCalenderModal").on("hidden.bs.modal", function() {
+            $('saveBtn').unbind()
+        })
         // close modal
         $('#closeModalBtn').on('click', function() {
             document.getElementById('createCalenderModal').classList.add('hidden');
