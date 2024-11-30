@@ -17,6 +17,7 @@ class kalenderController extends Controller
 
         foreach ($calenders as $calender) {
             $events[] = [
+                'id' => $calender->id,
                 'title' => $calender->title,
                 'start' => $calender->start_date,
                 'end' => $calender->end_date,
@@ -43,5 +44,19 @@ class kalenderController extends Controller
         ]);
         // return 'pass';
         return response()->json($calender);
+    }
+    public function update(Request $request, $id)
+    {
+        $calender = Calender::find($id);
+        if (!$calender) {
+            return response()->json([
+                'message' => 'Data not found'
+            ], 404);
+        }
+        $calender->update([
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+        ]);
+        return response()->json('Data has been updated');
     }
 }

@@ -21,7 +21,6 @@
 <!-- Modal -->
 
 <div id="createCalenderModal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 overflow-auto z-30">
-
     <div class="bg-white rounded-lg p-6 w-full sm:w-[480px] md:w-[600px] lg:w-[800px]">
         <h2 class="text-xl font-semibold mb-4">Buat Tanggal Kunjugan Baru</h2>
 
@@ -60,7 +59,6 @@
         console.log(calenders);
 
         var calendar = $('#calendar').fullCalendar({
-            editable: true,
             header: {
                 left: 'title',
                 right: 'today, prev,next'
@@ -80,12 +78,10 @@
                     var title = $('#title').val();
                     var start_date = $('#start_date').val();
                     var end_date = $('#end_date').val();
-                    console.log(title, "title", start_date, "start", end_date, "end");
-
 
                     $.ajax({
-                        type: "POST",
                         url: "{{ route('kalender.store') }}",
+                        type: "POST",
                         dataType: 'json',
                         data: {
                             title: title,
@@ -110,6 +106,32 @@
                     })
 
                 });
+            },
+            //drag and drop
+            editable: true,
+            eventDrop: function(event) {
+                var id = event.id;
+                var start_date = moment(event.start).format('YYYY-MM-DD');
+                var end_date = moment(event.end).format('YYYY-MM-DD');
+
+                $.ajax({
+                    url: "{{ route('kalender.update', '') }}" + '/' + id,
+                    type: "PATCH",
+                    dataType: 'json',
+                    data: {
+                        start_date,
+                        end_date
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        console.log("sukses");
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        console.log("error");
+                    }
+                })
+
             }
         });
 
