@@ -23,7 +23,7 @@
 
         <h1 class="text-2xl font-bold mb-6">Akun yang terdaftar</h1>
         @if($users->isEmpty())
-            <p class="text-gray-600">Belum ada pengguna yang terdaftar.</p>
+            <p class="text-gray-600 mt-64 text-center opacity-50">Belum ada pengguna yang terdaftar.</p>
         @else
             <div id="UserTable" class="overflow-x-visible">
                 <table class="min-w-full divide-y divide-gray-200 bg-white shadow rounded-lg overflow-hidden">
@@ -39,17 +39,17 @@
                     <tbody class="divide-y divide-gray-200">
                         @foreach($users as $user)
                             <tr class="hover:bg-gray-100">
-                                <td class="py-4 px-6 text-sm font-medium text-gray-900">{{ $user->id }}</td>
-                                <td class="py-4 px-6 text-sm text-gray-700">{{ $user->name }}</td>
-                                <td class="py-4 px-6 text-sm text-gray-700">{{ $user->email }}</td>
-                                <td>
+                                <td class="text-sm font-medium text-gray-900">{{ $user->id }}</td>
+                                <td class="text-sm text-gray-700">{{ $user->name }}</td>
+                                <td class="text-sm text-gray-700">{{ $user->email }}</td>
+                                <td class="text-sm text-gray-700">
                                     @if ($user->email_verified_at)
                                         {{ $user->email_verified_at->format('Y-m-d H:i:s') }}
                                     @else
                                         Belum Diverifikasi
                                     @endif
                                 </td>
-                                <td class="py-4 px-6 text-sm text-gray-700">
+                                <td class="text-sm text-gray-700">
                                 <div class="flex space-x-2">
                                     <!-- Edit button with orange background -->
                                     <button class="bg-orange-500 hover:bg-orange-600 text-white p-2 rounded-lg openEditModalBtn"

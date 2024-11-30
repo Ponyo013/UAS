@@ -109,5 +109,4 @@
         <div id="calendar"></div>
     </div>
 </div>
-
 @endsection

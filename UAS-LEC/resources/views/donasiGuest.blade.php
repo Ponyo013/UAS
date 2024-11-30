@@ -6,14 +6,10 @@
 
 @section('content')
 <section id="donasi" class="section py-20 pt-28 bg-white">
-
-
     <div class="container mx-auto px-6 md:px-24">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <!-- Form Section -->
             <div>
-
-                
                 <div class="space-y-2">
                     <h1 class="text-4xl font-bold text-gray-800 mb-4">Donasi</h1>
                     @if(session('success'))
@@ -55,7 +51,8 @@
                     <!-- Deskripsi -->
                     <div class="space-y-1">
                         <label for="deskripsi" class="block text-sm font-medium text-gray-700">Deskripsi</label>
-                        <textarea name="deskripsi" id="deskripsi" rows="4" class="text-black mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>{{ old('deskripsi') }}</textarea>
+                        <textarea name="deskripsi" id="deskripsi" rows="2" class="text-black mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>{{ old('deskripsi') }}</textarea>
+                        <p id="charCount" class="text-sm text-gray-500 mt-1">Jumlah karakter: 0/50</p>
                     </div>
                     
                     <!-- File Upload: Bukti Transfer -->
@@ -73,11 +70,35 @@
                     <button type="submit" class="w-full bg-[#AF1740] text-white font-semibold py-2 px-4 rounded-md hover:bg-opacity-90 focus:outline-none">Donasi</button>
                 </form>
             </div>
-            
-            <!-- Bank Details Section (Optional) -->
+
+            <!-- List Donasi Section -->
             <div class="space-y-6 text-black">
                 <h1 class="text-4xl font-bold text-gray-800 mb-4">List Donasi</h1>
-                <!-- List of Donations (to be added dynamically or via backend) -->
+                
+                <!-- Donation list wrapper with overflow scroll -->
+                <div class="overflow-y-auto max-h-[500px] space-y-6">
+                    @foreach($donasi as $item)
+                    <div class="p-6 shadow-md rounded-lg border border-gray-200">
+                        <div class="flex justify-left">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">{{ $item->nama_donatur }}</h3>
+                                <p class="mt-2 text-lg font-bold text-[#AF1740]">
+                                    Rp {{ number_format($item->jumlah_donasi, 0, ',', '.') }}
+                                </p>
+                                <p class="mt-2 text-xs text-gray-500">{{ $item->created_at->format('d-m-Y') }}</p>
+                            </div>
+                            <div class="flex-1 pl-8">
+                                <p class="mt-4 text-sm text-gray-600">{{ $item->deskripsi }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                <!-- If no donations exist -->
+                @if($donasi->isEmpty())
+                    <p class="text-gray-500 text-center py-6">Belum ada donasi yang tercatat.</p>
+                @endif
             </div>
         </div>
     </div>
@@ -98,5 +119,21 @@
         let jumlahDonasiInput = document.getElementById('jumlah_donasi');
         jumlahDonasiInput.value = jumlahDonasiInput.value.replace(/[^\d]/g, '');
     });
+
+    const deskripsiTextarea = document.getElementById('deskripsi');
+    const charCountDisplay = document.getElementById('charCount');
+    const maxChars = 50; 
+
+    function updateCharCount() {
+        const charCount = deskripsiTextarea.value.length; 
+        charCountDisplay.textContent = `Jumlah karakter: ${charCount}/${maxChars}`;
+
+        if (charCount > maxChars) {
+            deskripsiTextarea.value = deskripsiTextarea.value.substring(0, maxChars);
+            charCountDisplay.textContent = `Jumlah karakter: ${maxChars}/${maxChars}`;
+        }
+    }
+
+    deskripsiTextarea.addEventListener('input', updateCharCount);
 </script>
 @endsection

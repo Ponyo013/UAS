@@ -33,7 +33,7 @@
         </div>
 
         @if($donasi->isEmpty())
-            <p class="text-gray-600">Belum ada Donatur.</p>
+            <p class="text-gray-600 mt-64 text-center opacity-50">Belum ada Donatur.</p>
         @else
             <div id="itemTable" class="overflow-x-visible">
                 <table class="min-w-full divide-y divide-gray-200 bg-white shadow rounded-lg overflow-hidden">
@@ -43,6 +43,7 @@
                             <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NAMA</th>
                             <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jumlah Donasi</th>
                             <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Deksripsi</th>
+                            <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Foto</th>
                             <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                             <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                         </tr>
@@ -50,11 +51,22 @@
                     <tbody class="divide-y divide-gray-200">
                         @foreach($donasi as $item)
                             <tr class="hover:bg-gray-100">
-                                <td class="py-4 px-6 text-sm font-medium text-gray-900">{{ $item->user_id }}</td>
-                                <td class="py-4 px-6 text-sm text-gray-700">{{ $item->nama_donatur }}</td>
-                                <td class="py-4 px-6 text-sm text-gray-700">Rp. {{ number_format($item->jumlah_donasi, 0, ',', '.') }}</td>
-                                <td class="py-4 px-6 text-sm text-gray-700">{{ $item->deskripsi }}</td>
-                                <td class="py-4 px-6 text-sm text-gray-700 
+                                <td class="text-sm font-medium text-gray-900">{{ $item->user_id }}</td>
+                                <td class="text-sm text-gray-700">{{ $item->nama_donatur }}</td>
+                                <td class="text-sm text-gray-700">Rp. {{ number_format($item->jumlah_donasi, 0, ',', '.') }}</td>
+                                <td class="text-sm text-gray-700">{{ $item->deskripsi }}</td>
+                                <td>
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Image" class="w-16 h-16 object-cover cursor-pointer thumbnail">
+                                </td>
+
+                                    @php
+                                        $statusLabels = [
+                                            'belum_valid' => 'Belum Valid',
+                                            'tidak_valid' => 'Tidak Valid',
+                                            'valid' => 'Valid',
+                                        ];
+                                    @endphp
+                                <td class="text-sm
                                     @if($item->status == 'belum_valid')
                                         text-orange-500
                                     @elseif($item->status == 'tidak_valid')
@@ -62,10 +74,9 @@
                                     @elseif($item->status == 'valid')
                                         text-green-500
                                     @endif">
-                                    {{ $item->status }}
+                                    {{ $statusLabels[$item->status] }}
                                 </td>
-
-                                <td class="py-4 px-6 text-sm text-gray-700">
+                                <td class="text-sm text-gray-700">
                                     <div class="flex space-x-2">
                                         <button class="bg-orange-500 hover:bg-orange-600 text-white p-2 rounded-lg openEditModalBtn">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
@@ -120,28 +131,86 @@
     </div>
 </div>
 
+<!-- Modal untuk menampilkan gambar yang diperbesar -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="relative w-full max-w-3xl mx-4 sm:mx-8 md:mx-16 lg:mx-24">
+        <span class="absolute top-0 right-0 text-white text-3xl cursor-pointer p-2" id="closeModal">&times;</span>
+        <img id="modalImage" src="" alt="Image" class="w-full h-screen object-contain">
+    </div>
+</div>
 
+<!-- Modal Edit Donatur -->
+<div id="editModal" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center hidden">
+    <div class="bg-white rounded-lg shadow-lg w-full sm:w-2/3 md:w-1/2 lg:w-1/3 p-6">
+        <h2 class="text-2xl font-semibold mb-4">Edit Donatur</h2>
+        <form id="editDonasiForm" method="POST" action="{{ route('donasi.update', ':id') }}">
+            @csrf
+            @method('PUT')
+
+            <!-- Nama Donatur -->
+            <div class="mb-4">
+                <label for="editNamaDonatur" class="block text-sm font-medium text-gray-700">Nama Donatur</label>
+                <input type="text" id="editNamaDonatur" name="nama_donatur" class="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500" required>
+            </div>
+
+            <!-- Jumlah Donasi -->
+            <div class="mb-4">
+                <label for="jumlah_donasi" class="block text-sm font-medium text-gray-700">Jumlah Donasi</label>
+                    <input 
+                        type="text" 
+                        name="jumlah_donasi" 
+                        id="editJumlahDonasi" 
+                        class="text-black mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
+                        min="0" 
+                        step="50000" 
+                        required 
+                        placeholder="Rp 0"
+                        oninput="formatRupiah(this)"
+                    >
+            </div>
+
+            <!-- Deskripsi -->
+            <div class="mb-4">
+                <label for="editDeskripsi" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                <textarea id="editDeskripsi" name="deskripsi" rows="3" class="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                <p id="editCharCount" class="text-sm text-gray-500 mt-1">Jumlah karakter: 0/50</p>
+            </div>
+
+            <!-- Status -->
+            <div class="mb-4">
+                <label for="editStatus" class="block text-sm font-medium text-gray-700">Status</label>
+                <select id="editStatus" name="status" class="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500" required>
+                    <option value="belum_valid">Belum Valid</option>
+                    <option value="tidak_valid">Tidak Valid</option>
+                    <option value="valid">Valid</option>
+                </select>
+            </div>
+
+            <div class="flex justify-end space-x-4 font-semibold">
+                <button 
+                    type="button" 
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 p-2 rounded-lg shadow transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
+                    id="closeEditModalBtn">
+                    Batal
+                </button>
+                <button 
+                    type="submit" 
+                    class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg shadow transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    Update
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 <script>
-    const deleteModal = document.getElementById('deleteModal');
-    const openDeleteModalBtns = document.querySelectorAll('.openDeleteModalBtn');
-    const closeDeleteModalBtn = document.getElementById('closeDeleteModalBtn');
-    const deleteUserForm = document.getElementById('deleteUserForm');
-
-    openDeleteModalBtns.forEach(button => {
-        button.addEventListener('click', function () {
-            const userId = this.getAttribute('data-id'); 
-            const deleteUrl = deleteUserForm.getAttribute('action').replace(':id', userId); // Replace :id with donor ID
-            deleteUserForm.action = deleteUrl;  
-            
-            deleteModal.classList.remove('hidden');  
-        });
-    });
-
-    closeDeleteModalBtn.addEventListener('click', function () {
-        deleteModal.classList.add('hidden');  
-    });
+    function formatRupiah(value) {
+        let formattedValue = '';
+        value = value.replace(/[^0-9]/g, '').toString();
+        while (value.length > 3) {
+            formattedValue = '.' + value.slice(-3) + formattedValue; 
+            value = value.slice(0, value.length - 3);
+        }
+        return 'Rp ' + value + formattedValue;
+    }
 </script>
-
-
-
 @endsection

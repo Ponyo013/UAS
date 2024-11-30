@@ -11,7 +11,7 @@ class DonasiController extends Controller
 {
     public function donasiGuest()
     {
-        $donasi = Donasi::all();
+        $donasi = Donasi::where('status', 'valid')->get();
         return view('donasiGuest', compact('donasi'));
     }
 
@@ -58,5 +58,27 @@ class DonasiController extends Controller
         }
         $donasi->delete();
         return redirect()->route('show.donasi')->with('success', 'Donatur berhasil dihapus');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'nama_donatur' => 'required|string|max:255',
+            'jumlah_donasi' => 'required|min:0',
+            'deskripsi' => 'nullable|string',
+            'status' => 'required|in:belum_valid,tidak_valid,valid',
+        ]);
+
+        $donasi = Donasi::findOrFail($id);
+        $jumlahDonasi = preg_replace('/[^0-9]/', '', $request->input('jumlah_donasi'));
+
+        $donasi->update([
+            'nama_donatur' => $request->input('nama_donatur'),
+            'jumlah_donasi' => $jumlahDonasi, 
+            'deskripsi' => $request->input('deskripsi'),
+            'status' => $request->input('status'),
+        ]);
+
+        return redirect()->route('show.donasi')->with('success', 'Donasi berhasil diupdate!');
     }
 }

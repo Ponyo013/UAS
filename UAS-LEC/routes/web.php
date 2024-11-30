@@ -72,6 +72,7 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::get('/dashboard/donasi', [DonasiController::class, 'index'])->name('show.donasi');
     Route::post('/dashboard/donasi/store', [DonasiController::class, 'store'])->name('donasi.store');
     Route::delete('/dashboard/donasi/delete/{id}', [DonasiController::class, 'destroy'])->name('donasi.destroy');
+    Route::put('/dashboard/donasi/update/{id}', [DonasiController::class, 'update'])->name('donasi.update');
 });
 
 Route::get('/galeriGuess', [GaleriController::class, 'indexGuess'])->name('show.galeriGuess');
