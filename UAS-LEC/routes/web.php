@@ -65,8 +65,11 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::get('/dashboard/galeri', [GaleriController::class, 'index'])->name('show.galeri');
     Route::post('/dashboard/galeri/store', [GaleriController::class, 'store'])->name('galeri.store');
     Route::delete('/dashboard/galeri/delete/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
+
     // Kalender
     Route::get('/dashboard/kalender', [kalenderController::class, 'index'])->name('show.kalender');
+    Route::post('/dashboard/kalender/store', [kalenderController::class, 'store'])->name('kalender.store');
+
 
     // List Donasi
     Route::get('/dashboard/donasi', [DonasiController::class, 'index'])->name('show.donasi');
