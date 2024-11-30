@@ -123,12 +123,10 @@
                         end_date
                     },
                     success: function(response) {
-                        console.log(response);
-                        console.log("sukses");
+                        alert('Event Updated');
                     },
                     error: function(error) {
-                        console.log(error);
-                        console.log("error");
+                        alert('Event Update Failed');
                     }
                 })
 
