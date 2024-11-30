@@ -66,6 +66,8 @@
             events: calenders,
             selectable: true,
             selectHelper: true,
+
+            // Create new event
             select: function(start, end, allDay) {
                 // Show the modal
                 document.getElementById('createCalenderModal').classList.remove('hidden');
@@ -99,21 +101,22 @@
                             document.getElementById('createCalenderModal').classList.add('hidden');
                         },
                         error: function(error) {
-                            $('#titleError').text(error.responseJSON.errors.title);
-                            console.log(error);
-                            console.log("gagal");
+                            if (error.responseJSON.errors.title) {
+                                $('#titleError').text(error.responseJSON.errors.title);
+                            }
                         }
                     })
-
                 });
             },
             //drag and drop
             editable: true,
             eventDrop: function(event) {
+                console.log(event);
                 var id = event.id;
                 var start_date = moment(event.start).format('YYYY-MM-DD');
                 var end_date = moment(event.end).format('YYYY-MM-DD');
-
+                console.log(start_date);
+                console.log(end_date);
                 $.ajax({
                     url: "{{ route('kalender.update', '') }}" + '/' + id,
                     type: "PATCH",
@@ -136,15 +139,49 @@
                             icon: "error",
                             title: "Oops...",
                             text: "Something went wrong!",
-                            footer: '<a href="#">Why do I have this issue?</a>'
                         });
+                        console.log(error);
                     }
                 })
 
+            },
+
+            //event click
+            eventClick: function(event) {
+                var id = event.id;
+                if (confirm('Are you sure to delete?')) {
+
+                    $.ajax({
+                        url: "{{ route('kalender.destroy', '') }}" + '/' + id,
+                        type: "DELETE",
+                        dataType: 'json',
+
+                        success: function(response) {
+
+                            var id = response.id;
+                            console.log(id);
+
+                            Swal.fire({
+                                position: "middle",
+                                icon: "success",
+                                title: "Your event deleted already",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        },
+                        error: function(error) {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Something went wrong!",
+                            });
+                        }
+                    })
+                }
             }
         });
 
-        // Optional: Close modal logic
+        // close modal
         $('#closeModalBtn').on('click', function() {
             document.getElementById('createCalenderModal').classList.add('hidden');
         });

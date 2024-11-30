@@ -59,4 +59,17 @@ class kalenderController extends Controller
         ]);
         return response()->json('Data has been updated');
     }
+
+    public function destroy($id)
+    {
+        $calender = Calender::find($id);
+        if (!$calender) {
+            return response()->json([
+                'message' => 'Data not found'
+            ], 404);
+        }
+
+        $calender->delete();
+        return $id;
+    }
 }

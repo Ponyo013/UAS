@@ -70,7 +70,7 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::get('/dashboard/kalender', [kalenderController::class, 'index'])->name('show.kalender');
     Route::post('/dashboard/kalender/store', [kalenderController::class, 'store'])->name('kalender.store');
     Route::patch('/dashboard/kalender/update/{id}', [kalenderController::class, 'update'])->name('kalender.update');
-
+    Route::delete('/dashboard/kalender/destroy/{id}', [kalenderController::class, 'destroy'])->name('kalender.destroy');
     // List Donasi
     Route::get('/dashboard/donasi', [DonasiController::class, 'index'])->name('show.donasi');
     Route::post('/dashboard/donasi/store', [DonasiController::class, 'store'])->name('donasi.store');
