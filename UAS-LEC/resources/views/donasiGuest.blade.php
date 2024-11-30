@@ -99,6 +99,20 @@
                 @if($donasi->isEmpty())
                     <p class="text-gray-500 text-center py-6">Belum ada donasi yang tercatat.</p>
                 @endif
+
+                <h1 class="text-4xl font-bold text-gray-800">Rekening Bank</h1>
+                <div>
+                    <p class="text-lg font-semibold text-gray-600">Bank Central Asia</p>
+                    <p>a/c 401-7030-301</p>
+                    <p>A/n Yayasan Tunas Mahardika</p>
+                </div>
+
+                <div>
+                    <p class="text-lg font-semibold text-gray-600">Mandiri</p>
+                    <p>a/c 164-00-64-11111-7</p>
+                    <p>(KK Tangerang ITC BSD)</p>
+                    <p>A/n Yayasan TUnas Mahadrika</p>
+                </div>
             </div>
         </div>
     </div>
