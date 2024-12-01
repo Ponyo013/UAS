@@ -207,34 +207,31 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal View Aktivitas -->
-    <div id="viewAktivitasModal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 overflow-auto z-50">
-        <div class="bg-white rounded-lg shadow-lg p-8 w-full sm:w-[480px] md:w-[600px] lg:w-[800px] max-w-3xl">
-            <div class="mb-6">
-                <h2 class="text-3xl font-extrabold text-gray-800 leading-tight mb-4" id="view_judul">Judul Aktivitas</h2>
-                <div class="flex justify-between mb-6">
-                    <p class="text-sm text-gray-500" id="view_kategori">Kategori Aktivitas</p>
-                    <p class="text-sm text-gray-600" id="view_tanggal">Tanggal Aktivitas</p>
-                </div>
-            </div>
-
-            <div class="mb-6 flex justify-center items-center">
-                <img src="" alt="Aktivitas Image" class="w-full h-auto max-w-xs max-h-48 object-cover rounded-lg" id="view_gambar">
-            </div>
-
-            <div class="mb-6">
-                <p class="text-md text-gray-700 leading-relaxed" id="view_deskripsi">
-                    Deskripsi aktivitas yang lebih panjang dan naratif. Ini adalah tempat untuk menyampaikan cerita atau informasi dengan gaya blog yang lebih bebas dan terstruktur dengan baik.
-                </p>
-            </div>
-
-            <div class="flex justify-end">
-                <button type="button" class="bg-gray-500 text-white px-6 py-2 rounded-lg text-sm font-semibold" id="closeViewModalBtn">Tutup</button>
+</main>
+<!-- Modal View Aktivitas -->
+<div id="viewAktivitasModal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 overflow-auto z-50">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full sm:w-[480px] md:w-[600px] lg:w-[800px] max-w-3xl max-h-screen overflow-auto">
+        <div class="mb-6">
+            <h2 class="text-3xl text-gray-800 font-bold mb-4" id="view_judul">Judul Aktivitas</h2>
+            <div class="flex justify-between mb-6">
+                <p class="text-sm text-gray-500" id="view_kategori">Kategori Aktivitas</p>
+                <p class="text-sm text-gray-600" id="view_tanggal">Tanggal Aktivitas</p>
             </div>
         </div>
+
+        <div class="mb-6 flex justify-center items-center">
+            <img src="" alt="Aktivitas Image" class="w-full h-auto max-w-xs max-h-48 object-cover rounded-lg" id="view_gambar">
+        </div>
+
+        <div class="mb-6">
+            <p class="text-md text-gray-700 leading-relaxed" id="view_deskripsi">
+                Deskripsi aktivitas yang lebih panjang dan naratif. Ini adalah tempat untuk menyampaikan cerita atau informasi dengan gaya blog yang lebih bebas dan terstruktur dengan baik.
+            </p>
+        </div>
+
+        <div class="flex justify-end">
+            <button type="button" class="bg-gray-500 text-white px-6 py-2 rounded-lg text-sm font-semibold" id="closeViewModalBtn">Tutup</button>
+        </div>
     </div>
-</main>
-
-
+</div>
 @endsection

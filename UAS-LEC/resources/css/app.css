@@ -51,9 +51,9 @@ td.dt-empty {
 }
 
 .fc-today-button:disabled {
-  background-color: #AF1740 !important;  /* Set background to gray when disabled */
+  background-color: #AF1740 !important;  
   color: lightgray !important;  
-  border: #AF1740;       /* Set text color to light gray when disabled */
+  border: #AF1740;      
 }
 
 div.fc-toolbar .fc-prev-button.fc-button {

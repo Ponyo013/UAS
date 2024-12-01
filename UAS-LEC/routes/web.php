@@ -18,9 +18,10 @@ Route::get('/', [HomeController::class, 'index'])->name('welcome');
 Route::get('/donasi', [DonasiController::class, 'donasiGuest'])->name('donasi');
 Route::get('/newsletter', [NewsletterController::class, 'newsGuest'])->name('newsletter');
 Route::get('/kalender', [kalenderController::class, 'kalenderGuest'])->name('kalender');
+Route::get('/aktivitas', [ActivityController::class, 'aktivitasGuest'])->name('aktivitas');
 
 Route::get('/newsletter/{id}', [NewsletterController::class, 'show'])->name('newsletter.showEach');
-
+Route::get('/aktivitas/{id}', [ActivityController::class, 'show'])->name('aktivitas.showEach');
 
 Route::middleware('auth', 'CheckUserRole')->group(function () {
     Route::get('/profile/admin', [ProfileController::class, 'edit'])->name('profile.edit');

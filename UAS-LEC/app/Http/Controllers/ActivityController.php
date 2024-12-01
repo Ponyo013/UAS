@@ -17,6 +17,18 @@ class ActivityController extends Controller
         return view('aktivitas', compact('aktivitas'));
     }
 
+    public function show($id)
+    {
+        $aktivitas = Aktivitas::findOrFail($id);
+        return view('aktivitasEach', compact('aktivitas'));
+    }
+
+    public function AktivitasGuest()
+    {
+        $aktivitas = Aktivitas::all();
+        return view('aktivitasGuest', compact('aktivitas'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -56,15 +68,6 @@ class ActivityController extends Controller
         return redirect()->route('show.aktivitas')->with('success', 'Aktivitas berhasil ditambahkan!');
     }
     
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      */

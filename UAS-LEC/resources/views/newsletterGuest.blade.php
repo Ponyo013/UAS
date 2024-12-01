@@ -3,7 +3,7 @@
 @section('title', 'Newsletter')
 
 @section('content')
-<section class="section pt-16 md:py-28 bg-white">
+<section class="section pt-16 md:pt-28 md:pb-14 bg-white">
     <div class="container mx-auto px-6 md:px-24">
         <h1 class="text-black text-3xl md:text-4xl font-bold mb-8">Newsletters</h1>
         

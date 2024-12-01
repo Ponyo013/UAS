@@ -176,8 +176,8 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @foreach($aktivitas as $activity)
-            <a href="" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
-                    <img src="{{ asset('storage/' . $activity->gambar) }}" alt="{{ $activity->judul }}" class="w-full h-48 object-cover">
+            <a href="{{ route('aktivitas.showEach', $activity->id) }}" class="block rounded-lg shadow-lg bg-white overflow-hidden transition transform hover:scale-105 duration-300">
+                <img src="{{ asset('storage/' . $activity->gambar) }}" alt="{{ $activity->judul }}" class="w-full h-48 object-cover">
                 <div class="p-6">
                      <p class="font-semibold text-sm text-gray-600 mb-2">{{ $activity->kategori }}</p> 
                     <h3 class="text-lg font-bold text-black mb-2">{{ $activity->judul }}</h3> 
