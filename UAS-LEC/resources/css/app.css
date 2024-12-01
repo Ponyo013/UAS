@@ -33,3 +33,50 @@ td.dt-empty {
 .hidden {
   display: none !important;
 }
+
+.fc-left{
+  font-size: xx-large;
+}
+
+.fc-today-button.fc-button {
+  background:#AF1740;
+  color: white;
+  border: #AF1740;
+}
+
+.fc-today-button.fc-button.fc-button:hover {
+  background:#740938;
+  color: white;
+  border: #740938;
+}
+
+.fc-today-button:disabled {
+  background-color: #AF1740 !important;  /* Set background to gray when disabled */
+  color: lightgray !important;  
+  border: #AF1740;       /* Set text color to light gray when disabled */
+}
+
+div.fc-toolbar .fc-prev-button.fc-button {
+  background:#AF1740;
+  color: white;
+  border: #AF1740;
+}
+
+
+div.fc-toolbar .fc-prev-button.fc-button:hover {
+  background:#740938;
+  color: white;
+  border: #740938;
+}            
+
+div.fc-toolbar .fc-next-button.fc-button {
+  background:#AF1740;
+  color: white;
+  border: #AF1740;             
+}
+
+div.fc-toolbar .fc-next-button.fc-button:hover {
+  background:#740938;
+  color: white;
+  border: #740938;          
+}

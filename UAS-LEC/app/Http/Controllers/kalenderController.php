@@ -24,7 +24,6 @@ class kalenderController extends Controller
             ];
         }
 
-
         return view('KalenderGuest', ['events' => $events]);
     }
 
