@@ -1,7 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Newsletter;
+use App\Models\Aktivitas;
+use App\Models\Donasi;
 
 use Illuminate\Http\Request;
 
@@ -12,7 +17,25 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $userCount = User::count();
+        $newsletterCount = Newsletter::count();
+        $aktivitasCount = Aktivitas::count();
+        $donasiCount = Donasi::count();
+
+       
+        $totalDonasi = Donasi::sum('jumlah_donasi');
+        $totalDonasiToday = Donasi::whereDate('created_at', Carbon::today())->sum('jumlah_donasi');
+        
+        $totalDonasiThisWeek = Donasi::whereBetween('created_at', [
+            Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()
+        ])->sum('jumlah_donasi');
+
+        $totalDonasiThisYear = Donasi::whereYear('created_at', Carbon::now()->year)->sum('jumlah_donasi');
+
+        return view('dashboard', compact(
+            'userCount', 'newsletterCount', 'aktivitasCount', 'donasiCount',
+            'totalDonasi', 'totalDonasiToday', 'totalDonasiThisWeek', 'totalDonasiThisYear'
+        ));
     }
 
     /**
