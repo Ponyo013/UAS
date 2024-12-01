@@ -20,7 +20,7 @@
         </div>
 
         <!-- Deskripsi -->
-        <div class="prose prose-sm sm:prose-base lg:prose-lg text-gray-700">
+        <div class="prose prose-sm sm:prose-base lg:prose-lg text-gray-700 text-lg">
             <p>{!! $aktivitas->deskripsi !!}</p>
         </div>
     </div>
