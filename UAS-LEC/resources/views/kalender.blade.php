@@ -19,7 +19,6 @@
 </div>
 
 <!-- Modal -->
-
 <div id="createCalenderModal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 overflow-auto z-30">
     <div class="bg-white rounded-lg p-6 w-full sm:w-[480px] md:w-[600px] lg:w-[800px]">
         <h2 class="text-xl font-semibold mb-4">Buat Tanggal Kunjugan Baru</h2>

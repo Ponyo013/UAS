@@ -81,4 +81,34 @@ class DonasiController extends Controller
 
         return redirect()->route('show.donasi')->with('success', 'Donasi berhasil diupdate!');
     }
+
+    public function create(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nama_donatur' => 'required|string|max:255',
+            'jumlah_donasi' => 'required|min:0',
+            'deskripsi' => 'required|string|max:255',
+            'status' => 'required|in:belum_valid,tidak_valid,valid',
+            'image' => 'required|image|max:2048', 
+        ]);
+
+        $jumlahDonasi = preg_replace('/\D/', '', $request->jumlah_donasi);
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->storeAs('donasi_images', $request->file('image')->getClientOriginalName(), 'public');
+        }
+
+        $userId = Auth::id(); 
+
+        Donasi::create([
+            'user_id' => $userId,
+            'nama_donatur' => $validatedData['nama_donatur'],
+            'jumlah_donasi' => $jumlahDonasi,
+            'deskripsi' => $validatedData['deskripsi'],
+            'status' => $validatedData['status'],
+            'image' => $imagePath,
+        ]);
+
+        return redirect()->route('show.donasi')->with('success', 'Donatur berhasil ditambahkan!');
+    }
 }

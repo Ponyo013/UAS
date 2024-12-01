@@ -73,10 +73,8 @@
 
             <!-- List Donasi Section -->
             <div class="space-y-6 text-black">
-                <h1 class="text-4xl font-bold text-gray-800 mb-4">List Donasi</h1>
-                
                 <!-- Donation list wrapper with overflow scroll -->
-                <div class="overflow-y-auto max-h-[500px] space-y-6">
+                <div class="overflow-y-auto max-h-[500px] space-y-4">
                     @foreach($donasi as $item)
                     <div class="p-6 shadow-md rounded-lg border border-gray-200">
                         <div class="flex justify-left">

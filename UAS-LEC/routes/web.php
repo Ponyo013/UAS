@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 Route::get('/donasi', [DonasiController::class, 'donasiGUest'])->name('donasi');
+Route::post('/donasi/store', [DonasiController::class, 'store'])->name('donasi.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -73,7 +74,7 @@ Route::middleware('auth', 'CheckUserRole', 'verified')->group(function () {
     Route::delete('/dashboard/kalender/destroy/{id}', [kalenderController::class, 'destroy'])->name('kalender.destroy');
     // List Donasi
     Route::get('/dashboard/donasi', [DonasiController::class, 'index'])->name('show.donasi');
-    Route::post('/dashboard/donasi/store', [DonasiController::class, 'store'])->name('donasi.store');
+    Route::post('/dashboard/donasi/create', [DonasiController::class, 'create'])->name('donasi.create');
     Route::delete('/dashboard/donasi/delete/{id}', [DonasiController::class, 'destroy'])->name('donasi.destroy');
     Route::put('/dashboard/donasi/update/{id}', [DonasiController::class, 'update'])->name('donasi.update');
 });

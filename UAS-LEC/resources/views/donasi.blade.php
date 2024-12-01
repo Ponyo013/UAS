@@ -105,6 +105,77 @@
     </div>
 </main>
 
+<!-- Modal Tambah Donatur -->
+<div id="createDonaturModal" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center hidden">
+    <div class="bg-white rounded-lg shadow-lg w-full sm:w-2/3 md:w-1/2 lg:w-1/3 p-6">
+        <h2 class="text-2xl font-semibold mb-4">Tambah Donatur</h2>
+        <form id="createDonasiForm" method="POST" action="{{ route('donasi.create') }}" enctype="multipart/form-data">
+            @csrf
+
+            <!-- Nama Donatur -->
+            <div class="mb-4">
+                <label for="createNamaDonatur" class="block text-sm font-medium text-gray-700">Nama Donatur</label>
+                <input type="text" id="createNamaDonatur" name="nama_donatur" class="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500" required>
+            </div>
+
+            <!-- Jumlah Donasi -->
+            <div class="mb-4">
+                <label for="createJumlahDonasi" class="block text-sm font-medium text-gray-700">Jumlah Donasi</label>
+                <input 
+                    type="text" 
+                    name="jumlah_donasi" 
+                    id="createJumlahDonasi" 
+                    class="text-black mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
+                    min="0" 
+                    step="50000" 
+                    required 
+                    placeholder="Rp 0"
+                    oninput="AddformatRupiah(this)"
+                >
+            </div>
+
+            <!-- Deskripsi -->
+            <div class="mb-4">
+                <label for="createDeskripsi" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                <textarea id="createDeskripsi" name="deskripsi" rows="3" class="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                <p id="createCharCount" class="text-sm text-gray-500 mt-1">Jumlah karakter: 0/50</p>
+            </div>
+
+            <!-- Status -->
+            <div class="mb-4">
+                <label for="createStatus" class="block text-sm font-medium text-gray-700">Status</label>
+                <select id="createStatus" name="status" class="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500" required>
+                    <option value="belum_valid">Belum Valid</option>
+                    <option value="tidak_valid">Tidak Valid</option>
+                    <option value="valid">Valid</option>
+                </select>
+            </div>
+
+            <!-- Foto -->
+            <div class="space-y-1">
+                <label for="image" class="block text-sm font-medium text-gray-700">Bukti Transfer</label>
+                <input type="file" id="image" name="image" class="block w-full text-sm text-gray-900 file:py-2 file:px-4 file:rounded-md file:border-none file:bg-gray-200 hover:file:bg-gray-300 focus:outline-none" accept="image/*" required>
+                <p class="mt-1 text-xs text-gray-500">Pilih gambar dengan format JPG, PNG, atau GIF.</p>
+                <p class="text-xs text-red-600">Max 2MB</p>
+            </div>
+
+            <div class="flex justify-end space-x-4 font-semibold">
+                <button 
+                    type="button" 
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 p-2 rounded-lg shadow transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
+                    id="closeCreateModalBtn">
+                    Batal
+                </button>
+                <button 
+                    type="submit" 
+                    class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg shadow transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    Tambah Donatur
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <!-- Modal Konfirmasi Delete -->
 <div id="deleteModal" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center hidden">
     <div class="bg-white rounded-lg shadow-lg w-full sm:w-2/3 md:w-1/2 lg:w-1/3 p-6">
@@ -203,6 +274,7 @@
     </div>
 </div>
 <script>
+    // For edit modal
     function formatRupiah(value) {
         let formattedValue = '';
         value = value.replace(/[^0-9]/g, '').toString();
@@ -212,5 +284,46 @@
         }
         return 'Rp ' + value + formattedValue;
     }
+
+    // For create Modal
+    function AddformatRupiah(input){
+        let value = input.value.replace(/[^0-9]/g, '').toString();
+        let formattedValue = '';
+        while (value.length > 3) {
+            formattedValue = '.' + value.slice(-3) + formattedValue;
+            value = value.slice(0, value.length - 3);
+        }
+        input.value = 'Rp ' + value + formattedValue;
+    }
+
+    // Open Modal
+    const createGaleriBtn = document.getElementById('createGaleriBtn');
+    const createDonaturModal = document.getElementById('createDonaturModal');
+    const closeCreateModalBtn = document.getElementById('closeCreateModalBtn');
+
+    createGaleriBtn.addEventListener('click', () => {
+        createDonaturModal.classList.remove('hidden');
+    });
+
+    closeCreateModalBtn.addEventListener('click', () => {
+        createDonaturModal.classList.add('hidden');
+    });
+
+    // Count 
+    const deskripsiTextarea = document.getElementById('createDeskripsi');
+    const charCountDisplay = document.getElementById('createCharCount');
+    const maxChars = 50; 
+
+    function updateCharCount() {
+        const charCount = deskripsiTextarea.value.length; 
+        charCountDisplay.textContent = `Jumlah karakter: ${charCount}/${maxChars}`;
+
+        if (charCount > maxChars) {
+            deskripsiTextarea.value = deskripsiTextarea.value.substring(0, maxChars);
+            charCountDisplay.textContent = `Jumlah karakter: ${maxChars}/${maxChars}`;
+        }
+    }
+
+    deskripsiTextarea.addEventListener('input', updateCharCount);
 </script>
 @endsection

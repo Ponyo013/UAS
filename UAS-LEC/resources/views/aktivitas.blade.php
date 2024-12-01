@@ -219,8 +219,8 @@
                 </div>
             </div>
 
-            <div class="mb-6">
-                <img src="" alt="Aktivitas Image" class="w-full h-60 object-cover rounded-lg shadow-md" id="view_gambar">
+            <div class="mb-6 flex justify-center items-center">
+                <img src="" alt="Aktivitas Image" class="w-full h-auto max-w-xs max-h-48 object-cover rounded-lg" id="view_gambar">
             </div>
 
             <div class="mb-6">
