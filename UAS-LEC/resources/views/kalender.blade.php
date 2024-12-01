@@ -66,6 +66,12 @@
             selectable: true,
             selectHelper: true,
 
+            // Prevent selection of past dates
+            selectAllow: function(selectInfo) {
+                // Check if the selected start date is before today
+                return moment(selectInfo.start).isSameOrAfter(moment(), 'day');
+            },
+
             // Create new event
             select: function(start, end, allDay) {
                 // Show the modal
@@ -74,11 +80,18 @@
                 // Update form inputs with selected dates
                 document.getElementById('start_date').value = moment(start).format('YYYY-MM-DD');
                 document.getElementById('end_date').value = moment(end).format('YYYY-MM-DD');
-                // Save button click event
-                $('#saveBtn').click(function() {
+
+                // Remove any existing click handlers and bind the new one
+                $('#saveBtn').off('click').on('click', function() {
                     var title = $('#title').val();
                     var start_date = $('#start_date').val();
                     var end_date = $('#end_date').val();
+
+                    // Validation: Check if end_date is earlier than start_date
+                    if (moment(end_date).isBefore(moment(start_date))) {
+                        alert("End date cannot be earlier than start date!");
+                        return;
+                    }
 
                     $.ajax({
                         url: "{{ route('kalender.store') }}",
@@ -104,18 +117,16 @@
                                 $('#titleError').text(error.responseJSON.errors.title);
                             }
                         }
-                    })
+                    });
                 });
             },
+
             //drag and drop
             editable: true,
             eventDrop: function(event) {
-                console.log(event);
                 var id = event.id;
                 var start_date = moment(event.start).format('YYYY-MM-DD');
                 var end_date = moment(event.end).format('YYYY-MM-DD');
-                console.log(start_date);
-                console.log(end_date);
                 $.ajax({
                     url: "{{ route('kalender.update', '') }}" + '/' + id,
                     type: "PATCH",
@@ -139,10 +150,8 @@
                             title: "Oops...",
                             text: "Something went wrong!",
                         });
-                        console.log(error);
                     }
-                })
-
+                });
             },
 
             //event click
@@ -156,10 +165,6 @@
                         dataType: 'json',
 
                         success: function(response) {
-
-                            var id = response.id;
-                            console.log(id);
-
                             Swal.fire({
                                 position: "middle",
                                 icon: "success",
@@ -175,21 +180,21 @@
                                 text: "Something went wrong!",
                             });
                         }
-                    })
+                    });
                 }
             },
-            selectAllow: function(event) {
-                return moment(event.start).utcOffset(false).isSame(moment(event.end).subtract(1, 'seconds').utcOffset(false), 'day');
-            },
-
         });
+
         $("#createCalenderModal").on("hidden.bs.modal", function() {
-            $('saveBtn').unbind()
-        })
+            $('#saveBtn').off('click'); // Unbind click event when modal is closed
+        });
+
         // close modal
         $('#closeModalBtn').on('click', function() {
             document.getElementById('createCalenderModal').classList.add('hidden');
         });
     });
 </script>
+
+
 @endsection
