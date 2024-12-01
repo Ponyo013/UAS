@@ -20,17 +20,23 @@ class UserController extends Controller
         $userCount = User::count();
         $newsletterCount = Newsletter::count();
         $aktivitasCount = Aktivitas::count();
-        $donasiCount = Donasi::count();
+        $donasiCount = Donasi::where('status', 'valid')->count();
 
-       
-        $totalDonasi = Donasi::sum('jumlah_donasi');
-        $totalDonasiToday = Donasi::whereDate('created_at', Carbon::today())->sum('jumlah_donasi');
-        
-        $totalDonasiThisWeek = Donasi::whereBetween('created_at', [
-            Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()
-        ])->sum('jumlah_donasi');
+        $totalDonasi = Donasi::where('status', 'valid')->sum('jumlah_donasi');
 
-        $totalDonasiThisYear = Donasi::whereYear('created_at', Carbon::now()->year)->sum('jumlah_donasi');
+        $totalDonasiToday = Donasi::where('status', 'valid')
+            ->whereDate('created_at', Carbon::today())
+            ->sum('jumlah_donasi');
+
+        $totalDonasiThisWeek = Donasi::where('status', 'valid')
+            ->whereBetween('created_at', [
+                Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()
+            ])
+            ->sum('jumlah_donasi');
+    
+        $totalDonasiThisYear = Donasi::where('status', 'valid')
+            ->whereYear('created_at', Carbon::now()->year)
+            ->sum('jumlah_donasi');
 
         return view('dashboard', compact(
             'userCount', 'newsletterCount', 'aktivitasCount', 'donasiCount',

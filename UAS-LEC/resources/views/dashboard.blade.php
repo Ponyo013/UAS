@@ -67,7 +67,7 @@
                 </div>
                 <div>
                     <h2 class="text-lg font-semibold">Total Post Aktivitas</h2>
-                    <p class="text-xl font-bold text-gray-800">{{ $aktivitasCount  }}</p>
+                    <p class="text-xl font-bold text-gray-800">{{ $aktivitasCount }}</p>
                 </div>
             </div>
         </div>
