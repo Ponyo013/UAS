@@ -109,7 +109,7 @@
                     <p class="text-lg font-semibold text-gray-600">Mandiri</p>
                     <p>a/c 164-00-64-11111-7</p>
                     <p>(KK Tangerang ITC BSD)</p>
-                    <p>A/n Yayasan TUnas Mahadrika</p>
+                    <p>A/n Yayasan Tunas Mahadrika</p>
                 </div>
             </div>
         </div>
