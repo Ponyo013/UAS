@@ -14,13 +14,21 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
+
 Route::get('/donasi', [DonasiController::class, 'donasiGUest'])->name('donasi');
-Route::post('/donasi/store', [DonasiController::class, 'store'])->name('donasi.store');
+
+Route::middleware('auth', 'CheckUserRole')->group(function () {
+    Route::get('/profile/admin', [ProfileController::class, 'edit'])->name('profile.edit');
+});
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/guest', [ProfileController::class, 'editGuest'])->name('profile.editGuest');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('/donasi/store', [DonasiController::class, 'store'])->name('donasi.store');
 });
 
 Route::get('/email/verify', function () {

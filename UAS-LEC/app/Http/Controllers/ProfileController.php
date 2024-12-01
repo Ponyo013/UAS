@@ -21,6 +21,13 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function editGuest(Request $request): View
+    {
+        return view('profile.editGuest', [
+            'user' => $request->user(),
+        ]);
+    }
+
     /**
      * Update the user's profile information.
      */

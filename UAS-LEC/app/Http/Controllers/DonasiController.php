@@ -23,6 +23,10 @@ class DonasiController extends Controller
 
     public function store(Request $request)
     {
+        if (!Auth::user() || Auth::user()->email_verified_at === null) {
+            return redirect()->route('profile.editGuest')->with('error', 'Anda perlu memverifikasi email Anda sebelum memberikan donasi.');
+        }
+
         $request->validate([
             'nama_donatur' => 'required|string|max:255',
             'jumlah_donasi' => 'required|min:0',
