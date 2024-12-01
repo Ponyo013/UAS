@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class NewsletterController extends Controller
 {
+
+    public function show($id)
+    {
+        $newsletter = Newsletter::findOrFail($id);
+        return view('newsEach', compact('newsletter'));
+    }
+
+    public function newsGuest()
+    {
+        $newsletters = Newsletter::all();
+        return view('newsletterGuest', compact('newsletters'));
+    }
+
     public function index()
     {
         $newsletters = Newsletter::all();

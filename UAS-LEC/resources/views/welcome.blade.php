@@ -150,7 +150,7 @@
                         <img src="{{ asset('storage/' . $newsletter->image) }}" alt="Newsletter Image" class="w-full h-full object-cover rounded-l-md">
                     </div>
                     <div class="w-full sm:w-2/3 p-4 sm:p-8 flex flex-col justify-center">
-                        <a href="" class="p-4">
+                        <a href="{{ route('newsletter.showEach', $newsletter->id) }}" class="p-4">
                             <h3 class="text-xl font-bold text-black mb-2">{{ $newsletter->title }}</h3>
                             <p class="text-sm text-gray-500 mb-4">{{ \Carbon\Carbon::parse($newsletter->tanggal)->format('F d, Y') }}</p>
                             <p class="text-gray-600 mb-6">{!! \Illuminate\Support\Str::words(strip_tags($newsletter->description, '<strong><em><u><b><i>'), 60, '...') !!}

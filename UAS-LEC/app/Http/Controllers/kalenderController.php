@@ -10,6 +10,24 @@ class kalenderController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function KalenderGuest()
+    {
+        $events = array();
+        $calenders = Calender::all();
+
+        foreach ($calenders as $calender) {
+            $events[] = [
+                'id' => $calender->id,
+                'title' => $calender->title,
+                'start' => $calender->start_date,
+                'end' => $calender->end_date,
+            ];
+        }
+
+
+        return view('KalenderGuest', ['events' => $events]);
+    }
+
     public function index()
     {
         $events = array();

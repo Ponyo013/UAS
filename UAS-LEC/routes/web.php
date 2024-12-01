@@ -7,15 +7,20 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\DonasiController;
-
 use App\Http\Controllers\kalenderController;
+
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
-Route::get('/donasi', [DonasiController::class, 'donasiGUest'])->name('donasi');
+Route::get('/donasi', [DonasiController::class, 'donasiGuest'])->name('donasi');
+Route::get('/newsletter', [NewsletterController::class, 'newsGuest'])->name('newsletter');
+Route::get('/kalender', [kalenderController::class, 'kalenderGuest'])->name('kalender');
+
+Route::get('/newsletter/{id}', [NewsletterController::class, 'show'])->name('newsletter.showEach');
+
 
 Route::middleware('auth', 'CheckUserRole')->group(function () {
     Route::get('/profile/admin', [ProfileController::class, 'edit'])->name('profile.edit');
