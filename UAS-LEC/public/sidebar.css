@@ -41,9 +41,12 @@ body {
 }
 #sidebar ul {
     list-style: none;
+    background-color: var(--base-clr);
+    color: var(--base-clr);
 }
 #sidebar > ul > li:first-child {
     display: flex;
+    
     justify-content: flex-end;
     margin-bottom: 16px;
     .logo {
@@ -52,7 +55,7 @@ body {
 }
 #sidebar ul li.active a {
     color: var(--accent-clr);
-
+    
     svg {
         fill: var(--accent-clr);
     }
@@ -85,6 +88,7 @@ body {
 #sidebar .dropdown-btn span {
     flex-grow: 1;
 }
+
 #sidebar a:hover,
 #sidebar .dropdown-btn:hover {
     background-color: var(--hover-clr);
@@ -100,6 +104,7 @@ body {
 }
 #sidebar .sub-menu.show {
     grid-template-rows: 1fr;
+    
 }
 .dropdown-btn svg {
     transition: 200ms ease;
@@ -124,7 +129,7 @@ body {
 }
 
 #sidebar ul {
-    flex-grow: 1;
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
 }
@@ -197,7 +202,7 @@ main p {
             box-sizing: border-box;
             height: 60px;
             width: 100%;
-            background-color: var(--hover-clr);
+            background-color: var(--base-clr);
             border-top: 1px solid var(--line-clr);
             display: flex;
             justify-content: center;

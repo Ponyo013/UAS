@@ -28,7 +28,7 @@
 
         <!-- Navbar Links -->
         <div class="space-x-8 mx-auto pl-24 invisible xl:visible xl:flex">
-            <a href="{{ url('#aboutus') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Tentang Kami</a>
+            <a href="{{ route('aboutus') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Tentang Kami</a>
             <a href="{{ route('kalender') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Kalendar</a>
             <a href="{{ route('newsletter') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Newsletter</a>
             <a href="{{ route('aktivitas') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Aktivitas Terakhir</a>

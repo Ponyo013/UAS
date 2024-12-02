@@ -69,7 +69,7 @@
 </section>
 
 <!-- Visi dan Misi dan Program -->
-<section id="visimisi-program" class="section py-20 bg-white">
+<section id="visimisi" class="section py-16 bg-gray-50">
     <div class="container mx-auto px-6 md:px-24">
         <!-- Visi dan Misi Section -->
         <div class="mb-24">
@@ -95,7 +95,10 @@
                 </div>
             </div>
         </div>
-
+    </section>
+    
+    <section id="program" class="section py-20 bg-white">
+        <div class="container mx-auto px-6 md:px-24">
         <!-- Program Jangka Panjang Section -->
         <div class="mb-10 text-left align-justify text-justify">
             <h2 class="text-4xl mb-10 font-semibold text-[#CC2B52]">Program Jangka Panjang</h2>
@@ -124,15 +127,16 @@
             </div>
         </div>
     </div>
+    </div>
 </section>
 
 
 <!-- Newsletter Section -->
 <section id="newsletter" class="section py-20 bg-gray-50">
     <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-semibold text-center text-[#CC2B52] mb-12">Newsletter</h2>
+        <h2 class="text-4xl pl-20 font-semibold text-left text-[#CC2B52] mb-12">Newsletter</h2>
 
-        <div class="relative overflow-hidden">
+        <div class="relative overflow-hidden px-20">
             <div id="newsletter-carousel" class="flex transition-transform duration-700 ease-in-out space-x-6">
 
                 @foreach($newsletters as $newsletter)
@@ -153,12 +157,12 @@
                 @endforeach
             </div>
 
-            <div class="absolute top-1/2 left-0 transform -translate-y-1/2">
+            <div class="absolute top-1/2 left-14 transform -translate-y-1/2">
                 <button id="prev-newsletter" class="bg-[#CC2B52] hover:bg-[#AF1740] text-white p-3 rounded">
                     &#10094;
                 </button>
             </div>
-            <div class="absolute top-1/2 right-0 transform -translate-y-1/2">
+            <div class="absolute top-1/2 right-14 transform -translate-y-1/2">
                 <button id="next-newsletter" class="bg-[#CC2B52] hover:bg-[#AF1740] text-white p-3 rounded">
                     &#10095;
                 </button>
