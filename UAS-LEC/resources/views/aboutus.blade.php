@@ -119,7 +119,15 @@
                 </div>
             </div>
         </div>
-
+        
+        <div id="susunan" class="content grid grid-cols-1 gap-4 justify-items-center text-center hidden">
+            <div class="grid grid-cols-1 gap-4 w-full px-12">
+                <div class="mb-10 text-center">
+                    <h2 class="text-4xl font-semibold text-[#CC2B52]">Susunan Pengurus</h2>
+                    <img src="{{ asset('images/Pengurus.png') }}" alt="Tunas Mahardika Logo" class="w-full">
+                </div>
+            </div>
+        </div>
 
     </div>
 
