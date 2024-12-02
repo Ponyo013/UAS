@@ -64,7 +64,7 @@
                     </div>
                     
                     <div class="space-y-1">
-                        <img src="{{ asset('storage/images/qris.jpg') }}" alt="QRIS" class="w-60 h-60">
+                        <img src="{{ asset('images/qris.jpg') }}" alt="QRIS" class="w-60 h-60">
                     </div>
 
                     <button type="submit" class="w-full bg-[#AF1740] text-white font-semibold py-2 px-4 rounded-md hover:bg-opacity-90 focus:outline-none">Donasi</button>
