@@ -102,6 +102,6 @@
 
         <!-- bottom Footer, copy right and logoes-->
         <!-- <div class="sm:flex sm:items-center sm:justify-between"> -->
-        <span class="text-sm flex justify-center items-center dark:text-white">© 2023 <span>Tunas Mahardika™</span>. All Rights Reserved. Developed by Bahagia Group</span>
+        <span class="text-sm flex justify-center items-center dark:text-white">© 2024 <span> Tunas Mahardika™</span>. All Rights Reserved. Developed by Bahagia Group</span>
     </div>
 </footer>

@@ -57,7 +57,7 @@
                     Panti Asuhan Tunas Mahardika didirikan pada tanggal 28 Oktober 2005 berdasarkan Akte Notaris no.71, yang dibuat dihadapan Notaris Winarto Wiryawartani S.H., M.Hum.
                 </p>
 
-                <a href="#" class="text-white bg-[#AF1740] hover:bg-[#CC2B52] px-6 py-3 rounded">Baca Selengkapnya</a>
+                <a href="{{ route('aboutus') }}" class="text-white bg-[#AF1740] hover:bg-[#CC2B52] px-6 py-3 rounded">Baca Selengkapnya</a>
             </div>
 
             <!-- Image -->
@@ -95,10 +95,10 @@
                 </div>
             </div>
         </div>
-    </section>
-    
-    <section id="program" class="section py-20 bg-white">
-        <div class="container mx-auto px-6 md:px-24">
+</section>
+
+<section id="program" class="section py-20 bg-white">
+    <div class="container mx-auto px-6 md:px-24">
         <!-- Program Jangka Panjang Section -->
         <div class="mb-10 text-left align-justify text-justify">
             <h2 class="text-4xl mb-10 font-semibold text-[#CC2B52]">Program Jangka Panjang</h2>
@@ -179,7 +179,7 @@
     <div class="container mx-auto px-6 md:px-24">
         <div class="flex justify-between items-center mb-12">
             <h2 class="text-4xl font-semibold text-[#CC2B52]">Aktivitas Terakhir</h2>
-            <a href="" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
+            <a href="{{route('aktivitas')}}" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @foreach($aktivitas as $activity)

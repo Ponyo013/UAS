@@ -15,29 +15,34 @@
 </head>
 
 <body class="bg-gray-100">
-    <div class="py-24 flex items-center justify-center min-h-screen">
-        <div class="w-full text-black max-w-4xl p-4">
-            <div id="calendar"></div>
+    <div class="mt-48 mb-8 md:mt-20">
+        <div class="flex items-center justify-center">
+            <div class="w-full text-black max-w-4xl p-4">
+                <div id="calendar"></div>
+            </div>
+        </div>
+        <div class="mt-2 text-center">
+            <a href="{{ route('welcome') }}" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Kembali ke Halaman Utama</a>
         </div>
     </div>
-
-    <script>
-        $(document).ready(function() {
-            var calenders = @json($events);
-
-            console.log(calenders);
-
-            var calendar = $('#calendar').fullCalendar({
-                header: {
-                    left: 'title',
-                    right: 'today, prev,next'
-                },
-                events: calenders,
-                selectable: true,
-                selectHelper: true,
-            });
-        });
-    </script>
 </body>
+<script>
+    $(document).ready(function() {
+        var calenders = @json($events);
+
+        console.log(calenders);
+
+        var calendar = $('#calendar').fullCalendar({
+            header: {
+                left: 'title',
+                right: 'today, prev,next'
+            },
+            events: calenders,
+            selectable: true,
+            selectHelper: true,
+        });
+    });
+</script>
+
 </html>
 @endsection
