@@ -24,5 +24,9 @@
             <p>{!! $aktivitas->deskripsi !!}</p>
         </div>
     </div>
+
+    <div class="m-4 mt-10 text-center">
+        <a href="{{ route('aktivitas') }}" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Kembali ke Aktivitas Terakhir</a>
+    </div>
 </section>
 @endsection

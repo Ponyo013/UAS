@@ -1,4 +1,4 @@
-<div class="font-sans antialiased min-w-screen" style="background-color: #AF1740;">
+<div class="font-sans antialiased" style="background-color: #AF1740;">
     <nav class="flex items-center justify-between py-5 px-8 bg-[#AF1740] fixed top-0 z-10 w-screen">
         <!-- Hamburger Button -->
         <div class="flex xl:hidden pr-6">
@@ -10,9 +10,9 @@
         </div>
 
         <!-- Mobile Navbar Links (Initially Hidden) -->
-        <div id="mobileMenu" class="xl:hidden bg-[#AF1740] text-white flex flex-col space-y-4 py-3 px-6 min-w-screen">
+        <div id="mobileMenu" class="hidden bg-[#AF1740] text-white flex flex-col space-y-4 py-3 px-6 min-w-screen">
             <hr>
-            <a href="{{ url('#aboutus') }}" class="py-1 hover:text-white/70">Tentang Kami</a>
+            <a href="{{ route('aboutus') }}" class="py-1 hover:text-white/70">Tentang Kami</a>
             <a href="{{ route('kalender') }}" class="py-1 hover:text-white/70">Kalender</a>
             <a href="{{ route('newsletter') }}" class="py-1 hover:text-white/70">Newsletter</a>
             <a href="{{ route('aktivitas') }}" class="py-1 hover:text-white/70">Aktivitas Terakhir</a>
@@ -21,10 +21,11 @@
         </div>
 
         <!-- Logo Section -->
-        <a href="/" class="flex md:items-center space-y-2 flex-col space-x-0 md:flex-row md:space-x-3 md:space-y-0 md:rtl:space-x-reverse">
+        <a href="/" class="flex items-center space-x-3 md:space-x-3 flex-row">
             <img src="{{ asset('images/tm-logo.png') }}" alt="Tunas Mahardika Logo" class="h-10 w-10">
             <span class="self-center text-2xl sm:text-xl md:text-lg font-bold whitespace-nowrap dark:text-dark">Tunas Mahardika</span>
         </a>
+
 
         <!-- Navbar Links -->
         <div class="space-x-8 mx-auto pl-24 invisible xl:visible xl:flex">
@@ -193,6 +194,13 @@
         if (hamburgerButton && mobileMenu) {
             hamburgerButton.addEventListener("click", function() {
                 mobileMenu.classList.toggle("hidden");
+            });
+        
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", function() {
+                    mobileMenu.classList.add("hidden");
+                });
             });
         }
 

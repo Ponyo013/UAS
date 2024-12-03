@@ -149,4 +149,35 @@
 
     deskripsiTextarea.addEventListener('input', updateCharCount);
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        const section = document.getElementById("donasi");
+        section.classList.add("visible");
+    }, 100);
+});
+</script>
+
+<style>
+    .tab.active {
+        background-color: rgb(243 244 246);
+        color: #CC2B52;
+    }
+
+    .content.hidden {
+        display: none;
+    }
+
+    #donasi {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 300ms ease-in-out, transform 1s ease-in-out;
+    }   
+
+    #donasi.visible {
+        opacity: 1;
+        transform: translateY(0); /* Slide to the original position */
+    }
+</style>
 @endsection

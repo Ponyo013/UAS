@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Welcome')
+@section('title', 'Tentang Kami')
 
 @section('content')
 <html>
-<section class="section py-4 mx-auto mt-36 mb-24 rounded-lg overflow-hidden max-w-screen-xl w-full">
+<section id="individualPage" class="section py-4 mx-auto mt-28 mb-24 rounded-lg overflow-hidden max-w-screen-xl w-full">
     <div class="bg-gray-100 pb-12" style="border-radius: 20px;">
         <div class="bg-[#CC2B52] grid grid-cols-5 mb-10 mt-2 justify-items-center text-center" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
             <div class="tab py-8 text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300 active" style="border-top-left-radius: 18px;" onclick="selectTab(this, 'profil')">
@@ -118,26 +118,35 @@
             </div>
         </div>
     </div>
-    <div class="m-4 text-center">
+    <div class="m-4 mt-10 text-center">
         <a href="{{ route('welcome') }}" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Kembali ke Halaman Utama</a>
     </div>
 
 </section>
 
 </html>
+
 <script>
-    function selectTab(tabElement, contentId) {
-        const tabs = document.querySelectorAll('.tab');
-        const contents = document.querySelectorAll('.content');
+function selectTab(tabElement, contentId) {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
 
-        tabs.forEach(tab => tab.classList.remove('active'));
+    tabs.forEach(tab => tab.classList.remove('active'));
+    contents.forEach(content => content.classList.add('hidden'));
 
-        contents.forEach(content => content.classList.add('hidden'));
+    tabElement.classList.add('active');
+    document.getElementById(contentId).classList.remove('hidden');
+}
 
-        tabElement.classList.add('active');
+</script>
 
-        document.getElementById(contentId).classList.remove('hidden');
-    }
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        const section = document.getElementById("individualPage");
+        section.classList.add("visible");
+    }, 100);
+});
 </script>
 
 <style>
@@ -149,5 +158,17 @@
     .content.hidden {
         display: none;
     }
+
+    #individualPage {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 300ms ease-in-out, transform 1s ease-in-out;
+    }   
+
+    #individualPage.visible {
+        opacity: 1;
+        transform: translateY(0); /* Slide to the original position */
+    }
 </style>
+
 @endsection
