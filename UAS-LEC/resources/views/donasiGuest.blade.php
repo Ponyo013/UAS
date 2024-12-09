@@ -6,7 +6,7 @@
 
 @section('content')
 <section id="donasi" class="section mt-48 mb-8 md:mt-20 bg-white">
-    <div class="container mx-auto px-6 md:px-24">
+    <div class="container py-5 mx-auto px-6 md:px-24">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <!-- Form Section -->
             <div>
@@ -73,8 +73,8 @@
             <!-- List Donasi Section -->
             <div class="space-y-6 text-black">
                 <div>
-                    <h1 class="text-4xl font-bold text-gray-800">Rekening Bank</h1>
-                    <div>
+                    <h1 class="text-4xl font-bold text-gray-800 mb-3">Rekening Bank</h1>
+                    <div class="mb-3">
                         <p class="text-2xl font-semibold text-gray-600">Bank Central Asia</p>
                         <p class="text-xl">a/c 401-7030-301</p>
                         <p class="text-xl">A/n Yayasan Tunas Mahardika</p>
@@ -151,12 +151,12 @@
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    setTimeout(() => {
-        const section = document.getElementById("donasi");
-        section.classList.add("visible");
-    }, 100);
-});
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(() => {
+            const section = document.getElementById("donasi");
+            section.classList.add("visible");
+        }, 100);
+    });
 </script>
 
 <style>
@@ -170,14 +170,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     #donasi {
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 300ms ease-in-out, transform 1s ease-in-out;
-    }   
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 300ms ease-in-out, transform 1s ease-in-out;
+    }
 
     #donasi.visible {
         opacity: 1;
-        transform: translateY(0); /* Slide to the original position */
+        transform: translateY(0);
+        /* Slide to the original position */
     }
 </style>
 @endsection

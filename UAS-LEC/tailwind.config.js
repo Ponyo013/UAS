@@ -5,7 +5,7 @@ import forms from "@tailwindcss/forms";
 export default {
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
-        "./storage/framework/views/*.php",  /** ?? */
+        "./storage/framework/views/*.php" /** ?? */,
         "./resources/views/**/*.blade.php",
     ],
 
@@ -14,13 +14,12 @@ export default {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                "rumah-1": "url('/images/rumah-1.jpg')",
+                "rumah-2": "url('/images/rumah-2.jpg')",
+            },
         },
     },
 
-    
     plugins: [forms],
-
-        
 };
-
-
