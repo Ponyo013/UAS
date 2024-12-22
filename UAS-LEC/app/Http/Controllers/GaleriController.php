@@ -12,16 +12,16 @@ class GaleriController extends Controller
     {
         // Get all the gallery items
         $galeriItems = Galeri::all();
-        
+
         // Return view with gallery data (you can modify the view name as needed)
         return view('galeri', compact('galeriItems'));
     }
-    
+
     public function indexGuess()
     {
         // Get all the gallery items
         $galeriItems = Galeri::all();
-        
+
         // Return view with gallery data (you can modify the view name as needed)
         return view('galeriGuess', compact('galeriItems'));
     }
@@ -65,7 +65,7 @@ class GaleriController extends Controller
         if ($request->hasFile('gambar')) {
             // Delete the old gambar if necessary
             if ($galeriItem->gambar) {
-                \Storage::delete('public/' . $galeriItem->gambar);
+                Storage::delete('public/' . $galeriItem->gambar);
             }
 
             // Store the new gambar
