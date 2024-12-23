@@ -11,15 +11,14 @@
             @if($galeriItems->isEmpty())
             <p class="text-gray-600 mt-64 text-center opacity-50">Belum ada Foto yang dimasukkan.</p>
             @else
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6" id="galeriList">
+            <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 lg:gap-5" id="galeriList">
                 @foreach($galeriItems as $index => $galeri)
-                <div class="card bg-white shadow-lg rounded-lg overflow-hidden w-full group relative opacity-0 translate-y-4" style="animation-delay: {{ $index * 0.1 }}s;">
-                    <div class="relative">
-                        <img src="{{ asset('storage/' . $galeri->gambar) }}" alt="gambar" class="w-full h-96 object-cover transform transition duration-300 ease-in-out">
-                    </div>
+                <div class="card shadow-lg rounded-lg overflow-hidden group relative opacity-0 translate-y-4" style="animation-delay: {{ $index * 0.1 }}s;" id="galeriList">>
+                    <img src="{{ asset('storage/' . $galeri->gambar) }}" alt="gambar" class="rounded-lg object-cover ">
                 </div>
                 @endforeach
             </div>
+
             @endif
 
             <div class="mt-16 text-center">
@@ -56,7 +55,7 @@
             },
             onEnd(evt) {
                 evt.item.style.transition = "transform 0.2s ease-out";
-                evt.item.style.transform = "translateX(0px)"; 
+                evt.item.style.transform = "translateX(0px)";
             }
         });
     });

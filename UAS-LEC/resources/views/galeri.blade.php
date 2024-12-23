@@ -24,11 +24,11 @@
         @if($galeriItems->isEmpty())
         <p class="text-gray-600 mt-64 text-center opacity-50">Belum ada Foto yang dimasukkan.</p>
         @else
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6" id="galeriList">
+        <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 lg:gap-5" id="galeriList">
             @foreach($galeriItems as $galeri)
-            <div class="card bg-white shadow-lg rounded-lg overflow-hidden w-full group relative">
+            <div class="card shadow-lg rounded-lg overflow-hidden w-full group relative mt-3">
                 <div class="relative">
-                    <img src="{{ asset('storage/' . $galeri->gambar) }}" alt="gambar" class="w-full h-96 object-cover">
+                    <img src="{{ asset('storage/' . $galeri->gambar) }}" alt="gambar" class="object-cover">
                     <!-- Delete button (only visible when hovered) -->
                     <button class="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 openDeleteModalBtn"
                         data-id="{{ $galeri->id }}">
