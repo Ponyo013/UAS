@@ -1,5 +1,5 @@
 <div class="font-sans antialiased" style="background-color: #AF1740;">
-    <nav class="flex items-center justify-between py-5 px-8 bg-[#AF1740] fixed top-0 z-10 w-screen">
+    <nav class="flex items-center justify-between px-3 md:py-5 md:px-8 bg-[#AF1740] fixed top-0 z-10 w-screen">
         <!-- Hamburger Button -->
         <div class="flex xl:hidden pr-6">
             <button id="hamburgerButton" class="text-white focus:outline-none">
@@ -195,7 +195,7 @@
             hamburgerButton.addEventListener("click", function() {
                 mobileMenu.classList.toggle("hidden");
             });
-        
+
             const mobileLinks = mobileMenu.querySelectorAll('a');
             mobileLinks.forEach(link => {
                 link.addEventListener("click", function() {
