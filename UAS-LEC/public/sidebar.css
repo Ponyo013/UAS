@@ -127,20 +127,12 @@ body {
         transition: rotate 150ms ease;
     }
 }
-@media (max-width: 768px) { 
-#sidebar ul {
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} 
-}
 
 #sidebar ul {
     flex-grow: 1; 
     display: flex;
     flex-direction: column;
-} 
+}
 
 #sidebar .logout-item {
     margin-top: auto;
@@ -187,6 +179,7 @@ main p {
         }
         ul li {
             height: 100%;
+            align-items: center;
         }
         ul a,
         ul .dropdown-btn {
