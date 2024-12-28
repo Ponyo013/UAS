@@ -1,7 +1,7 @@
 <div class="font-sans antialiased" style="background-color: #AF1740;">
-    <nav class="flex items-center justify-between px-3 md:py-5 md:px-8 bg-[#AF1740] fixed top-0 z-10 w-screen">
+    <nav class="navbox flex items-center justify-between py-4 md:py-5 px-8 bg-[#AF1740] fixed top-0 z-10 w-screen">
         <!-- Hamburger Button -->
-        <div class="flex xl:hidden pr-6">
+        <div class="flex xl:hidden">
             <button id="hamburgerButton" class="text-white focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6">
                     <path fill="none" stroke="currentColor" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -11,24 +11,63 @@
 
         <!-- Mobile Navbar Links (Initially Hidden) -->
         <div id="mobileMenu" class="hidden bg-[#AF1740] text-white flex flex-col space-y-4 py-3 px-6 min-w-screen">
-            <hr>
             <a href="{{ route('aboutus') }}" class="py-1 hover:text-white/70">Tentang Kami</a>
             <a href="{{ route('kalender') }}" class="py-1 hover:text-white/70">Kalender</a>
             <a href="{{ route('newsletter') }}" class="py-1 hover:text-white/70">Newsletter</a>
             <a href="{{ route('aktivitas') }}" class="py-1 hover:text-white/70">Aktivitas Terakhir</a>
             <a href="{{ route('show.galeriGuess') }}" class="py-1 hover:text-white/70">Galeri</a>
-            <a href="{{ route('donasi') }}" class="py-1 hover:text-white/70">Donasi</a>
+            <a href="{{ route('donasi') }}" class="py-1 hover:text-white/70">Donasi</a> 
+            <hr>
+            @if (Route::has('login'))
+            @auth
+             @if(Auth::user()->role == 1)
+                    <a
+                        a href="{{ route('profile.edit') }}"
+                        class="py-1 hover:text-white/70">
+                        Profil
+                    </a>
+                    @else
+                    <a
+                        a href="{{ route('profile.editGuest') }}"
+                        class="py-1 hover:text-white/70">
+                        Profil
+                    </a>
+                    @endif
+                    @if(Auth::user()->role == 1)
+                    <!-- Admin Link -->
+                    <a href="{{ route('dashboard') }}" class="py-1 hover:text-white/70">
+                        Admin Dashboard
+                    </a>
+                    @endif
+                    <!-- Logout Button -->
+                    <form action="{{ route('logout') }}" method="POST" class="inline">
+                        @csrf
+                        <button
+                            type="submit"
+                            class="py-1 hover:text-white/70">
+                            Logout
+                        </button>
+                    </form>
+                    @else
+                     <a href="{{ route('login') }}" class="py-1 hover:text-white/70">Login</a>
+
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="py-1 hover:text-white/70">Register</a> 
+                @endif
+                  @endauth
+            @endif
         </div>
 
         <!-- Logo Section -->
-        <a href="/" class="flex items-center space-x-3 md:space-x-3 flex-row">
+        <a href="/" class="logo-small flex items-center space-x-2 sm:space-x-1 flex-row">
             <img src="{{ asset('images/tm-logo.png') }}" alt="Tunas Mahardika Logo" class="h-10 w-10">
-            <span class="self-center text-2xl sm:text-xl md:text-lg font-bold whitespace-nowrap dark:text-dark">Tunas Mahardika</span>
+            <span class="self-center text-xl sm:text-2xl font-bold whitespace-nowrap dark:text-dark">Tunas Mahardika</span>
+
         </a>
 
 
         <!-- Navbar Links -->
-        <div class="space-x-8 mx-auto pl-24 invisible xl:visible xl:flex">
+        <div class="navbar-links space-x-8 mx-auto pl-24">
             <a href="{{ route('aboutus') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Tentang Kami</a>
             <a href="{{ route('kalender') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Kalendar</a>
             <a href="{{ route('newsletter') }}" class="text-white hover:text-white/70 text-base sm:text-sm md:text-base">Newsletter</a>
@@ -38,7 +77,7 @@
         </div>
 
         <!-- Authentication Section -->
-        <div class="ml-auto relative">
+        <div class="navbar-links ml-auto relative">
             @if (Route::has('login'))
             @auth
             <!-- Form for logged-in users -->
@@ -52,7 +91,7 @@
                 </svg>
             </button>
             <!-- Dropdown Menu -->
-            <div id="dropdownUserMenu" class="absolute right-0 mt-2 w-52 bg-[#AF1740] shadow-md rounded-b-lg ring-1 ring-[#AF1740] ring-opacity-5 dark:bg-[#AF1740] dark:ring-[#AF1740] dark:ring-opacity-50 hidden z-50">
+            <div id="dropdownUserMenu" class="absolute right-0 mt-10 w-52 bg-[#AF1740] shadow-md rounded-b-lg ring-1 ring-[#AF1740] ring-opacity-5 dark:bg-[#AF1740] dark:ring-[#AF1740] dark:ring-opacity-50 hidden z-50">
                 <hr>
                 <div class="py-1">
                     @if(Auth::user()->role == 1)
@@ -138,7 +177,30 @@
         z-index: 50;
         /* Ensure it's in front of other elements */
     }
+    /* Hide navbar links on mobile view */
+.navbar-links {
+    display: none;
+}
+
+/* Make navbar links visible on larger screens */
+@media (min-width: 1280px) {
+    .navbar-links {
+        display: flex;
+    }
+}
+
+@media (max-width: 460px){
+      .logo-small{
+        padding-right:80px;
+    }  
+    .navbox{
+        padding-top:20px;
+        padding-bottom:20px;
+    }
+}
 </style>
+
+
 
 <!-- dropdown logout-->
 <script>
@@ -195,7 +257,7 @@
             hamburgerButton.addEventListener("click", function() {
                 mobileMenu.classList.toggle("hidden");
             });
-
+        
             const mobileLinks = mobileMenu.querySelectorAll('a');
             mobileLinks.forEach(link => {
                 link.addEventListener("click", function() {

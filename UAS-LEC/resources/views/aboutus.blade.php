@@ -4,22 +4,22 @@
 
 @section('content')
 <html>
-<section id="individualPage" class="section py-4 mx-auto mt-28 mb-24 rounded-lg overflow-hidden max-w-screen-xl w-full">
+<section id="individualPage" class="section px-2 py-4 mx-auto mt-28 mb-24 rounded-lg overflow-hidden max-w-screen-xl w-full">
     <div class="bg-gray-100 pb-12" style="border-radius: 20px;">
         <div class="bg-[#CC2B52] grid grid-cols-5 mb-10 mt-2 justify-items-center text-center" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
-            <div class="tab py-8 text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300 active" style="border-top-left-radius: 18px;" onclick="selectTab(this, 'profil')">
+            <div class="tab py-8 text-lg md:text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300 active" style="border-top-left-radius: 18px;" onclick="selectTab(this, 'profil')">
                 Profil Yayasan
             </div>
-            <div class="tab py-8 text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300" onclick="selectTab(this, 'visimisi')">
+            <div class="tab py-8 text-lg md:text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300" onclick="selectTab(this, 'visimisi')">
                 Visi dan Misi
             </div>
-            <div class="tab py-8 text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300" onclick="selectTab(this, 'programJangkaPanjang')">
+            <div class="tab py-8 text-lg md:text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300" onclick="selectTab(this, 'programJangkaPanjang')">
                 Program Jangka Panjang
             </div>
-            <div class="tab py-8 text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300" onclick="selectTab(this, 'lokasi')">
+            <div class="tab py-8 text-lg md:text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300" onclick="selectTab(this, 'lokasi')">
                 Lokasi Kami
             </div>
-            <div class="tab py-8 text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300" style="border-top-right-radius: 18px;" onclick="selectTab(this, 'susunan')">
+            <div class="tab py-8 text-lg md:text-xl font-semibold text-white p-4 flex items-center justify-center w-full hover:bg-gray-100 hover:text-[#CC2B52] transition-colors duration-300" style="border-top-right-radius: 18px;" onclick="selectTab(this, 'susunan')">
                 Susunan Pengurus
             </div>
         </div>
@@ -101,7 +101,7 @@
             <div id="lokasi" class="content grid grid-cols-1 gap-4 justify-items-center text-center hidden">
                 <div class="container mx-auto px-6 ">
                     <h2 class="text-4xl font-semibold text-[#CC2B52] text-center pb-4">Kunjungi Kami</h2>
-                    <div class="flex justify-center">
+                    <div class="flex justify-center mx-2">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.6639366060235!2d106.67885607528137!3d-6.307806993681454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e52bf63789e5%3A0xb9c593811dbbca67!2sPanti%20Asuhan%20Tunas%20Mahardika!5e0!3m2!1sid!2sid!4v1732780511199!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-md"></iframe>
                         <a href="https://www.google.com/maps/place/Panti+Asuhan+Tunas+Mahardika/@-6.2819666,106.6280052,14z/data=!4m6!3m5!1s0x2e69e52bf63789e5:0xb9c593811dbbca67!8m2!3d-6.307807!4d106.681431!16s%2Fg%2F11bc7stxc6?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" class="bg-[#AF1740] text-white px-4 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300 flex items-center hover:translate-x-4 "> Kunjungi Kami</a>
                     </div>

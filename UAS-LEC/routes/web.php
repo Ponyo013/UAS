@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
+
+
 Route::get('/donasi', [DonasiController::class, 'donasiGuest'])->name('donasi');
 Route::get('/newsletter', [NewsletterController::class, 'newsGuest'])->name('newsletter');
 Route::get('/kalender', [kalenderController::class, 'kalenderGuest'])->name('kalender');

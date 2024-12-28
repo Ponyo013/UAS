@@ -66,7 +66,7 @@ class UserController extends Controller
     public function show()
     {
         $users = User::where('role', 0)->get();
-        return view('ManageUser', compact('users'));
+        return view('manageUser', compact('users'));
     }
 
     /**

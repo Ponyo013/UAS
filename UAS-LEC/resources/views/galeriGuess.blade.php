@@ -4,17 +4,18 @@
 
 @section('content')
 <main>
-    <div class="mt-40 mb-8 md:mt-20">
+    <div class="top-page mb-8 md:mt-20">
         <div class="container mx-auto px-4">
             <h1 class="py-16 text-center text-5xl text-black font-bold">Galeri Foto</h1>
 
             @if($galeriItems->isEmpty())
             <p class="text-gray-600 mt-64 text-center opacity-50">Belum ada Foto yang dimasukkan.</p>
             @else
-            <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 lg:gap-5" id="galeriList">
+            
+            <div class="columns-2 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 lg:gap-5" id="galeriList">
                 @foreach($galeriItems as $index => $galeri)
-                <div class="card shadow-lg rounded-lg overflow-hidden group relative opacity-0 translate-y-4" style="animation-delay: {{ $index * 0.1 }}s;" id="galeriList">>
-                    <img src="{{ asset('storage/' . $galeri->gambar) }}" alt="gambar" class="rounded-lg object-cover ">
+                <div class="card shadow-lg rounded-lg overflow-hidden group relative opacity-0 translate-y-4 mt-2" style="animation-delay: {{ $index * 0.1 }}s;" id="galeriList">
+                    <img src="{{ asset('storage/' . $galeri->gambar) }}" alt="gambar" class="rounded-lg object-cover">
                 </div>
                 @endforeach
             </div>
@@ -28,11 +29,6 @@
     </div>
 </main>
 
-<!-- Include SortableJS from CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
-<!-- Include Animate.css from CDN for animations -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const cards = document.querySelectorAll('.card');
@@ -40,23 +36,6 @@
             setTimeout(() => {
                 card.classList.add('visible');
             }, index * 200);
-        });
-
-        new Sortable(document.getElementById('galeriList'), {
-            animation: 300,
-            ghostClass: 'sortable-ghost',
-            chosenClass: 'sortable-chosen',
-            dragClass: 'sortable-drag',
-            opacity: 0.6,
-            placeholder: '<div class="sortable-placeholder w-full h-96 bg-gray-200 rounded-lg"></div>',
-            onStart(evt) {
-                evt.item.style.transition = "transform 0.2s ease-out";
-                evt.item.style.transform = "translateX(10px)";
-            },
-            onEnd(evt) {
-                evt.item.style.transition = "transform 0.2s ease-out";
-                evt.item.style.transform = "translateX(0px)";
-            }
         });
     });
 </script>
@@ -90,5 +69,16 @@
     .sortable-chosen {
         border: 2px solid #fff;
         background-color: rgba(204, 43, 82, 0.1);
+    }
+    
+    @media (max-width: 480px){
+        .top-page{
+            margin-top:50px;
+        }
+    }
+    @media (min-width: 480px){
+        .top-page{
+            margin-top:40px;
+        }
     }
 </style>

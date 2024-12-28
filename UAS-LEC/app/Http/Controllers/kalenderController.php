@@ -24,7 +24,7 @@ class kalenderController extends Controller
             ];
         }
 
-        return view('KalenderGuest', ['events' => $events]);
+        return view('kalenderGuest', ['events' => $events]);
     }
 
     public function index()

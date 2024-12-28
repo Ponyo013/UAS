@@ -36,18 +36,7 @@
                 <div>
                     <p class="text-sm mt-2 text-gray-800">
                         {{ __('Alamat email Anda belum diverifikasi.') }}
-
-                        <button form="send-verification" 
-                            class="underline text-sm text-[#AF1740] hover:text-[#9d1034] rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#AF1740]">
-                            {{ __('Klik di sini untuk mengirim ulang email verifikasi.') }}
-                        </button>
                     </p>
-
-                    @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600">
-                            {{ __('Tautan verifikasi baru telah dikirim ke alamat email Anda.') }}
-                        </p>
-                    @endif
                 </div>
             @endif
         </div>

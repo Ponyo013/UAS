@@ -3,7 +3,7 @@
 @section('title', 'Aktivitas')
 
 @section('content')
-<section id="individualPage" class="section mt-48 mb-8 md:mt-20 md:py-20 bg-white">
+<section id="individualPage" class="section mt-48 mb-8 md:mt-30 md:py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
         <h1 class="text-4xl font-bold text-gray-800 mb-4">Aktivitas Terakhir</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -50,7 +50,7 @@
         <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0">
             <!-- Text Content -->
             <div class="w-full md:w-1/2">
-                <h2 class="text-4xl font-semibold text-[#CC2B52] mb-12">Tentang Kami</h2>
+                <h2 class="header-section text-4xl font-semibold text-[#CC2B52] mb-12">Tentang Kami</h2>
 
                 <h2 class="text-2xl font-semibold text-black mb-4">Tunas Mahardika Orphanage</h2>
                 <p class="text-lg text-gray-700 mb-12">
@@ -61,8 +61,8 @@
             </div>
 
             <!-- Image -->
-            <div class="w-full md:w-2/5">
-                <img src="{{ asset('images/tentang_kami.jpeg') }}" alt="Tentang Kami Image" class="w-full h-[200px] md:h-[300px] rounded-md object-fill">
+            <div class="w-full sm:w-1/3 md:w-2/5">
+                <img src="{{ asset('images/tentang_kami.jpeg') }}" alt="Tentang Kami Image" class="w-full h-[200px] md:h-[300px] rounded-md object-cover">
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
     <div class="container mx-auto px-6 md:px-24">
         <!-- Visi dan Misi Section -->
         <div class="mb-24">
-            <h2 class="text-4xl font-semibold text-[#CC2B52] mb-14">Visi dan Misi</h2>
+            <h2 class="header-section text-4xl font-semibold text-[#CC2B52] mb-14">Visi dan Misi</h2>
             <div class="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0">
                 <!-- Visi -->
                 <div class="w-full md:w-1/2">
@@ -86,7 +86,7 @@
 
                 <!-- Misi -->
                 <div class="w-full md:w-2/5">
-                    <h3 class="text-2xl font-semibold text-black mb-4">Misi</h3>
+                    <h3 class="kanan-misi text-2xl font-semibold text-black mb-4">Misi</h3>
                     <ol class="list-decimal pl-5">
                         <li class="text-black text-justify mb-2">Mengangkat bayi-bayi yang telah kehilangan orang tua atau yang diserahkan penuh oleh orang tua mereka karena ketidakmapuan mereka, baik secara sosial maupun ekonomi.</li>
                         <li class="text-black text-justify mb-2">Membina pengebangan spiritual, moral, emosional, dan bakat setiap anak.</li>
@@ -101,7 +101,7 @@
     <div class="container mx-auto px-6 md:px-24">
         <!-- Program Jangka Panjang Section -->
         <div class="mb-10 text-left align-justify text-justify">
-            <h2 class="text-4xl mb-10 font-semibold text-[#CC2B52]">Program Jangka Panjang</h2>
+            <h2 class="header-section text-2xl md:text-3xl lg:text-4xl mb-10 font-semibold text-[#CC2B52]">Program Jangka Panjang</h2>
             <p class="text-lg text-gray-700 mt-4">Pelayanan ini untuk menolong dan mempersiapkan anak-anak yang mengasihi Tuhan hidup dengan satu ketetapan hati yang mantap untuk hidup takut akan Tuhan. Anak-anak diarahkan untuk memilih profesi dan hidup sesuai dengan panggilan yang Tuhan anugrahkan kepada mereka. Pelayanan yang berkecimpung dalam bidang sosial, keagamaan dan pendidikan anak, yang terbagi menjadi 3 Tahap yaitu:</p>
         </div>
 
@@ -137,35 +137,51 @@
 <!-- Newsletter Section -->
 <section id="newsletter" class="section py-20 bg-gray-50">
     <div class="container mx-auto px-6">
-        <h2 class="text-4xl pl-20 font-semibold text-left text-[#CC2B52] mb-12">Newsletter</h2>
+        <h2 class="header-section text-4xl pl-20 font-semibold text-left text-[#CC2B52] mb-12">Newsletter</h2>
 
-        <div class="relative overflow-hidden px-20">
+        <div class="relative overflow-hidden px-5 md:px-15 lg:px-20">
             <div id="newsletter-carousel" class="flex transition-transform duration-700 ease-in-out space-x-6">
 
                 @foreach($newsletters as $newsletter)
-                <div class="min-w-full sm:w-1/2 lg:w-1/3 flex bg-white shadow-lg rounded-md hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-full sm:w-1/3">
-                        <img src="{{ asset('storage/' . $newsletter->image) }}" alt="Newsletter Image" class="w-full h-full object-cover rounded-l-md">
+
+                <div class="min-w-full sm:w-1/2  lg:w-1/3 bg-white shadow-lg rounded-md hover:shadow-xl transition-shadow duration-300 flex flex-col sm:flex-row">
+                    <!-- Image Section -->
+                    <div class="w-full sm:w-1/2 sm:h-1/2">
+                        <img src="{{ asset('storage/' . $newsletter->image) }}"
+                            alt="Newsletter Image"
+                            class="w-full h-1/2 object-fill rounded-t-md sm:rounded-t-none sm:rounded-l-md">
                     </div>
+
+                    <!-- Text Section -->
                     <div class="w-full sm:w-2/3 p-4 sm:p-8 flex flex-col justify-center">
                         <a href="{{ route('newsletter.showEach', $newsletter->id) }}" class="p-4">
                             <h3 class="text-xl font-bold text-black mb-2">{{ $newsletter->title }}</h3>
-                            <p class="text-sm text-gray-500 mb-4">{{ \Carbon\Carbon::parse($newsletter->tanggal)->format('F d, Y') }}</p>
-                            <p class="text-gray-600 mb-6">{!! \Illuminate\Support\Str::words(strip_tags($newsletter->description, '<strong><em><u><b><i>'), 60, '...') !!}
-                                                    <strong>tekan untuk baca selengkapnya</strong>
+                            <p class="text-sm text-gray-500 mb-4">
+                                {{ \Carbon\Carbon::parse($newsletter->tanggal)->format('F d, Y') }}
                             </p>
+                            <p class="text-gray-600 mb-6">
+                                <span class="block sm:hidden">
+                                    {!! \Illuminate\Support\Str::words(strip_tags($newsletter->description, '<strong><em><u><b><i>'), 10, '...') !!}
+                                </span>
+                                <span class="hidden sm:block">
+                                    {!! \Illuminate\Support\Str::words(strip_tags($newsletter->description, '<strong><em><u><b><i>'), 60, '...') !!}
+                                </span>
+                                <strong>tekan untuk baca selengkapnya</strong>
+                            </p>
+
                         </a>
                     </div>
                 </div>
+
                 @endforeach
             </div>
 
-            <div class="absolute top-1/2 left-14 transform -translate-y-1/2">
+            <div class="absolute top-1/2 left-0 lg:left-14 transform -translate-y-1/2">
                 <button id="prev-newsletter" class="bg-[#CC2B52] hover:bg-[#AF1740] text-white p-3 rounded">
                     &#10094;
                 </button>
             </div>
-            <div class="absolute top-1/2 right-14 transform -translate-y-1/2">
+            <div class="absolute top-1/2 right-0 lg:right-14 transform -translate-y-1/2">
                 <button id="next-newsletter" class="bg-[#CC2B52] hover:bg-[#AF1740] text-white p-3 rounded">
                     &#10095;
                 </button>
@@ -178,7 +194,7 @@
 <section id="aktivitas" class="section py-20 bg-white">
     <div class="container mx-auto px-6 md:px-24">
         <div class="flex justify-between items-center mb-12">
-            <h2 class="text-4xl font-semibold text-[#CC2B52]">Aktivitas Terakhir</h2>
+            <h2 class="header-section text-2xl md:text-3xl lg:text-4xl font-bold text-[#CC2B52]">Aktivitas Terakhir</h2>
             <a href="{{route('aktivitas')}}" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -201,7 +217,7 @@
     <div class="container mx-auto px-6 ">
         <!-- Section Title -->
         <div class="flex justify-between items-center mb-16 md:px-24">
-            <h2 class="text-4xl font-semibold text-[#CC2B52]">Galeri Foto</h2>
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#CC2B52]">Galeri Foto</h2>
             <a href="{{ Route('show.galeriGuess') }}" class="bg-[#AF1740] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#CC2B52] transition duration-300">Lihat Semua</a>
         </div>
 
@@ -364,4 +380,15 @@
         opacity: 1;
         transform: translateY(0);
     }
+    
+    @media (max-width: 460px){
+    .header-section{
+        text-align:center;
+    }
+    .kanan-misi{
+        text-align:end;
+        padding-right:;
+    }
+}
+    
 </style>
